@@ -1,0 +1,178 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Unstitched Collection | RANG DATA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Times New Roman', Times, serif; background-color: #ffffff; color: #111111; line-height: 1.6; }
+        
+        /* --- HEADER STYLES --- */
+        .announcement-bar { background-color: #c2ae6d; color: #4a002a; display: flex; justify-content: space-between; align-items: center; padding: 10px 5%; font-size: 14px; letter-spacing: 1px; font-weight: bold; text-transform: uppercase; }
+        .top-socials a { color: #4a002a; margin-right: 15px; text-decoration: none; font-size: 15px; }
+        .announcement-text { text-align: center; flex-grow: 1; font-size: 13px; }
+        .top-currency select { background: transparent; color: #4a002a; border: none; font-family: 'Times New Roman', serif; font-weight: bold; cursor: pointer; text-transform: uppercase; font-size: 13px; outline: none; }
+
+        .navbar { background-color: #4A0424; padding: 18px 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
+        
+        .brand-text-logo { text-decoration: none; text-align: center; }
+        .brand-text-logo span.brand-name { font-size: 28px; font-weight: 700; letter-spacing: 5px; text-transform: uppercase; color: #ffffff; display: block; line-height: 1; }
+
+        .nav-right-container { display: flex; align-items: center; gap: 25px; }
+        .nav-links { display: flex; list-style: none; gap: 22px; margin: 0; padding: 0; align-items: center; }
+        .nav-links a { text-decoration: none; color: #ffffff; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; transition: 0.3s; }
+        .nav-links a:hover, .nav-links a.active { color: #c2ae6d; }
+        .nav-icons { display: flex; gap: 18px; align-items: center; }
+        .nav-icons a { color: #ffffff; font-size: 18px; text-decoration: none; position: relative; }
+        .cart-count { position: absolute; top: -8px; right: -8px; background-color: #c2ae6d; color: #4a002a; font-size: 10px; font-weight: bold; padding: 2px 5px; border-radius: 50%; }
+
+        /* --- COLLECTION PAGE LAYOUT --- */
+        .page-header { text-align: center; margin: 40px 0 30px 0; }
+        .page-header h1 { font-size: 32px; text-transform: uppercase; letter-spacing: 3px; color: #4A0424; margin-bottom: 8px; font-weight: 600; }
+        .page-header p { font-size: 14px; color: #666; letter-spacing: 1px; }
+
+        /* Product Grid System */
+        .collection-container { max-width: 1200px; margin: 0 auto 80px auto; padding: 0 20px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; }
+        
+        /* Individual Product Card */
+        .product-card { background: #ffffff; border: 1px solid #eeeeee; overflow: hidden; display: flex; flex-direction: column; transition: transform 0.3s, box-shadow 0.3s; text-decoration: none; color: #111111; }
+        .product-card:hover { transform: translateY(-5px); box-shadow: 0 6px 18px rgba(0,0,0,0.08); border-color: #bc9c65; }
+        
+        .card-img-container { width: 100%; height: 360px; overflow: hidden; background: #fafafa; position: relative; }
+        .card-img-container img { width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform 0.5s; }
+        .product-card:hover .card-img-container img { transform: scale(1.05); }
+        
+        .tag-badge { position: absolute; top: 12px; left: 12px; background: #4A0424; color: #ffffff; padding: 4px 10px; font-size: 10px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
+
+        .card-info { padding: 16px; text-align: center; display: flex; flex-direction: column; gap: 8px; flex-grow: 1; }
+        .card-title { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.8px; color: #222; min-height: 38px; display: flex; align-items: center; justify-content: center; line-height: 1.4; }
+        .card-price { font-size: 15px; font-weight: bold; color: #bc9c65; }
+        
+        .view-btn { margin-top: auto; background: none; border: 1px solid #4A0424; color: #4A0424; padding: 10px; font-size: 11px; font-weight: bold; text-transform: uppercase; letter-spacing: 1.5px; cursor: pointer; transition: 0.3s; }
+        .product-card:hover .view-btn { background: #4A0424; color: #ffffff; }
+
+        /* Footer & WhatsApp */
+        .footer { background-color: #4A0424; color: #ffffff; padding: 45px 5%; text-align: center; margin-top: 60px; }
+        .footer h3 { font-size: 24px; letter-spacing: 4px; margin-bottom: 10px; color: #ffffff; }
+        .footer p { color: #d0c0c0; font-size: 13px; }
+
+        .whatsapp-btn { position: fixed; bottom: 30px; right: 30px; background-color: #25d366; color: #ffffff; width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; text-decoration: none; font-size: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); z-index: 1000; transition: transform 0.3s; }
+        .whatsapp-btn:hover { transform: scale(1.1); color: #ffffff; }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .collection-container { grid-template-columns: repeat(3, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .navbar { flex-direction: column; gap: 15px; text-align: center; }
+            .nav-right-container { flex-direction: column; gap: 15px; }
+            .collection-container { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+            .card-img-container { height: 280px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <div class="announcement-bar">
+        <div class="top-socials">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-tiktok"></i></a>
+        </div>
+        <div class="announcement-text">WORLDWIDE SHIPPING AVAILABLE | UK • USA • UAE • KSA</div>
+        <div class="top-currency">
+            <select>
+                <option>PAKISTAN | PKR RS</option>
+                <option>UNITED STATES | USD $</option>
+            </select>
+        </div>
+    </div>
+
+    <nav class="navbar">
+        <a href="index.html" class="brand-text-logo">
+            <span class="brand-name">RANG DATA</span>
+        </a>
+
+        <div class="nav-right-container">
+            <ul class="nav-links">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="index.html#new-arrivals">NEW ARRIVALS</a></li>
+                <li><a href="shop.html" class="active">LUXURY SUITE</a></li>
+            </ul>
+            <div class="nav-icons">
+                <a href="#"><i class="far fa-user"></i></a>
+                <a href="#"><i class="fas fa-shopping-bag"></i><span class="cart-count">0</span></a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Title Header -->
+    <div class="page-header">
+        <h1>Luxury Unstitched Collection</h1>
+        <p>Premium Summer Cotton & Chiffon Designs By RANG DATA</p>
+    </div>
+
+    <!-- MAIN COLLECTION GRID -->
+    <div class="collection-container" id="shop-grid"></div>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/923104565556?text=Hi%20RANG%20DATA!%20I%20have%20a%20query%20regarding%20unstitched%20collection" class="whatsapp-btn" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <h3>RANG DATA</h3>
+        <p>&copy; 2026 RANG DATA Luxury Apparel. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Complete 20 Products Data with updated pricing
+        const productsData = [
+            { id: "1", title: "3 PIECE EMBROIDERED PLUM SUIT", price: "Rs.5,199.00 PKR", img: "https://i.ibb.co/kV3KwGV7/1.png" },
+            { id: "2", title: "3 PIECE ROYAL BLUE HEAVY SUIT", price: "Rs.5,199.00 PKR", img: "https://i.ibb.co/rRxcYvnx/a.png" },
+            { id: "3", title: "3 PIECE MIDNIGHT BLACK SUIT", price: "Rs.4,799.00 PKR", img: "https://i.ibb.co/b5dRLrgf/b1.png" },
+            { id: "4", title: "3 PIECE TEAL BLUE SUIT", price: "Rs.4,999.00 PKR", img: "https://i.ibb.co/TBNfc7Rw/c1.png" },
+            { id: "5", title: "3 PIECE PEACH GLOW LAWN SUIT", price: "Rs.4,799.00 PKR", img: "https://i.ibb.co/9H1yn0dv/d1.png" },
+            { id: "6", title: "3 PIECE DEEP SEA BLUE SUIT", price: "Rs.4,999.00 PKR", img: "https://i.ibb.co/jPZCDz60/e1.png" },
+            { id: "7", title: "3 PIECE OLIVE FOREST LAWN SUIT", price: "Rs.4,999.00 PKR", img: "https://i.ibb.co/8ncHvBq8/f1.png" },
+            { id: "8", title: "3 PIECE MAROON LUXURY SUIT", price: "Rs.5,199.00 PKR", img: "https://i.ibb.co/Kxw1JsFn/g1.png" },
+            { id: "9", title: "3 PIECE IVORY WHITE SUIT", price: "Rs.4,799.00 PKR", img: "https://i.ibb.co/VcKQ8zWB/h1.png" },
+            { id: "10", title: "3 PIECE MUSTARD GOLD SUIT", price: "Rs.4,999.00 PKR", img: "https://i.ibb.co/sJKfxBS8/i1.png" },
+            { id: "11", title: "3 PIECE CRIMSON RED SUIT", price: "Rs.5,199.00 PKR", img: "https://i.ibb.co/7J2jNvyz/j1.png" },
+            { id: "12", title: "3 PIECE EMERALD GREEN SUIT", price: "Rs.5,199.00 PKR", img: "https://i.ibb.co/4Zrm47b4/k1.png" },
+            { id: "13", title: "3 PIECE DUSTY LAVENDER SUIT", price: "Rs.4,799.00 PKR", img: "https://i.ibb.co/tMnKcS8t/l1.png" },
+            { id: "14", title: "3 PIECE ROYAL NAVY BLUE SUIT", price: "Rs.4,999.00 PKR", img: "https://i.ibb.co/VW9Sb8VY/m1.png" },
+            { id: "15", title: "3 PIECE CHARCOAL GREY SUIT", price: "Rs.4,799.00 PKR", img: "https://i.ibb.co/bj9fqdzm/n1.png" },
+            { id: "16", title: "3 PIECE MINT GREEN SUIT", price: "Rs.4,799.00 PKR", img: "https://i.ibb.co/7JRHK1ZM/o1.png" },
+            { id: "17", title: "3 PIECE ESPRESSO BROWN SUIT", price: "Rs.4,999.00 PKR", img: "https://i.ibb.co/bMYPG5Gg/p1.png" },
+            { id: "18", title: "3 PIECE SOFT BEIGE SUIT", price: "Rs.4,799.00 PKR", img: "https://i.ibb.co/qYKC60vP/q1.png" },
+            { id: "19", title: "3 PIECE BRIGHT YELLOW SUIT", price: "Rs.4,799.00 PKR", img: "https://i.ibb.co/NdWfYFzc/r1.png" },
+            { id: "20", title: "3 PIECE NUDE CHAMPAGNE SUIT", price: "Rs.5,199.00 PKR", img: "https://i.ibb.co/sdcmVDQ5/s1.png" }
+        ];
+
+        // Render Cards Dynamically
+        const shopGrid = document.getElementById('shop-grid');
+        shopGrid.innerHTML = '';
+
+        productsData.forEach(item => {
+            shopGrid.innerHTML += `
+                <a href="product.html?id=${item.id}" class="product-card">
+                    <div class="card-img-container">
+                        <span class="tag-badge">Unstitched</span>
+                        <img src="${item.img}" alt="${item.title}">
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">${item.title}</h3>
+                        <div class="card-price">${item.price}</div>
+                        <button class="view-btn">View Details</button>
+                    </div>
+                </a>
+            `;
+        });
+    </script>
+</body>
+</html>

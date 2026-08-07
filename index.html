@@ -1,0 +1,422 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RANG DATA | Premium Ladies Apparel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Times New Roman', Times, serif; background-color: #fdfcfb; color: #111111; line-height: 1.6; }
+        
+        .announcement-bar { background-color: #c2ae6d; color: #4a002a; display: flex; justify-content: space-between; align-items: center; padding: 10px 5%; font-size: 14px; letter-spacing: 1px; font-weight: bold; text-transform: uppercase; }
+        .top-socials a { color: #4a002a; margin-right: 15px; text-decoration: none; font-size: 15px; transition: color 0.3s; }
+        .top-socials a:hover { color: #ffffff; }
+        .announcement-text { text-align: center; flex-grow: 1; }
+        .top-currency select { background: transparent; color: #4a002a; border: none; font-family: 'Times New Roman', serif; font-weight: bold; cursor: pointer; text-transform: uppercase; font-size: 13px; outline: none; }
+        .top-currency select option { background-color: #c2ae6d; color: #4a002a; }
+        
+        .navbar { background-color: #4A0424; padding: 18px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #f1e9e9; position: sticky; top: 0; z-index: 1000; }
+        .nav-search form { display: flex; align-items: center; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); padding: 5px 10px; border-radius: 4px; }
+        .nav-search input { background: transparent; border: none; color: #ffffff; padding-left: 10px; font-size: 13px; outline: none; width: 150px; font-family: 'Times New Roman', serif; }
+        .nav-search input::placeholder { color: rgba(255,255,255,0.5); }
+        .nav-search button { background: transparent; border: none; color: #e5e4e2; cursor: pointer; font-size: 14px; }
+
+        .brand-text-logo { display: flex; flex-direction: column; align-items: center; text-decoration: none; }
+        .brand-text-logo span.brand-name { font-size: 30px; font-weight: 700; letter-spacing: 5px; text-transform: uppercase; color: #ffffff; line-height: 1; }
+        .brand-text-logo span.brand-tagline { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: #c2ae6d; margin-top: 4px; }
+        
+        .nav-right-container { display: flex; align-items: center; gap: 35px; }
+        .nav-links { display: flex; list-style: none; gap: 25px; margin: 0; padding: 0; align-items: center; }
+        .nav-links a { text-decoration: none; color: #e5e4e2; font-size: 13px; font-weight: 500; text-transform: uppercase; letter-spacing: 2px; transition: color 0.3s; }
+        .nav-links a:hover { color: #bc9c65; }
+        
+        .nav-icons { display: flex; gap: 20px; align-items: center; }
+        .nav-icons a { color: #e5e4e2; font-size: 18px; text-decoration: none; position: relative; transition: color 0.3s; }
+        .nav-icons a:hover { color: #bc9c65; }
+        .cart-count { position: absolute; top: -8px; right: -10px; background-color: #c2ae6d; color: #4a002a; font-size: 10px; font-weight: bold; padding: 2px 5px; border-radius: 50%; }
+        
+        .hero-section { width: 100%; height: 80vh; position: relative; overflow: hidden; background-color: #4A0424; }
+        .mySlides { display: none; width: 100%; height: 100%; background-size: cover; background-position: center; position: relative; }
+        .hero-overlay-text { position: absolute; bottom: 15%; left: 5%; color: #ffffff; text-shadow: 2px 2px 15px rgba(0,0,0,0.6); z-index: 2; }
+        .hero-overlay-text h2 { font-size: 45px; font-weight: 300; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 15px; }
+        .hero-btn { display: inline-block; padding: 12px 35px; background-color: #ffffff; color: #111111; text-decoration: none; font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; transition: all 0.3s; border: 1px solid #ffffff; }
+        .hero-btn:hover { background-color: #bc9c65; color: #ffffff; border-color: #bc9c65; }
+        
+        .section-title { text-align: center; font-size: 28px; text-transform: uppercase; letter-spacing: 3px; color: #4A0424; margin: 60px 0 25px 0; font-family: 'Times New Roman', serif; }
+        .section-subtitle { text-align: center; font-size: 14px; color: #666; margin-top: -20px; margin-bottom: 40px; letter-spacing: 1px; font-style: italic; }
+
+        .category-section { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .category-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+        .category-card { position: relative; height: 180px; overflow: hidden; border-radius: 4px; display: flex; align-items: center; justify-content: center; text-decoration: none; border: 1px solid #eee; }
+        .category-card img { width: 100%; height: 100%; object-fit: contain; background: #fff; filter: brightness(0.85); transition: 0.5s; }
+        .category-card span { position: absolute; color: #ffffff; font-size: 16px; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; text-shadow: 1px 1px 4px rgba(0,0,0,0.8); border-bottom: 1px solid transparent; padding-bottom: 4px; transition: 0.3s; z-index: 2; }
+        .category-card:hover img { transform: scale(1.03); }
+
+        .home-products-section { max-width: 1200px; margin: 40px auto 80px auto; padding: 0 20px; }
+        .home-product-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; }
+        .h-product-card { background: #ffffff; border: 1px solid #eeeeee; border-radius: 4px; overflow: hidden; text-decoration: none; color: #111; display: flex; flex-direction: column; transition: 0.3s; box-shadow: 0 4px 10px rgba(0,0,0,0.02); }
+        .h-product-card:hover { transform: translateY(-4px); box-shadow: 0 6px 15px rgba(0,0,0,0.06); border-color: #bc9c65; }
+        
+        /* Updated image box styling to prevent face/body cutting */
+        .h-img-box { width: 100%; height: 380px; overflow: hidden; background-color: #ffffff; display: flex; align-items: center; justify-content: center; }
+        .h-img-box img { width: 100%; height: 100%; object-fit: contain; transition: 0.5s; }
+        .h-product-card:hover .h-img-box img { transform: scale(1.03); }
+        
+        .h-info-box { padding: 15px; text-align: center; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
+        .h-info-box h3 { font-size: 13px; font-weight: 600; text-transform: uppercase; margin-bottom: 5px; color: #222; line-height: 1.4; letter-spacing: 0.5px; }
+        .h-desc { font-size: 11px; color: #777; margin-bottom: 10px; font-style: italic; }
+        .h-price { font-size: 15px; font-weight: bold; color: #bc9c65; }
+        
+        .whatsapp-btn { position: fixed; bottom: 35px; right: 35px; background-color: #25d366; color: #ffffff; width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; text-decoration: none; font-size: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); z-index: 1000; }
+        
+        @media (max-width: 992px) {
+            .category-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+            .home-product-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+            .h-img-box { height: 320px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="announcement-bar">
+        <div class="top-socials">
+            <a href="https://www.facebook.com" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/rangdata.official/?hl=en" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/@usmana123451" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+        </div>
+        
+        <div class="announcement-text">
+            Worldwide Shipping Available | UK • USA • UAE • KSA
+        </div>
+        
+        <div class="top-currency">
+            <select id="currency-select">
+                <option value="PKR">Pakistan | PKR Rs</option>
+                <option value="USD">United States | USD $</option>
+                <option value="GBP">United Kingdom | GBP £</option>
+                <option value="AED">UAE | AED د.إ</option>
+            </select>
+        </div>
+    </div>
+
+    <nav class="navbar">
+        <div class="nav-search">
+            <form action="#" method="GET" onsubmit="return false;">
+                <button type="submit"><i class="fas fa-search"></i></button>
+                <input type="text" id="search-input" placeholder="Search products...">
+            </form>
+        </div>
+
+        <a href="index.html" class="brand-text-logo">
+            <span class="brand-name">RANG DATA</span>
+            <span class="brand-tagline">LUXURY APPAREL</span>
+        </a>
+
+        <div class="nav-right-container">
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#new-arrivals">New Arrivals</a></li>
+                <li><a href="#collections">Luxury Suite</a></li>
+            </ul>
+            
+            <div class="nav-icons">
+                <a href="#" title="Login / Account"><i class="far fa-user"></i></a>
+                <a href="#" title="Shopping Bag">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-section">
+        <div class="mySlides" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('https://i.ibb.co/kV3KwGV7/1.png');">
+            <div class="hero-overlay-text">
+                <h2>Plum Royal Lawn</h2>
+                <a href="#new-arrivals" class="hero-btn">Discover</a>
+            </div>
+        </div>
+        
+        <div class="mySlides" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('https://i.ibb.co/rRxcYvnx/a.png');">
+            <div class="hero-overlay-text">
+                <h2>Royal Blue Embroidered</h2>
+                <a href="#new-arrivals" class="hero-btn">Shop Now</a>
+            </div>
+        </div>
+        
+        <div class="mySlides" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('https://i.ibb.co/b5dRLrgf/b1.png');">
+            <div class="hero-overlay-text">
+                <h2>Midnight Black Edit</h2>
+                <a href="#new-arrivals" class="hero-btn">View Luxury</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="category-section" id="collections">
+        <h2 class="section-title">Shop By Collection</h2>
+        <p class="section-subtitle">Select your favorite luxury segment</p>
+        <div class="category-grid">
+            <a href="#new-arrivals" class="category-card">
+                <img src="https://i.ibb.co/TBNfc7Rw/c1.png" alt="Summer">
+                <span>Unstitched Lawn</span>
+            </a>
+            <a href="#new-arrivals" class="category-card">
+                <img src="https://i.ibb.co/9H1yn0dv/d1.png" alt="Festive">
+                <span>Chiffon Dupatta</span>
+            </a>
+            <a href="#new-arrivals" class="category-card">
+                <img src="https://i.ibb.co/jPZCDz60/e1.png" alt="Luxury">
+                <span>Embroidered 3PC</span>
+            </a>
+            <a href="#new-arrivals" class="category-card">
+                <img src="https://i.ibb.co/8ncHvBq8/f1.png" alt="Embroidered">
+                <span>Festive Collection</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="home-products-section" id="new-arrivals">
+        <h2 class="section-title">New Arrivals</h2>
+        <p class="section-subtitle">Pure Unstitched Lawn with Heavy Embroidery & Chiffon Dupatta</p>
+        
+        <div class="home-product-grid">
+            
+            <a href="product.html?id=1" class="h-product-card">
+                <div class="h-img-box"><img src="https://i.ibb.co/kV3KwGV7/1.png" alt="Plum Suit"></div>
+                <div class="h-info-box">
+                    <h3>3 Pcs Plum Embroidered Suit</h3>
+                    <p class="h-desc">3PC Unstitched Lawn • Embroidered • Chiffon Dupatta</p>
+                    <p class="h-price">PKR 5,899</p>
+                </div>
+            </a>
+
+            <a href="product.html?id=2" class="h-product-card">
+                <div class="h-img-box"><img src="https://i.ibb.co/rRxcYvnx/a.png" alt="Royal Blue Suit"></div>
+                <div class="h-info-box">
+                    <h3>3 Pcs Royal Blue Heavy Suit</h3>
+                    <p class="h-desc">3PC Unstitched Lawn • Embroidered • Chiffon Dupatta</p>
+                    <p class="h-price">PKR 5,499</p>
+                </div>
+            </a>
+
+            <a href="product.html?id=3" class="h-product-card">
+                <div class="h-img-box"><img src="https://i.ibb.co/b5dRLrgf/b1.png" alt="Midnight Black Suit"></div>
+                <div class="h-info-box">
+                    <h3>3 Pcs Midnight Black Suit</h3>
+                    <p class="h-desc">3PC Unstitched Lawn • Embroidered • Chiffon Dupatta</p>
+                    <p class="h-price">PKR 4,800</p>
+                </div>
+            </a>
+
+            <a href="product.html?id=4" class="h-product-card">
+                <div class="h-img-box"><img src="https://i.ibb.co/TBNfc7Rw/c1.png" alt="Teal Blue Suit"></div>
+                <div class="h-info-box">
+                    <h3>3 Pcs Teal Blue Suit</h3>
+                    <p class="h-desc">3PC Unstitched Lawn • Embroidered • Chiffon Dupatta</p>
+                    <p class="h-price">PKR 5,200</p>
+                </div>
+            </a>
+
+            <a href="product.html?id=5" class="h-product-card">
+                <div class="h-img-box"><img src="https://i.ibb.co/9H1yn0dv/d1.png" alt="Peach Glow Suit"></div>
+                <div class="h-info-box">
+                    <h3>3 Pcs Peach Glow Lawn Suit</h3>
+                    <p class="h-desc">3PC Unstitched Lawn • Embroidered • Chiffon Dupatta</p>
+                    <p class="h-price">PKR 4,500</p>
+                </div>
+            </a>
+
+            <a href="product.html?id=6" class="h-product-card">
+                <div class="h-img-box"><img src="https://i.ibb.co/jPZCDz60/e1.png" alt="Deep Sea Blue Suit"></div>
+                <div class="h-info-box">
+                    <h3>3 Pcs Deep Sea Blue Suit</h3>
+                    <p class="h-desc">3PC Unstitched Lawn • Embroidered • Chiffon Dupatta</p>
+                    <p class="h-price">PKR 4,999</p>
+                </div>
+            </a>
+
+            <a href="product.html?id=7" class="h-product-card">
+                <div class="h-img-box"><img src="https://i.ibb.co/8ncHvBq8/f1.png" alt="Olive Forest Suit"></div>
+                <div class="h-info-box">
+                    <h3>3 Pcs Olive Forest Suit</h3>
+                    <p class="h-desc">3PC Unstitched Lawn • Embroidered • Chiffon Dupatta</p>
+                    <p class="h-price">PKR 5,300</p>
+                </div>
+            </a>
+
+            <a href="product.html?id=8" class="h-product-card">
+                <div class="h-img-box"><img src="https://i.ibb.co/Kxw1JsFn/g1.png" alt="Maroon Suit"></div>
+                <div class="h-info-box">
+                    <h3>3 Pcs Maroon Luxury Suit</h3>
+                    <p class="h-desc">3PC Unstitched Lawn • Embroidered • Chiffon Dupatta</p>
+                    <p class="h-price">PKR 5,999</p>
+                </div>
+            </a>
+
+            <a href="product.html?id=9" class="h-product-card">
+                <div class="h-img-box"><img src="https://i.ibb.co/VcKQ8zWB/h1.png" alt="Ivory White Suit"></div>
+                <div class="h-info-box">
+                    <h3>3 Pcs Ivory White Suit</h3>
+                    <p class="h-desc">3PC Unstitched Lawn • Embroidered • Chiffon Dupatta</p>
+                    <p class="h-price">PKR 4,750</p>
+                </div>
+            </a>
+
+            <a href="product.html?id=10" class="h-product-card">
+                <div class="h-img-box"><img src="https://i.ibb.co/sJKfxBS8/i1.png" alt="Mustard Gold Suit"></div>
+                <div class="h-info-box">
+                    <h3>3 Pcs Mustard Gold Suit</h3>
+                    <p class="h-desc">3PC Unstitched Lawn • Embroidered • Chiffon Dupatta</p>
+                    <p class="h-price">PKR 5,100</p>
+                </div>
+            </a>
+
+            <a href="product.html?id=11" class="h-product-card">
+                <div class="h-img-box"><img src="https://i.ibb.co/7J2jNvyz/j1.png" alt="Crimson Red Suit"></div>
+                <div class="h-info-box">
+                    <h3>3 Pcs Crimson Red Suit</h3>
+                    <p class="h-desc">3PC Unstitched Lawn • Embroidered • Chiffon Dupatta</p>
+                    <p class="h-price">PKR 6,200</p>
+                </div>
+            </a>
+
+            <a href="product.html?id=12" class="h-product-card">
+                <div class="h-img-box"><img src="https://i.ibb.co/4Zrm47b4/k1.png" alt="Emerald Green Suit"></div>
+                <div class="h-info-box">
+                    <h3>3 Pcs Emerald Green Suit</h3>
+                    <p class="h-desc">3PC Unstitched Lawn • Embroidered • Chiffon Dupatta</p>
+                    <p class="h-price">PKR 5,600</p>
+                </div>
+            </a>
+
+            <a href="product.html?id=13" class="h-product-card">
+                <div class="h-img-box"><img src="https://i.ibb.co/tMnKcS8t/l1.png" alt="Dusty Lavender Suit"></div>
+                <div class="h-info-box">
+                    <h3>3 Pcs Dusty Lavender Suit</h3>
+                    <p class="h-desc">3PC Unstitched Lawn • Embroidered • Chiffon Dupatta</p>
+                    <p class="h-price">PKR 4,600</p>
+                </div>
+            </a>
+
+            <a href="product.html?id=14" class="h-product-card">
+                <div class="h-img-box"><img src="https://i.ibb.co/VW9Sb8VY/m1.png" alt="Royal Navy Blue Suit"></div>
+                <div class="h-info-box">
+                    <h3>3 Pcs Royal Navy Blue Suit</h3>
+                    <p class="h-desc">3PC Unstitched Lawn • Embroidered • Chiffon Dupatta</p>
+                    <p class="h-price">PKR 5,400</p>
+                </div>
+            </a>
+
+            <a href="product.html?id=15" class="h-product-card">
+                <div class="h-img-box"><img src="https://i.ibb.co/bj9fqdzm/n1.png" alt="Charcoal Grey Suit"></div>
+                <div class="h-info-box">
+                    <h3>3 Pcs Charcoal Grey Suit</h3>
+                    <p class="h-desc">3PC Unstitched Lawn • Embroidered • Chiffon Dupatta</p>
+                    <p class="h-price">PKR 4,900</p>
+                </div>
+            </a>
+
+            <a href="product.html?id=16" class="h-product-card">
+                <div class="h-img-box"><img src="https://i.ibb.co/7JRHK1ZM/o1.png" alt="Mint Green Suit"></div>
+                <div class="h-info-box">
+                    <h3>3 Pcs Mint Green Suit</h3>
+                    <p class="h-desc">3PC Unstitched Lawn • Embroidered • Chiffon Dupatta</p>
+                    <p class="h-price">PKR 4,850</p>
+                </div>
+            </a>
+
+            <a href="product.html?id=17" class="h-product-card">
+                <div class="h-img-box"><img src="https://i.ibb.co/bMYPG5Gg/p1.png" alt="Espresso Brown Suit"></div>
+                <div class="h-info-box">
+                    <h3>3 Pcs Espresso Brown Suit</h3>
+                    <p class="h-desc">3PC Unstitched Lawn • Embroidered • Chiffon Dupatta</p>
+                    <p class="h-price">PKR 5,150</p>
+                </div>
+            </a>
+
+            <a href="product.html?id=18" class="h-product-card">
+                <div class="h-img-box"><img src="https://i.ibb.co/qYKC60vP/q1.png" alt="Soft Beige Suit"></div>
+                <div class="h-info-box">
+                    <h3>3 Pcs Soft Beige Suit</h3>
+                    <p class="h-desc">3PC Unstitched Lawn • Embroidered • Chiffon Dupatta</p>
+                    <p class="h-price">PKR 4,700</p>
+                </div>
+            </a>
+
+            <a href="product.html?id=19" class="h-product-card">
+                <div class="h-img-box"><img src="https://i.ibb.co/NdWfYFzc/r1.png" alt="Bright Yellow Suit"></div>
+                <div class="h-info-box">
+                    <h3>3 Pcs Bright Yellow Suit</h3>
+                    <p class="h-desc">3PC Unstitched Lawn • Embroidered • Chiffon Dupatta</p>
+                    <p class="h-price">PKR 4,400</p>
+                </div>
+            </a>
+
+            <a href="product.html?id=20" class="h-product-card">
+                <div class="h-img-box"><img src="https://i.ibb.co/sdcmVDQ5/s1.png" alt="Nude Champagne Suit"></div>
+                <div class="h-info-box">
+                    <h3>3 Pcs Nude Champagne Suit</h3>
+                    <p class="h-desc">3PC Unstitched Lawn • Embroidered • Chiffon Dupatta</p>
+                    <p class="h-price">PKR 5,750</p>
+                </div>
+            </a>
+
+        </div>
+    </div>
+
+    <a href="https://wa.me/923104565556" class="whatsapp-btn" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <footer style="background-color: #fcfcfc; border-top: 1px solid #e8e8e8; padding: 40px 20px; text-align: center; font-family: sans-serif; margin-top: 50px;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <h3 style="font-family: 'Times New Roman', serif; font-size: 24px; color: #4A0424; letter-spacing: 2px; margin-bottom: 15px;">RANG DATA</h3>
+            <div style="margin-bottom: 20px;">
+                <a href="index.html" style="color: #555; text-decoration: none; margin: 0 12px; font-size: 14px;">Home</a>
+                <a href="index.html#products" style="color: #555; text-decoration: none; margin: 0 12px; font-size: 14px;">Collection</a>
+                <a href="https://wa.me/923104565556" target="_blank" style="color: #555; text-decoration: none; margin: 0 12px; font-size: 14px;">Contact Us</a>
+            </div>
+
+            <div style="margin-bottom: 20px; display: flex; justify-content: center; gap: 20px;">
+                <a href="https://www.facebook.com" target="_blank" style="color: #4A0424; font-size: 22px; text-decoration: none;"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/rangdata.official/?hl=en" target="_blank" style="color: #4A0424; font-size: 22px; text-decoration: none;"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.tiktok.com/@usmana123451" target="_blank" style="color: #4A0424; font-size: 22px; text-decoration: none;"><i class="fab fa-tiktok"></i></a>
+                <a href="https://wa.me/923104565556" target="_blank" style="color: #4A0424; font-size: 22px; text-decoration: none;"><i class="fab fa-whatsapp"></i></a>
+            </div>
+
+            <p style="color: #888; font-size: 12px; margin-top: 10px;">&copy; 2026 RANG DATA. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        let slideIndex = 0;
+        carousel();
+        function carousel() {
+            let i;
+            let x = document.getElementsByClassName("mySlides");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > x.length) {slideIndex = 1}
+            x[slideIndex-1].style.display = "block";
+            setTimeout(carousel, 3000);
+        }
+
+        document.getElementById('search-input').addEventListener('keyup', function() {
+            let searchQuery = this.value.toLowerCase();
+            let productCards = document.getElementsByClassName('h-product-card');
+            
+            for (let i = 0; i < productCards.length; i++) {
+                let productTitle = productCards[i].querySelector('.h-info-box h3').innerText.toLowerCase();
+                if (productTitle.includes(searchQuery)) {
+                    productCards[i].style.display = "flex";
+                } else {
+                    productCards[i].style.display = "none";
+                }
+            }
+        });
+    </script>
+</body>
+</html>

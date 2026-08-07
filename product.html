@@ -1,0 +1,428 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">3 Piece Suit - RANG DATA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Times New Roman', Times, serif; background-color: #ffffff; color: #111111; line-height: 1.6; }
+        
+        /* Announcement Bar */
+        .announcement-bar { background-color: #c2ae6d; color: #4a002a; display: flex; justify-content: space-between; align-items: center; padding: 10px 5%; font-size: 14px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
+        .top-socials a { color: #4a002a; margin-right: 15px; text-decoration: none; font-size: 15px; }
+        .announcement-text { text-align: center; flex-grow: 1; font-size: 13px; }
+        .top-currency select { background: transparent; color: #4a002a; border: none; font-weight: bold; cursor: pointer; text-transform: uppercase; font-size: 13px; outline: none; }
+
+        /* Main Navbar */
+        .navbar { background-color: #4A0424; padding: 18px 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
+        .nav-search form { display: flex; align-items: center; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); padding: 6px 12px; border-radius: 4px; }
+        .nav-search input { background: transparent; border: none; color: #ffffff; padding-left: 8px; font-size: 13px; outline: none; width: 150px; font-family: 'Times New Roman', serif; }
+        .nav-search input::placeholder { color: rgba(255,255,255,0.6); }
+        .nav-search button { background: transparent; border: none; color: #ffffff; cursor: pointer; }
+
+        .brand-text-logo { text-decoration: none; text-align: center; }
+        .brand-text-logo span.brand-name { font-size: 28px; font-weight: 700; letter-spacing: 5px; text-transform: uppercase; color: #ffffff; display: block; line-height: 1; }
+
+        .nav-right-container { display: flex; align-items: center; gap: 25px; }
+        .nav-links { display: flex; list-style: none; gap: 22px; align-items: center; margin: 0; }
+        .nav-links a { text-decoration: none; color: #ffffff; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; transition: 0.3s; }
+        .nav-links a:hover { color: #bc9c65; }
+        
+        .nav-icons { display: flex; gap: 18px; align-items: center; }
+        .nav-icons a { color: #ffffff; font-size: 18px; text-decoration: none; position: relative; cursor: pointer; }
+        .cart-count { position: absolute; top: -8px; right: -8px; background-color: #c2ae6d; color: #4a002a; font-size: 10px; font-weight: bold; padding: 2px 5px; border-radius: 50%; }
+
+        /* Main Product Layout */
+        .product-container { max-width: 1200px; margin: 40px auto; padding: 0 20px; display: grid; grid-template-columns: 1.1fr 1fr; gap: 45px; }
+        
+        /* Gallery with Zoom Effect */
+        .gallery-box { display: flex; flex-direction: column; gap: 15px; }
+        .main-img-box { width: 100%; height: 600px; border: 1px solid #f0f0f0; overflow: hidden; background-color: #fafafa; position: relative; cursor: zoom-in; }
+        .main-img-box img { width: 100%; height: 100%; object-fit: contain; transition: transform 0.2s ease-out; transform-origin: center center; }
+        .thumbnails-row { display: flex; gap: 12px; overflow-x: auto; padding-bottom: 5px; }
+        .thumbnails-row img { width: 85px; height: 110px; object-fit: cover; border: 1px solid #ddd; cursor: pointer; opacity: 0.7; transition: 0.3s; }
+        .thumbnails-row img:hover, .thumbnails-row img.active { border: 2px solid #4A0424; opacity: 1; }
+
+        /* Details */
+        .details-box h1 { font-size: 28px; font-weight: 600; color: #111; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; line-height: 1.3; }
+        .price { font-size: 24px; font-weight: bold; color: #bc9c65; margin-bottom: 22px; }
+        
+        .section-label { font-size: 14px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; color: #111; margin-bottom: 8px; display: block; }
+        .type-btn { background: #000; color: #fff; padding: 10px 20px; border: none; font-size: 13px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; display: inline-block; margin-bottom: 22px; }
+
+        .qty-box { display: flex; border: 1px solid #ccc; width: fit-content; margin-bottom: 25px; }
+        .qty-box button { background: none; border: none; padding: 10px 18px; cursor: pointer; font-size: 16px; font-weight: bold; }
+        .qty-box input { width: 45px; text-align: center; border: none; outline: none; font-size: 15px; font-weight: bold; }
+
+        .btn-add-cart { width: 100%; padding: 15px; background: #ffffff; color: #111; border: 1px solid #111; text-transform: uppercase; font-size: 14px; letter-spacing: 2px; font-weight: bold; cursor: pointer; margin-bottom: 12px; transition: 0.3s; }
+        .btn-add-cart:hover { background: #f5f5f5; }
+        .btn-buy-now { width: 100%; padding: 15px; background: #4A0424; color: #fff; border: 1px solid #4A0424; text-transform: uppercase; font-size: 14px; letter-spacing: 2px; font-weight: bold; cursor: pointer; margin-bottom: 30px; transition: 0.3s; }
+        .btn-buy-now:hover { background: #330218; }
+
+        /* Fabric Specs */
+        .specs-group { border-top: 1px solid #eee; padding-top: 25px; font-size: 15px; color: #333; }
+        .specs-item { margin-bottom: 18px; }
+        .specs-item i { width: 22px; color: #111; font-size: 16px; }
+        .specs-item strong { color: #111; text-transform: uppercase; font-size: 14px; letter-spacing: 0.8px; }
+        .specs-item p { margin-left: 26px; margin-top: 4px; font-size: 14px; color: #555; line-height: 1.5; }
+
+        /* You May Also Like Section */
+        .recommend-section { max-width: 1200px; margin: 70px auto 40px auto; padding: 0 20px; }
+        .recommend-title { text-align: center; font-size: 24px; text-transform: uppercase; letter-spacing: 3px; color: #4A0424; margin-bottom: 35px; }
+        .recommend-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+        .rec-card { border: 1px solid #f0f0f0; text-decoration: none; color: #111; transition: 0.3s; background: #fff; text-align: center; }
+        .rec-card:hover { transform: translateY(-4px); box-shadow: 0 6px 18px rgba(0,0,0,0.06); }
+        .rec-card img { width: 100%; height: 340px; object-fit: cover; }
+        .rec-info { padding: 14px; }
+        .rec-info h4 { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; font-weight: 600; color: #222; }
+        .rec-info p { font-size: 14px; font-weight: bold; color: #bc9c65; }
+
+        /* Floating WhatsApp & Footer */
+        .whatsapp-btn { position: fixed; bottom: 30px; right: 30px; background-color: #25d366; color: #ffffff; width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; text-decoration: none; font-size: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); z-index: 1000; }
+        .footer { background-color: #4A0424; color: #ffffff; padding: 45px 5%; text-align: center; margin-top: 60px; }
+        .footer h3 { font-size: 24px; letter-spacing: 4px; margin-bottom: 10px; color: #ffffff; }
+        .footer p { color: #d0c0c0; font-size: 13px; }
+
+        /* --- CART DRAWER --- */
+        .cart-drawer-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 2000; display: none; }
+        .cart-drawer { position: fixed; top: 0; right: -420px; width: 400px; height: 100%; background: #fff; z-index: 2001; transition: 0.3s ease; display: flex; flex-direction: column; padding: 25px; }
+        .cart-drawer.open { right: 0; }
+        .cart-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+        .cart-header h2 { font-size: 20px; text-transform: uppercase; letter-spacing: 1px; color: #4A0424; }
+        .close-cart { font-size: 22px; cursor: pointer; color: #888; }
+        .cart-items-list { flex-grow: 1; overflow-y: auto; margin: 20px 0; }
+        .cart-item { display: flex; gap: 15px; margin-bottom: 15px; border-bottom: 1px solid #fafafa; padding-bottom: 15px; }
+        .cart-item img { width: 70px; height: 90px; object-fit: cover; }
+        .cart-item-details { flex-grow: 1; }
+        .cart-item-title { font-size: 13px; font-weight: bold; margin-bottom: 5px; text-transform: uppercase; }
+        .cart-item-price { font-size: 14px; color: #bc9c65; font-weight: bold; }
+        .cart-item-qty { font-size: 12px; color: #666; margin-top: 4px; }
+        .remove-item { color: red; font-size: 12px; cursor: pointer; margin-top: 5px; display: inline-block; }
+        .cart-footer { border-top: 1px solid #eee; padding-top: 20px; }
+        .cart-total { display: flex; justify-content: space-between; font-size: 18px; font-weight: bold; margin-bottom: 18px; }
+        .btn-checkout { width: 100%; padding: 14px; background: #4A0424; color: #fff; border: none; text-transform: uppercase; font-weight: bold; letter-spacing: 1.5px; cursor: pointer; }
+
+        @media(max-width: 768px) {
+            .product-container { grid-template-columns: 1fr; gap: 25px; }
+            .recommend-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+            .main-img-box { height: 450px; }
+            .cart-drawer { width: 100%; right: -100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="announcement-bar">
+        <div class="top-socials">
+            <a href="https://www.facebook.com/profile.php?id=100006600948601" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/rangdata.official/" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/@usmana123451?is_from_webapp=1&sender_device=pc" target="_blank"><i class="fab fa-tiktok"></i></a>
+        </div>
+        <div class="announcement-text">
+            WORLDWIDE SHIPPING AVAILABLE | UK • USA • UAE • KSA
+        </div>
+        <div class="top-currency">
+            <select>
+                <option>PAKISTAN | PKR RS</option>
+                <option>UNITED STATES | USD $</option>
+            </select>
+        </div>
+    </div>
+
+    <nav class="navbar">
+        <div class="nav-search">
+            <form action="#" method="GET" onsubmit="return false;">
+                <button type="submit"><i class="fas fa-search"></i></button>
+                <input type="text" placeholder="Search products...">
+            </form>
+        </div>
+
+        <a href="index.html" class="brand-text-logo">
+            <span class="brand-name">RANG DATA</span>
+        </a>
+
+        <div class="nav-right-container">
+            <ul class="nav-links">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="index.html#new-arrivals">NEW ARRIVALS</a></li>
+                <li><a href="shop.html">LUXURY SUITE</a></li>
+            </ul>
+            <div class="nav-icons">
+                <a href="#"><i class="far fa-user"></i></a>
+                <a onclick="openCartDrawer()"><i class="fas fa-shopping-bag"></i><span class="cart-count" id="cart-count-badge">0</span></a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="product-container">
+        <!-- Gallery with Zoom Wrapper -->
+        <div class="gallery-box">
+            <div class="main-img-box" id="zoom-container">
+                <img id="main-image" src="" alt="Main Dress Image">
+            </div>
+            <div class="thumbnails-row" id="thumb-box"></div>
+        </div>
+
+        <!-- Product Details -->
+        <div class="details-box">
+            <h1 id="p-title">3 PIECE SUIT</h1>
+            <div class="price" id="p-price">Rs.4,799.00 PKR</div>
+            
+            <span class="section-label">TYPE</span>
+            <div class="type-btn">Unstitched 3-Pcs</div>
+
+            <span class="section-label">QUANTITY</span>
+            <div class="qty-box">
+                <button onclick="changeQty(-1)">-</button>
+                <input type="text" id="qty-input" value="1" readonly>
+                <button onclick="changeQty(1)">+</button>
+            </div>
+
+            <button class="btn-add-cart" onclick="addToCart()">ADD TO CART</button>
+            <button class="btn-buy-now" onclick="buyItNow()">BUY IT NOW</button>
+
+            <div class="specs-group">
+                <div class="specs-item">
+                    <i class="fas fa-cut"></i> <strong>SHIRT FABRIC :</strong>
+                    <p>Pure Summer Cotton / Lawn - 2.5 Meters<br>Complete Front Heavy Embroidered & Sleeves</p>
+                </div>
+                <div class="specs-item">
+                    <i class="fas fa-scroll"></i> <strong>DUPATTA FABRIC :</strong>
+                    <p>Fine Chiffon Dupatta - 2.5 Meters</p>
+                </div>
+                <div class="specs-item">
+                    <i class="fas fa-square"></i> <strong>TROUSER FABRIC :</strong>
+                    <p>Dyed Premium Cotton / Lawn - 2.5 Meters</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recommended Products Section -->
+    <div class="recommend-section">
+        <h3 class="recommend-title">YOU MAY ALSO LIKE</h3>
+        <div class="recommend-grid" id="recommend-grid"></div>
+    </div>
+
+    <!-- Cart Drawer -->
+    <div class="cart-drawer-overlay" id="cart-overlay" onclick="closeCartDrawer()"></div>
+    <div class="cart-drawer" id="cart-drawer">
+        <div class="cart-header">
+            <h2>Your Shopping Bag</h2>
+            <span class="close-cart" onclick="closeCartDrawer()">&times;</span>
+        </div>
+        <div class="cart-items-list" id="cart-items-container">
+            <p style="text-align: center; color: #777; margin-top: 30px;">Your cart is currently empty.</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cart-total-price">Rs.0 PKR</span>
+            </div>
+            <button class="btn-checkout" onclick="proceedToCheckoutFromCart()">PROCEED TO CHECKOUT</button>
+        </div>
+    </div>
+
+    <a id="wa-floating" href="https://wa.me/923104565556" class="whatsapp-btn" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <footer class="footer">
+        <h3>RANG DATA</h3>
+        <p>&copy; 2026 RANG DATA Luxury Apparel. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        const productsData = {
+            "1": { id:"1", title: "3 PIECE EMBROIDERED PLUM SUIT", priceVal: 5199, price: "Rs.5,199.00 PKR", imgs: ["https://i.ibb.co/kV3KwGV7/1.png", "https://i.ibb.co/rKkxbYyV/2.png", "https://i.ibb.co/bMSmj3rr/3.png"] },
+            "2": { id:"2", title: "3 PIECE ROYAL BLUE HEAVY SUIT", priceVal: 5199, price: "Rs.5,199.00 PKR", imgs: ["https://i.ibb.co/rRxcYvnx/a.png", "https://i.ibb.co/dw7hXQ42/a1.png", "https://i.ibb.co/DfM8ghKC/a3.png"] },
+            "3": { id:"3", title: "3 PIECE MIDNIGHT BLACK SUIT", priceVal: 4799, price: "Rs.4,799.00 PKR", imgs: ["https://i.ibb.co/b5dRLrgf/b1.png", "https://i.ibb.co/1Y1CthsY/b2.png", "https://i.ibb.co/KM1H8RZ/b3.png"] },
+            "4": { id:"4", title: "3 PIECE TEAL BLUE SUIT", priceVal: 4999, price: "Rs.4,999.00 PKR", imgs: ["https://i.ibb.co/TBNfc7Rw/c1.png", "https://i.ibb.co/qYxDyM8b/c2.png", "https://i.ibb.co/cKNstVyK/c3.png", "https://i.ibb.co/bRNWxWrK/c4.png"] },
+            "5": { id:"5", title: "3 PIECE PEACH GLOW LAWN SUIT", priceVal: 4799, price: "Rs.4,799.00 PKR", imgs: ["https://i.ibb.co/9H1yn0dv/d1.png", "https://i.ibb.co/7tLFJVCJ/d2.png", "https://i.ibb.co/kLHCBj5/d3.png"] },
+            "6": { id:"6", title: "3 PIECE DEEP SEA BLUE SUIT", priceVal: 4999, price: "Rs.4,999.00 PKR", imgs: ["https://i.ibb.co/jPZCDz60/e1.png", "https://i.ibb.co/XfJBj8pT/e2.png", "https://i.ibb.co/rGZTfM03/e3.png"] },
+            "7": { id:"7", title: "3 PIECE OLIVE FOREST LAWN SUIT", priceVal: 4999, price: "Rs.4,999.00 PKR", imgs: ["https://i.ibb.co/8ncHvBq8/f1.png", "https://i.ibb.co/C3Nbmm0X/f2.png", "https://i.ibb.co/k63xyfdF/f3.png"] },
+            "8": { id:"8", title: "3 PIECE MAROON LUXURY SUIT", priceVal: 5199, price: "Rs.5,199.00 PKR", imgs: ["https://i.ibb.co/Kxw1JsFn/g1.png", "https://i.ibb.co/VpMJjkV8/g2.png", "https://i.ibb.co/bjDnJtng/g3.png"] },
+            "9": { id:"9", title: "3 PIECE IVORY WHITE SUIT", priceVal: 4799, price: "Rs.4,799.00 PKR", imgs: ["https://i.ibb.co/VcKQ8zWB/h1.png", "https://i.ibb.co/wZ3mt81x/h2.png", "https://i.ibb.co/BKFQBHYJ/h3.png"] },
+            "10": { id:"10", title: "3 PIECE MUSTARD GOLD SUIT", priceVal: 4999, price: "Rs.4,999.00 PKR", imgs: ["https://i.ibb.co/sJKfxBS8/i1.png", "https://i.ibb.co/fzwkS0FV/i2.png", "https://i.ibb.co/Wpjd3gTC/i3.png"] },
+            "11": { id:"11", title: "3 PIECE CRIMSON RED SUIT", priceVal: 5199, price: "Rs.5,199.00 PKR", imgs: ["https://i.ibb.co/7J2jNvyz/j1.png", "https://i.ibb.co/JRp4pQg1/j2.png", "https://i.ibb.co/zVNybRxN/j3.png"] },
+            "12": { id:"12", title: "3 PIECE EMERALD GREEN SUIT", priceVal: 5199, price: "Rs.5,199.00 PKR", imgs: ["https://i.ibb.co/4Zrm47b4/k1.png", "https://i.ibb.co/TMsGwn3X/k2.png", "https://i.ibb.co/S7vGgR02/k3.png"] },
+            "13": { id:"13", title: "3 PIECE DUSTY LAVENDER SUIT", priceVal: 4799, price: "Rs.4,799.00 PKR", imgs: ["https://i.ibb.co/tMnKcS8t/l1.png", "https://i.ibb.co/mrcDmLMW/l2.png", "https://i.ibb.co/60MLrtvX/l3.png"] },
+            "14": { id:"14", title: "3 PIECE ROYAL NAVY BLUE SUIT", priceVal: 4999, price: "Rs.4,999.00 PKR", imgs: ["https://i.ibb.co/VW9Sb8VY/m1.png", "https://i.ibb.co/4gD0BJRJ/m2.png", "https://i.ibb.co/ZzDSpVN4/m3.png"] },
+            "15": { id:"15", title: "3 PIECE CHARCOAL GREY SUIT", priceVal: 4799, price: "Rs.4,799.00 PKR", imgs: ["https://i.ibb.co/bj9fqdzm/n1.png", "https://i.ibb.co/mFgVpL9p/n2.png", "https://i.ibb.co/Qvhbf8mN/n3.png"] },
+            "16": { id:"16", title: "3 PIECE MINT GREEN SUIT", priceVal: 4799, price: "Rs.4,799.00 PKR", imgs: ["https://i.ibb.co/7JRHK1ZM/o1.png", "https://i.ibb.co/1fwxKN0d/o2.png", "https://i.ibb.co/ycwySKW4/o3.png"] },
+            "17": { id:"17", title: "3 PIECE ESPRESSO BROWN SUIT", priceVal: 4999, price: "Rs.4,999.00 PKR", imgs: ["https://i.ibb.co/bMYPG5Gg/p1.png", "https://i.ibb.co/nNYYKY7H/p2.png", "https://i.ibb.co/k2q6QMH9/p3.png"] },
+            "18": { id:"18", title: "3 PIECE SOFT BEIGE SUIT", priceVal: 4799, price: "Rs.4,799.00 PKR", imgs: ["https://i.ibb.co/qYKC60vP/q1.png", "https://i.ibb.co/7JZ0HJ7n/q2.png", "https://i.ibb.co/H3KVLY9/q3.png"] },
+            "19": { id:"19", title: "3 PIECE BRIGHT YELLOW SUIT", priceVal: 4799, price: "Rs.4,799.00 PKR", imgs: ["https://i.ibb.co/NdWfYFzc/r1.png", "https://i.ibb.co/4gSwxtS4/r2.png", "https://i.ibb.co/VYDdVx1Z/r3.png"] },
+            "20": { id:"20", title: "3 PIECE NUDE CHAMPAGNE SUIT", priceVal: 5199, price: "Rs.5,199.00 PKR", imgs: ["https://i.ibb.co/sdcmVDQ5/s1.png", "https://i.ibb.co/d4B77pD2/s2.png", "https://i.ibb.co/5WHqC3X2/s3.png"] }
+        };
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const productId = urlParams.get('id') || "1";
+        const currentProduct = productsData[productId] || productsData["1"];
+
+        document.getElementById('page-title').innerText = currentProduct.title + " - RANG DATA";
+        document.getElementById('p-title').innerText = currentProduct.title;
+        document.getElementById('p-price').innerText = currentProduct.price;
+        document.getElementById('main-image').src = currentProduct.imgs[0];
+
+        const thumbBox = document.getElementById('thumb-box');
+        thumbBox.innerHTML = '';
+        currentProduct.imgs.forEach((imgUrl, idx) => {
+            const img = document.createElement('img');
+            img.src = imgUrl;
+            if(idx === 0) img.classList.add('active');
+            img.onclick = () => {
+                document.getElementById('main-image').src = imgUrl;
+                document.querySelectorAll('.thumbnails-row img').forEach(i => i.classList.remove('active'));
+                img.classList.add('active');
+            };
+            thumbBox.appendChild(img);
+        });
+
+        /* --- IMAGE ZOOM FUNCTIONALITY --- */
+        const container = document.getElementById('zoom-container');
+        const imgEl = document.getElementById('main-image');
+
+        container.addEventListener('mousemove', (e) => {
+            const rect = container.getBoundingClientRect();
+            const x = ((e.clientX - rect.left) / container.offsetWidth) * 100;
+            const y = ((e.clientY - rect.top) / container.offsetHeight) * 100;
+            
+            imgEl.style.transformOrigin = `${x}% ${y}%`;
+            imgEl.style.transform = "scale(2)";
+        });
+
+        container.addEventListener('mouseleave', () => {
+            imgEl.style.transformOrigin = "center center";
+            imgEl.style.transform = "scale(1)";
+        });
+
+        function changeQty(val) {
+            let input = document.getElementById('qty-input');
+            let currVal = parseInt(input.value) + val;
+            if(currVal >= 1) input.value = currVal;
+        }
+
+        /* --- CART & CHECKOUT REDIRECT --- */
+        let cart = JSON.parse(localStorage.getItem('rd_cart')) || [];
+
+        function updateCartUI() {
+            const container = document.getElementById('cart-items-container');
+            const badge = document.getElementById('cart-count-badge');
+            const totalElem = document.getElementById('cart-total-price');
+            
+            let totalQty = 0;
+            let totalPrice = 0;
+
+            if(cart.length === 0) {
+                container.innerHTML = `<p style="text-align: center; color: #777; margin-top: 30px;">Your cart is currently empty.</p>`;
+            } else {
+                container.innerHTML = '';
+                cart.forEach((item, idx) => {
+                    totalQty += item.qty;
+                    totalPrice += item.priceVal * item.qty;
+
+                    container.innerHTML += `
+                        <div class="cart-item">
+                            <img src="${item.img}" alt="${item.title}">
+                            <div class="cart-item-details">
+                                <div class="cart-item-title">${item.title}</div>
+                                <div class="cart-item-price">Rs.${item.priceVal.toLocaleString()} PKR</div>
+                                <div class="cart-item-qty">Qty: ${item.qty}</div>
+                                <span class="remove-item" onclick="removeFromCart(${idx})">Remove</span>
+                            </div>
+                        </div>
+                    `;
+                });
+            }
+
+            badge.innerText = totalQty;
+            totalElem.innerText = `Rs.${totalPrice.toLocaleString()} PKR`;
+            localStorage.setItem('rd_cart', JSON.stringify(cart));
+        }
+
+        function addToCart() {
+            let qty = parseInt(document.getElementById('qty-input').value);
+            let existingIdx = cart.findIndex(i => i.id === currentProduct.id);
+
+            if(existingIdx > -1) {
+                cart[existingIdx].qty += qty;
+            } else {
+                cart.push({
+                    id: currentProduct.id,
+                    title: currentProduct.title,
+                    priceVal: currentProduct.priceVal,
+                    img: currentProduct.imgs[0],
+                    qty: qty
+                });
+            }
+
+            updateCartUI();
+            openCartDrawer();
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCartUI();
+        }
+
+        function openCartDrawer() {
+            document.getElementById('cart-overlay').style.display = 'block';
+            document.getElementById('cart-drawer').classList.add('open');
+        }
+
+        function closeCartDrawer() {
+            document.getElementById('cart-overlay').style.display = 'none';
+            document.getElementById('cart-drawer').classList.remove('open');
+        }
+
+        /* DIRECT CHECKOUT REDIRECT FOR BUY IT NOW */
+        function buyItNow() {
+            let qty = parseInt(document.getElementById('qty-input').value);
+            
+            const checkoutItem = {
+                id: currentProduct.id,
+                title: currentProduct.title,
+                priceVal: currentProduct.priceVal,
+                img: currentProduct.imgs[0],
+                qty: qty
+            };
+
+            localStorage.setItem('rd_checkout_item', JSON.stringify(checkoutItem));
+            window.location.href = "checkout.html";
+        }
+
+        function proceedToCheckoutFromCart() {
+            if(cart.length === 0) {
+                alert("Please add items to cart first!");
+                return;
+            }
+            localStorage.setItem('rd_checkout_item', JSON.stringify(cart[0]));
+            window.location.href = "checkout.html";
+        }
+
+        // Initialize UI
+        updateCartUI();
+
+        // Recommendations
+        const recGrid = document.getElementById('recommend-grid');
+        recGrid.innerHTML = '';
+        Object.keys(productsData).forEach(id => {
+            if(id !== productId && recGrid.children.length < 4) {
+                let item = productsData[id];
+                recGrid.innerHTML += `
+                    <a href="product.html?id=${id}" class="rec-card">
+                        <img src="${item.imgs[0]}" alt="${item.title}">
+                        <div class="rec-info">
+                            <h4>${item.title}</h4>
+                            <p>${item.price}</p>
+                        </div>
+                    </a>
+                `;
+            }
+        });
+    </script>
+</body>
+</html>
