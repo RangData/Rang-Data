@@ -46,7 +46,8 @@
         
         .tag-badge { position: absolute; top: 12px; left: 12px; background: #4A0424; color: #ffffff; padding: 4px 10px; font-size: 10px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
 
-        .card-info { padding: 16px; text-align: center; display: flex; flex-direction: column; gap: 8px; flex-grow: 1; }
+        .card-info { padding: 16px; text-align: center; display: flex; flex-direction: column; gap: 6px; flex-grow: 1; }
+        .product-code { font-size: 11px; color: #777; text-transform: uppercase; letter-spacing: 1px; }
         .card-title { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.8px; color: #222; min-height: 38px; display: flex; align-items: center; justify-content: center; line-height: 1.4; }
         .card-price { font-size: 15px; font-weight: bold; color: #bc9c65; }
         
@@ -78,9 +79,9 @@
     <!-- Header -->
     <div class="announcement-bar">
         <div class="top-socials">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-tiktok"></i></a>
+            <a href="https://www.facebook.com/profile.php?id=100006600948601" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/rangdata.official/" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/@rangdata" target="_blank"><i class="fab fa-tiktok"></i></a>
         </div>
         <div class="announcement-text">WORLDWIDE SHIPPING AVAILABLE | UK • USA • UAE • KSA</div>
         <div class="top-currency">
@@ -119,7 +120,7 @@
     <div class="collection-container" id="shop-grid"></div>
 
     <!-- WhatsApp Button -->
-    <a href="https://wa.me/923104565556?text=Hi%20RANG%20DATA!%20I%20have%20a%20query%20regarding%20unstitched%20collection" class="whatsapp-btn" target="_blank">
+    <a href="https://wa.me/923406751076?text=Hi%20RANG%20DATA!%20I%20have%20a%20query%20regarding%20unstitched%20collection" class="whatsapp-btn" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
@@ -130,28 +131,28 @@
     </footer>
 
     <script>
-        // Complete 20 Products Data with updated pricing
+        // Exact original sequence matched with correct codes, titles, prices and images
         const productsData = [
-            { id: "1", title: "3 PIECE EMBROIDERED PLUM SUIT", price: "Rs.5,199.00 PKR", img: "https://i.ibb.co/kV3KwGV7/1.png" },
-            { id: "2", title: "3 PIECE ROYAL BLUE HEAVY SUIT", price: "Rs.5,199.00 PKR", img: "https://i.ibb.co/rRxcYvnx/a.png" },
-            { id: "3", title: "3 PIECE MIDNIGHT BLACK SUIT", price: "Rs.4,799.00 PKR", img: "https://i.ibb.co/b5dRLrgf/b1.png" },
-            { id: "4", title: "3 PIECE TEAL BLUE SUIT", price: "Rs.4,999.00 PKR", img: "https://i.ibb.co/TBNfc7Rw/c1.png" },
-            { id: "5", title: "3 PIECE PEACH GLOW LAWN SUIT", price: "Rs.4,799.00 PKR", img: "https://i.ibb.co/9H1yn0dv/d1.png" },
-            { id: "6", title: "3 PIECE DEEP SEA BLUE SUIT", price: "Rs.4,999.00 PKR", img: "https://i.ibb.co/jPZCDz60/e1.png" },
-            { id: "7", title: "3 PIECE OLIVE FOREST LAWN SUIT", price: "Rs.4,999.00 PKR", img: "https://i.ibb.co/8ncHvBq8/f1.png" },
-            { id: "8", title: "3 PIECE MAROON LUXURY SUIT", price: "Rs.5,199.00 PKR", img: "https://i.ibb.co/Kxw1JsFn/g1.png" },
-            { id: "9", title: "3 PIECE IVORY WHITE SUIT", price: "Rs.4,799.00 PKR", img: "https://i.ibb.co/VcKQ8zWB/h1.png" },
-            { id: "10", title: "3 PIECE MUSTARD GOLD SUIT", price: "Rs.4,999.00 PKR", img: "https://i.ibb.co/sJKfxBS8/i1.png" },
-            { id: "11", title: "3 PIECE CRIMSON RED SUIT", price: "Rs.5,199.00 PKR", img: "https://i.ibb.co/7J2jNvyz/j1.png" },
-            { id: "12", title: "3 PIECE EMERALD GREEN SUIT", price: "Rs.5,199.00 PKR", img: "https://i.ibb.co/4Zrm47b4/k1.png" },
-            { id: "13", title: "3 PIECE DUSTY LAVENDER SUIT", price: "Rs.4,799.00 PKR", img: "https://i.ibb.co/tMnKcS8t/l1.png" },
-            { id: "14", title: "3 PIECE ROYAL NAVY BLUE SUIT", price: "Rs.4,999.00 PKR", img: "https://i.ibb.co/VW9Sb8VY/m1.png" },
-            { id: "15", title: "3 PIECE CHARCOAL GREY SUIT", price: "Rs.4,799.00 PKR", img: "https://i.ibb.co/bj9fqdzm/n1.png" },
-            { id: "16", title: "3 PIECE MINT GREEN SUIT", price: "Rs.4,799.00 PKR", img: "https://i.ibb.co/7JRHK1ZM/o1.png" },
-            { id: "17", title: "3 PIECE ESPRESSO BROWN SUIT", price: "Rs.4,999.00 PKR", img: "https://i.ibb.co/bMYPG5Gg/p1.png" },
-            { id: "18", title: "3 PIECE SOFT BEIGE SUIT", price: "Rs.4,799.00 PKR", img: "https://i.ibb.co/qYKC60vP/q1.png" },
-            { id: "19", title: "3 PIECE BRIGHT YELLOW SUIT", price: "Rs.4,799.00 PKR", img: "https://i.ibb.co/NdWfYFzc/r1.png" },
-            { id: "20", title: "3 PIECE NUDE CHAMPAGNE SUIT", price: "Rs.5,199.00 PKR", img: "https://i.ibb.co/sdcmVDQ5/s1.png" }
+            { id: "1", code: "RD0042", title: "3 Pcs Mustard Lawn Suit", price: "Rs.5,499.00 PKR", img: "https://i.ibb.co/QFyr5pJ8/RD0042a.png" },
+            { id: "2", code: "RD058", title: "3 Pcs Golden Mustard Suit", price: "Rs.5,199.00 PKR", img: "https://i.ibb.co/YFtPS8Fd/RD058a.png" },
+            { id: "3", code: "RD0545", title: "3 Pcs Deep Blue Suit", price: "Rs.4,899.00 PKR", img: "https://i.ibb.co/fYCgVKTm/RD0545a.png" },
+            { id: "4", code: "RD0556", title: "3 Pcs Lilac Glow Suit", price: "Rs.5,199.00 PKR", img: "https://i.ibb.co/TBgMQH0T/RD0556a.png" },
+            { id: "5", code: "RD0561", title: "3 Pcs Dark Brown Suit", price: "Rs.5,499.00 PKR", img: "https://i.ibb.co/ZzZwSj42/RD0561a.png" },
+            { id: "6", code: "RD0572", title: "3 Pcs Teal Green Suit", price: "Rs.5,699.00 PKR", img: "https://i.ibb.co/Y7NHV9P3/RD0572a.png" },
+            { id: "7", code: "RD0576", title: "3 Pcs Beige Nude Suit", price: "Rs.4,899.00 PKR", img: "https://i.ibb.co/LDB3kywF/RD0576a.png" },
+            { id: "8", code: "RD0582", title: "3 Pcs Ivory White Suit", price: "Rs.5,199.00 PKR", img: "https://i.ibb.co/nq1fQvG1/RD0582a.png" },
+            { id: "9", code: "RD0585", title: "3 Pcs Maroon Luxury Suit", price: "Rs.5,699.00 PKR", img: "https://i.ibb.co/5W57Nr76/RD0585a.png" },
+            { id: "10", code: "RD0586", title: "3 Pcs Mint Sage Suit", price: "Rs.5,499.00 PKR", img: "https://i.ibb.co/Z1YX7xLY/RD0586a.png" },
+            { id: "11", code: "RD0587", title: "3 Pcs Off White Suit", price: "Rs.4,899.00 PKR", img: "https://i.ibb.co/cXRtGWKT/RD0587a.png" },
+            { id: "12", code: "RD0601", title: "3 Pcs Charcoal Grey Suit", price: "Rs.5,499.00 PKR", img: "https://i.ibb.co/8gXH43Q1/RD0601a.png" },
+            { id: "13", code: "RD0605", title: "3 Pcs Forest Olive Suit", price: "Rs.5,199.00 PKR", img: "https://i.ibb.co/FbGYhD9r/RD0605a.png" },
+            { id: "14", code: "RD0607", title: "3 Pcs Royal Blue Suit", price: "Rs.5,199.00 PKR", img: "https://i.ibb.co/GvYkGkFS/RD0607a.png" },
+            { id: "15", code: "RD0609", title: "3 Pcs Sapphire Blue Suit", price: "Rs.5,499.00 PKR", img: "https://i.ibb.co/LXKv0yDN/RD0609a.png" },
+            { id: "16", code: "RD0611", title: "3 Pcs Peach Glow Suit", price: "Rs.4,899.00 PKR", img: "https://i.ibb.co/zWryTzVJ/RD0611a.png" },
+            { id: "17", code: "RD0612", title: "3 Pcs Peacock Blue Suit", price: "Rs.4,899.00 PKR", img: "https://i.ibb.co/4wGMhNLh/RD0612a.png" },
+            { id: "18", code: "RD0613", title: "3 Pcs Classic Embroidered Suit", price: "Rs.5,199.00 PKR", img: "https://i.ibb.co/4wxTWL3H/RD0613a.png" },
+            { id: "19", code: "RD0615", title: "3 Pcs Elegant Festive Suit", price: "Rs.5,499.00 PKR", img: "https://i.ibb.co/D2FMVmW/RD0615a.png" },
+            { id: "20", code: "RD06007", title: "3 Pcs Crimson Red Suit", price: "Rs.5,699.00 PKR", img: "https://i.ibb.co/C5GshYFN/RD06007a.png" }
         ];
 
         // Render Cards Dynamically
@@ -166,6 +167,7 @@
                         <img src="${item.img}" alt="${item.title}">
                     </div>
                     <div class="card-info">
+                        <div class="product-code">${item.code}</div>
                         <h3 class="card-title">${item.title}</h3>
                         <div class="card-price">${item.price}</div>
                         <button class="view-btn">View Details</button>

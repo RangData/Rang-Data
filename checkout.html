@@ -31,7 +31,7 @@
         .shipping-box { background: #fafafa; border: 1px solid #e6e6e6; padding: 15px; border-radius: 5px; display: flex; justify-content: space-between; font-size: 14px; font-weight: 500; margin-top: 10px; margin-bottom: 25px; }
 
         .payment-box { border: 1px solid #d9d9d9; border-radius: 5px; overflow: hidden; margin-top: 10px; margin-bottom: 30px; }
-        .payment-option { padding: 14px 16px; display: flex; align-items: center; justify-content: space-between; font-size: 14px; font-weight: 500; background: #fcfcfc; border: 1px solid #005cov; border-color: #4A0424; border-radius: 5px; }
+        .payment-option { padding: 14px 16px; display: flex; align-items: center; justify-content: space-between; font-size: 14px; font-weight: 500; background: #fcfcfc; border: 1px solid #4A0424; border-radius: 5px; }
         .payment-option-inner { display: flex; align-items: center; gap: 10px; }
         .payment-option input { width: auto; accent-color: #4A0424; }
         .payment-details { background: #fafafa; padding: 15px 20px; font-size: 13px; color: #555; border-top: 1px solid #d9d9d9; }
@@ -241,7 +241,7 @@
                             `*Item:* ${checkoutItem.title} (Qty: ${checkoutItem.qty})%0A` +
                             `*Total Amount:* Rs ${calculatedTotal.toLocaleString()}.00 (Shipping Included)`;
 
-            let myNumber = "923104565556";
+            let myNumber = "923406751076";
             let waURL = `https://wa.me/${myNumber}?text=${waMessage}`;
 
             alert(`Thank you ${fullName}!\n\nYour order details have been prepared. Click OK to send your order on WhatsApp.`);

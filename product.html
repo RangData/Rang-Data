@@ -46,7 +46,8 @@
         .thumbnails-row img:hover, .thumbnails-row img.active { border: 2px solid #4A0424; opacity: 1; }
 
         /* Details */
-        .details-box h1 { font-size: 28px; font-weight: 600; color: #111; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; line-height: 1.3; }
+        .details-box h1 { font-size: 28px; font-weight: 600; color: #111; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; line-height: 1.3; }
+        .product-code-display { font-size: 14px; font-weight: bold; color: #666; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 15px; }
         .price { font-size: 24px; font-weight: bold; color: #bc9c65; margin-bottom: 22px; }
         
         .section-label { font-size: 14px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; color: #111; margin-bottom: 8px; display: block; }
@@ -118,7 +119,7 @@
         <div class="top-socials">
             <a href="https://www.facebook.com/profile.php?id=100006600948601" target="_blank"><i class="fab fa-facebook-f"></i></a>
             <a href="https://www.instagram.com/rangdata.official/" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.tiktok.com/@usmana123451?is_from_webapp=1&sender_device=pc" target="_blank"><i class="fab fa-tiktok"></i></a>
+            <a href="https://www.tiktok.com/@rangdata" target="_blank"><i class="fab fa-tiktok"></i></a>
         </div>
         <div class="announcement-text">
             WORLDWIDE SHIPPING AVAILABLE | UK • USA • UAE • KSA
@@ -168,6 +169,7 @@
         <!-- Product Details -->
         <div class="details-box">
             <h1 id="p-title">3 PIECE SUIT</h1>
+            <div class="product-code-display" id="p-code">Product Code: RD-01</div>
             <div class="price" id="p-price">Rs.4,799.00 PKR</div>
             
             <span class="section-label">TYPE</span>
@@ -225,7 +227,7 @@
         </div>
     </div>
 
-    <a id="wa-floating" href="https://wa.me/923104565556" class="whatsapp-btn" target="_blank">
+    <a id="wa-floating" href="https://wa.me/923406751076" class="whatsapp-btn" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
@@ -236,26 +238,26 @@
 
     <script>
         const productsData = {
-            "1": { id:"1", title: "3 PIECE EMBROIDERED PLUM SUIT", priceVal: 5199, price: "Rs.5,199.00 PKR", imgs: ["https://i.ibb.co/kV3KwGV7/1.png", "https://i.ibb.co/rKkxbYyV/2.png", "https://i.ibb.co/bMSmj3rr/3.png"] },
-            "2": { id:"2", title: "3 PIECE ROYAL BLUE HEAVY SUIT", priceVal: 5199, price: "Rs.5,199.00 PKR", imgs: ["https://i.ibb.co/rRxcYvnx/a.png", "https://i.ibb.co/dw7hXQ42/a1.png", "https://i.ibb.co/DfM8ghKC/a3.png"] },
-            "3": { id:"3", title: "3 PIECE MIDNIGHT BLACK SUIT", priceVal: 4799, price: "Rs.4,799.00 PKR", imgs: ["https://i.ibb.co/b5dRLrgf/b1.png", "https://i.ibb.co/1Y1CthsY/b2.png", "https://i.ibb.co/KM1H8RZ/b3.png"] },
-            "4": { id:"4", title: "3 PIECE TEAL BLUE SUIT", priceVal: 4999, price: "Rs.4,999.00 PKR", imgs: ["https://i.ibb.co/TBNfc7Rw/c1.png", "https://i.ibb.co/qYxDyM8b/c2.png", "https://i.ibb.co/cKNstVyK/c3.png", "https://i.ibb.co/bRNWxWrK/c4.png"] },
-            "5": { id:"5", title: "3 PIECE PEACH GLOW LAWN SUIT", priceVal: 4799, price: "Rs.4,799.00 PKR", imgs: ["https://i.ibb.co/9H1yn0dv/d1.png", "https://i.ibb.co/7tLFJVCJ/d2.png", "https://i.ibb.co/kLHCBj5/d3.png"] },
-            "6": { id:"6", title: "3 PIECE DEEP SEA BLUE SUIT", priceVal: 4999, price: "Rs.4,999.00 PKR", imgs: ["https://i.ibb.co/jPZCDz60/e1.png", "https://i.ibb.co/XfJBj8pT/e2.png", "https://i.ibb.co/rGZTfM03/e3.png"] },
-            "7": { id:"7", title: "3 PIECE OLIVE FOREST LAWN SUIT", priceVal: 4999, price: "Rs.4,999.00 PKR", imgs: ["https://i.ibb.co/8ncHvBq8/f1.png", "https://i.ibb.co/C3Nbmm0X/f2.png", "https://i.ibb.co/k63xyfdF/f3.png"] },
-            "8": { id:"8", title: "3 PIECE MAROON LUXURY SUIT", priceVal: 5199, price: "Rs.5,199.00 PKR", imgs: ["https://i.ibb.co/Kxw1JsFn/g1.png", "https://i.ibb.co/VpMJjkV8/g2.png", "https://i.ibb.co/bjDnJtng/g3.png"] },
-            "9": { id:"9", title: "3 PIECE IVORY WHITE SUIT", priceVal: 4799, price: "Rs.4,799.00 PKR", imgs: ["https://i.ibb.co/VcKQ8zWB/h1.png", "https://i.ibb.co/wZ3mt81x/h2.png", "https://i.ibb.co/BKFQBHYJ/h3.png"] },
-            "10": { id:"10", title: "3 PIECE MUSTARD GOLD SUIT", priceVal: 4999, price: "Rs.4,999.00 PKR", imgs: ["https://i.ibb.co/sJKfxBS8/i1.png", "https://i.ibb.co/fzwkS0FV/i2.png", "https://i.ibb.co/Wpjd3gTC/i3.png"] },
-            "11": { id:"11", title: "3 PIECE CRIMSON RED SUIT", priceVal: 5199, price: "Rs.5,199.00 PKR", imgs: ["https://i.ibb.co/7J2jNvyz/j1.png", "https://i.ibb.co/JRp4pQg1/j2.png", "https://i.ibb.co/zVNybRxN/j3.png"] },
-            "12": { id:"12", title: "3 PIECE EMERALD GREEN SUIT", priceVal: 5199, price: "Rs.5,199.00 PKR", imgs: ["https://i.ibb.co/4Zrm47b4/k1.png", "https://i.ibb.co/TMsGwn3X/k2.png", "https://i.ibb.co/S7vGgR02/k3.png"] },
-            "13": { id:"13", title: "3 PIECE DUSTY LAVENDER SUIT", priceVal: 4799, price: "Rs.4,799.00 PKR", imgs: ["https://i.ibb.co/tMnKcS8t/l1.png", "https://i.ibb.co/mrcDmLMW/l2.png", "https://i.ibb.co/60MLrtvX/l3.png"] },
-            "14": { id:"14", title: "3 PIECE ROYAL NAVY BLUE SUIT", priceVal: 4999, price: "Rs.4,999.00 PKR", imgs: ["https://i.ibb.co/VW9Sb8VY/m1.png", "https://i.ibb.co/4gD0BJRJ/m2.png", "https://i.ibb.co/ZzDSpVN4/m3.png"] },
-            "15": { id:"15", title: "3 PIECE CHARCOAL GREY SUIT", priceVal: 4799, price: "Rs.4,799.00 PKR", imgs: ["https://i.ibb.co/bj9fqdzm/n1.png", "https://i.ibb.co/mFgVpL9p/n2.png", "https://i.ibb.co/Qvhbf8mN/n3.png"] },
-            "16": { id:"16", title: "3 PIECE MINT GREEN SUIT", priceVal: 4799, price: "Rs.4,799.00 PKR", imgs: ["https://i.ibb.co/7JRHK1ZM/o1.png", "https://i.ibb.co/1fwxKN0d/o2.png", "https://i.ibb.co/ycwySKW4/o3.png"] },
-            "17": { id:"17", title: "3 PIECE ESPRESSO BROWN SUIT", priceVal: 4999, price: "Rs.4,999.00 PKR", imgs: ["https://i.ibb.co/bMYPG5Gg/p1.png", "https://i.ibb.co/nNYYKY7H/p2.png", "https://i.ibb.co/k2q6QMH9/p3.png"] },
-            "18": { id:"18", title: "3 PIECE SOFT BEIGE SUIT", priceVal: 4799, price: "Rs.4,799.00 PKR", imgs: ["https://i.ibb.co/qYKC60vP/q1.png", "https://i.ibb.co/7JZ0HJ7n/q2.png", "https://i.ibb.co/H3KVLY9/q3.png"] },
-            "19": { id:"19", title: "3 PIECE BRIGHT YELLOW SUIT", priceVal: 4799, price: "Rs.4,799.00 PKR", imgs: ["https://i.ibb.co/NdWfYFzc/r1.png", "https://i.ibb.co/4gSwxtS4/r2.png", "https://i.ibb.co/VYDdVx1Z/r3.png"] },
-            "20": { id:"20", title: "3 PIECE NUDE CHAMPAGNE SUIT", priceVal: 5199, price: "Rs.5,199.00 PKR", imgs: ["https://i.ibb.co/sdcmVDQ5/s1.png", "https://i.ibb.co/d4B77pD2/s2.png", "https://i.ibb.co/5WHqC3X2/s3.png"] }
+            "1": { id:"1", code: "RD0042", title: "3 Pcs Mustard Lawn Suit", priceVal: 5499, price: "Rs.5,499.00 PKR", imgs: ["https://i.ibb.co/QFyr5pJ8/RD0042a.png", "https://i.ibb.co/PZG1D8Vh/RD0042b.png", "https://i.ibb.co/CKB8bFsr/RD0042c.png"] },
+            "2": { id:"2", code: "RD058", title: "3 Pcs Golden Mustard Suit", priceVal: 5199, price: "Rs.5,199.00 PKR", imgs: ["https://i.ibb.co/YFtPS8Fd/RD058a.png", "https://i.ibb.co/nNt0LfFX/RD058b.png", "https://i.ibb.co/GvpHzQm6/RD058c.png"] },
+            "3": { id:"3", code: "RD0545", title: "3 Pcs Deep Blue Suit", priceVal: 4899, price: "Rs.4,899.00 PKR", imgs: ["https://i.ibb.co/fYCgVKTm/RD0545a.png", "https://i.ibb.co/x8d31tRk/RD0545b.png", "https://i.ibb.co/PZpn7hjv/RD0545c.png"] },
+            "4": { id:"4", code: "RD0556", title: "3 Pcs Lilac Glow Suit", priceVal: 5199, price: "Rs.5,199.00 PKR", imgs: ["https://i.ibb.co/TBgMQH0T/RD0556a.png", "https://i.ibb.co/TMtzKFMP/RD0556b.png", "https://i.ibb.co/S4thN1Ws/RD0556c.png"] },
+            "5": { id:"5", code: "RD0561", title: "3 Pcs Dark Brown Suit", priceVal: 5499, price: "Rs.5,499.00 PKR", imgs: ["https://i.ibb.co/ZzZwSj42/RD0561a.png", "https://i.ibb.co/Y7DpDMLv/RD0561b.png", "https://i.ibb.co/prMxL4T1/RD0561c.png"] },
+            "6": { id:"6", code: "RD0572", title: "3 Pcs Teal Green Suit", priceVal: 5699, price: "Rs.5,699.00 PKR", imgs: ["https://i.ibb.co/Y7NHV9P3/RD0572a.png", "https://i.ibb.co/yF6rfzTQ/RD0572b.png", "https://i.ibb.co/d40cz4mP/RD0572c.png"] },
+            "7": { id:"7", code: "RD0576", title: "3 Pcs Beige Nude Suit", priceVal: 4899, price: "Rs.4,899.00 PKR", imgs: ["https://i.ibb.co/LDB3kywF/RD0576a.png", "https://i.ibb.co/V0s54Ycw/RD0576b.png", "https://i.ibb.co/GQqSjDHZ/RD0576c.png"] },
+            "8": { id:"8", code: "RD0582", title: "3 Pcs Ivory White Suit", priceVal: 5199, price: "Rs.5,199.00 PKR", imgs: ["https://i.ibb.co/nq1fQvG1/RD0582a.png", "https://i.ibb.co/cSgxdSbg/RD0582ac.png", "https://i.ibb.co/B2mwVRbV/RD0582b.png"] },
+            "9": { id:"9", code: "RD0585", title: "3 Pcs Maroon Luxury Suit", priceVal: 5699, price: "Rs.5,699.00 PKR", imgs: ["https://i.ibb.co/5W57Nr76/RD0585a.png", "https://i.ibb.co/QFgTbsV1/RD0585b.png", "https://i.ibb.co/03Z0RfP/RD0585c.png"] },
+            "10": { id:"10", code: "RD0586", title: "3 Pcs Mint Sage Suit", priceVal: 5499, price: "Rs.5,499.00 PKR", imgs: ["https://i.ibb.co/Z1YX7xLY/RD0586a.png", "https://i.ibb.co/PGnzpMbJ/RD0586b.png", "https://i.ibb.co/67M8M5HD/RD0586c.png"] },
+            "11": { id:"11", code: "RD0587", title: "3 Pcs Off White Suit", priceVal: 4899, price: "Rs.4,899.00 PKR", imgs: ["https://i.ibb.co/cXRtGWKT/RD0587a.png", "https://i.ibb.co/V5qS6pj/RD0587b.png", "https://i.ibb.co/gbbY7pvy/RD0587c.png"] },
+            "12": { id:"12", code: "RD0601", title: "3 Pcs Charcoal Grey Suit", priceVal: 5499, price: "Rs.5,499.00 PKR", imgs: ["https://i.ibb.co/8gXH43Q1/RD0601a.png", "https://i.ibb.co/YBd72ZJM/RD0601b.png", "https://i.ibb.co/gXcHkFC/RD0601c.png"] },
+            "13": { id:"13", code: "RD0605", title: "3 Pcs Forest Olive Suit", priceVal: 5199, price: "Rs.5,199.00 PKR", imgs: ["https://i.ibb.co/FbGYhD9r/RD0605a.png", "https://i.ibb.co/6JGJZ6vW/RD0605b.png", "https://i.ibb.co/qYYbnPwb/RD0605c.png"] },
+            "14": { id:"14", code: "RD0607", title: "3 Pcs Royal Blue Suit", priceVal: 5199, price: "Rs.5,199.00 PKR", imgs: ["https://i.ibb.co/GvYkGkFS/RD0607a.png", "https://i.ibb.co/KzSXsXTM/RD0607b.png", "https://i.ibb.co/qYhWFFnb/RD0607c.png"] },
+            "15": { id:"15", code: "RD0609", title: "3 Pcs Sapphire Blue Suit", priceVal: 5499, price: "Rs.5,499.00 PKR", imgs: ["https://i.ibb.co/LXKv0yDN/RD0609a.png", "https://i.ibb.co/fdLbPSNj/RD0609b.png", "https://i.ibb.co/Q38G3PRm/RD0609c.png"] },
+            "16": { id:"16", code: "RD0611", title: "3 Pcs Peach Glow Suit", priceVal: 4899, price: "Rs.4,899.00 PKR", imgs: ["https://i.ibb.co/zWryTzVJ/RD0611a.png", "https://i.ibb.co/v4fYRHxV/RD0611b.png", "https://i.ibb.co/DDskmJS4/RD0611c.png"] },
+            "17": { id:"17", code: "RD0612", title: "3 Pcs Peacock Blue Suit", priceVal: 4899, price: "Rs.4,899.00 PKR", imgs: ["https://i.ibb.co/4wGMhNLh/RD0612a.png", "https://i.ibb.co/5WXvWBKv/RD0612b.png", "https://i.ibb.co/8ghv4CFM/RD0612c.png", "https://i.ibb.co/zV2z5NrZ/RD0612d.png"] },
+            "18": { id:"18", code: "RD0613", title: "3 Pcs Classic Embroidered Suit", priceVal: 5199, price: "Rs.5,199.00 PKR", imgs: ["https://i.ibb.co/4wxTWL3H/RD0613a.png", "https://i.ibb.co/848dgbvs/RD0613b.png", "https://i.ibb.co/W4xMcwM4/RD0613c.png"] },
+            "19": { id:"19", code: "RD0615", title: "3 Pcs Elegant Festive Suit", priceVal: 5499, price: "Rs.5,499.00 PKR", imgs: ["https://i.ibb.co/D2FMVmW/RD0615a.png", "https://i.ibb.co/1GmdmfwS/RD0615b.png", "https://i.ibb.co/0ycV3whC/RD0615c.png"] },
+            "20": { id:"20", code: "RD06007", title: "3 Pcs Crimson Red Suit", priceVal: 5699, price: "Rs.5,699.00 PKR", imgs: ["https://i.ibb.co/C5GshYFN/RD06007a.png", "https://i.ibb.co/67p4y3TD/RD06007b.png", "https://i.ibb.co/BHmQ4QR8/RD06007c.png"] }
         };
 
         const urlParams = new URLSearchParams(window.location.search);
@@ -264,6 +266,7 @@
 
         document.getElementById('page-title').innerText = currentProduct.title + " - RANG DATA";
         document.getElementById('p-title').innerText = currentProduct.title;
+        document.getElementById('p-code').innerText = "Product Code: " + currentProduct.code;
         document.getElementById('p-price').innerText = currentProduct.price;
         document.getElementById('main-image').src = currentProduct.imgs[0];
 
@@ -328,7 +331,7 @@
                         <div class="cart-item">
                             <img src="${item.img}" alt="${item.title}">
                             <div class="cart-item-details">
-                                <div class="cart-item-title">${item.title}</div>
+                                <div class="cart-item-title">${item.title} (${item.code})</div>
                                 <div class="cart-item-price">Rs.${item.priceVal.toLocaleString()} PKR</div>
                                 <div class="cart-item-qty">Qty: ${item.qty}</div>
                                 <span class="remove-item" onclick="removeFromCart(${idx})">Remove</span>
@@ -352,6 +355,7 @@
             } else {
                 cart.push({
                     id: currentProduct.id,
+                    code: currentProduct.code,
                     title: currentProduct.title,
                     priceVal: currentProduct.priceVal,
                     img: currentProduct.imgs[0],
@@ -384,6 +388,7 @@
             
             const checkoutItem = {
                 id: currentProduct.id,
+                code: currentProduct.code,
                 title: currentProduct.title,
                 priceVal: currentProduct.priceVal,
                 img: currentProduct.imgs[0],
