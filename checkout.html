@@ -1,15 +1,6 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XQQH342VF3"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-XQQH342VF3');
-</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checkout - RANG DATA</title>
@@ -40,14 +31,9 @@
         .shipping-box { background: #fafafa; border: 1px solid #e6e6e6; padding: 15px; border-radius: 5px; display: flex; justify-content: space-between; font-size: 14px; font-weight: 500; margin-top: 10px; margin-bottom: 25px; }
 
         .payment-box { border: 1px solid #d9d9d9; border-radius: 5px; overflow: hidden; margin-top: 10px; margin-bottom: 30px; }
-        .payment-option { padding: 14px 16px; display: flex; align-items: center; justify-content: space-between; font-size: 14px; font-weight: 500; background: #fcfcfc; border: 1px solid #4A0424; border-radius: 5px; }
-        .payment-option-inner { display: flex; align-items: center; gap: 10px; }
-        .payment-option input { width: auto; accent-color: #4A0424; }
-        .payment-details { background: #fafafa; padding: 15px 20px; font-size: 13px; color: #555; border-top: 1px solid #d9d9d9; }
+        .payment-option { padding: 14px 16px; background: #fcfcfc; border-bottom: 1px solid #d9d9d9; }
+        .payment-details { background: #fafafa; padding: 15px 20px; font-size: 13px; color: #555; }
         
-        .card-icons { display: flex; gap: 5px; }
-        .card-icons span { background: #333; color: #fff; font-size: 10px; padding: 2px 6px; border-radius: 3px; font-weight: bold; }
-
         .btn-complete-order { width: 100%; background: #4A0424; color: #ffffff; padding: 18px; border: none; border-radius: 5px; font-size: 16px; font-weight: bold; cursor: pointer; letter-spacing: 1px; transition: 0.3s; }
         .btn-complete-order:hover { background: #330218; }
 
@@ -112,10 +98,10 @@
                 </div>
                 <div class="form-row">
                     <div class="form-group">
-                        <input type="text" id="fname" placeholder="First name (optional)">
+                        <input type="text" id="fname" placeholder="First name" required>
                     </div>
                     <div class="form-group">
-                        <input type="text" id="lname" placeholder="Last name" required>
+                        <input type="text" id="lname" placeholder="Last name (optional)">
                     </div>
                 </div>
                 <div class="form-group">
@@ -152,18 +138,16 @@
                 
                 <div class="payment-box">
                     <div class="payment-option">
-                        <div class="payment-option-inner">
-                            <input type="radio" id="bank_pay" checked>
-                            <label for="bank_pay" style="font-weight: 600; cursor: pointer;">Debit / Credit Card / Bank Transfer</label>
-                        </div>
-                        <div class="card-icons">
-                            <span>VISA</span>
-                            <span>MC</span>
-                        </div>
+                        <label for="payment_method_select" style="font-size: 13px; font-weight: 600; display: block; margin-bottom: 6px; color: #333;">Select Payment Method</label>
+                        <select id="payment_method_select" required>
+                            <option value="" disabled selected>-- Choose Payment Option --</option>
+                            <option value="Payoneer (International Card / USD)">Payoneer (International Card / USD)</option>
+                            <option value="JazzCash (Local PKR Transfer)">JazzCash (Local PKR Transfer)</option>
+                            <option value="Bank Transfer">Bank Transfer</option>
+                        </select>
                     </div>
                     <div class="payment-details">
-                        <input type="hidden" id="payment_method" value="Debit / Credit Card / Bank Transfer">
-                        <i class="fa-solid fa-lock" style="color: #4A0424; margin-right: 5px;"></i> Order complete karne ke baad aapko WhatsApp par payment details (Bank/JazzCash) bhej di jayengi.
+                        <i class="fa-solid fa-lock" style="color: #4A0424; margin-right: 5px;"></i> Once your order is complete, we will send the payment details to you via WhatsApp.
                     </div>
                 </div>
 
@@ -238,9 +222,9 @@
             const fullName = (fname + " " + lname).trim();
             const phone = document.getElementById('phone').value;
             const address = document.getElementById('address').value;
-            const city = document.getElementById('city.value') || document.getElementById('city').value;
+            const city = document.getElementById('city').value;
             const country = document.getElementById('country').value;
-            const paymentMethod = document.getElementById('payment_method').value;
+            const paymentMethod = document.getElementById('payment_method_select').value;
 
             let waMessage = `*NEW ORDER - RANG DATA*%0A%0A` +
                             `*Customer Name:* ${fullName}%0A` +

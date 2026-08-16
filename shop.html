@@ -20,9 +20,11 @@
         
         /* --- HEADER STYLES --- */
         .announcement-bar { background-color: #c2ae6d; color: #4a002a; display: flex; justify-content: space-between; align-items: center; padding: 10px 5%; font-size: 14px; letter-spacing: 1px; font-weight: bold; text-transform: uppercase; }
-        .top-socials a { color: #4a002a; margin-right: 15px; text-decoration: none; font-size: 15px; }
-        .announcement-text { text-align: center; flex-grow: 1; font-size: 13px; }
-        .top-currency select { background: transparent; color: #4a002a; border: none; font-family: 'Times New Roman', serif; font-weight: bold; cursor: pointer; text-transform: uppercase; font-size: 13px; outline: none; }
+        .top-socials { display: flex; gap: 15px; flex: 1; }
+        .top-socials a { color: #4a002a; text-decoration: none; font-size: 15px; }
+        .announcement-text { text-align: center; flex: 2; font-size: 13px; }
+        .top-currency { display: flex; justify-content: flex-end; flex: 1; align-items: center; }
+        .top-currency select { background: transparent; color: #4a002a; border: none; font-weight: bold; cursor: pointer; text-transform: uppercase; font-size: 13px; outline: none; padding: 2px 0; width: auto; text-align-last: right; font-family: 'Times New Roman', serif; }
 
         .navbar { background-color: #4A0424; padding: 18px 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
         
@@ -92,11 +94,14 @@
             <a href="https://www.instagram.com/rangdata.official/" target="_blank"><i class="fab fa-instagram"></i></a>
             <a href="https://www.tiktok.com/@rangdata" target="_blank"><i class="fab fa-tiktok"></i></a>
         </div>
-        <div class="announcement-text">WORLDWIDE SHIPPING AVAILABLE | UK • USA • UAE • KSA</div>
+        <div class="announcement-text">WORLDWIDE SHIPPING AVAILABLE</div>
         <div class="top-currency">
-            <select>
-                <option>PAKISTAN | PKR RS</option>
-                <option>UNITED STATES | USD $</option>
+            <select id="currency-selector" onchange="changeCurrency(this.value)">
+                <option value="PKR">PAKISTAN | PKR RS</option>
+                <option value="USD">UNITED STATES | USD $</option>
+                <option value="GBP">UNITED KINGDOM | GBP £</option>
+                <option value="AED">UNITED ARAB EMIRATES | AED</option>
+                <option value="SAR">SAUDI ARABIA | SAR</option>
             </select>
         </div>
     </div>
@@ -114,7 +119,7 @@
             </ul>
             <div class="nav-icons">
                 <a href="#"><i class="far fa-user"></i></a>
-                <a href="#"><i class="fas fa-shopping-bag"></i><span class="cart-count">0</span></a>
+                <a href="#"><i class="fas fa-shopping-bag"></i><span class="cart-count" id="cart-count-badge">0</span></a>
             </div>
         </div>
     </nav>
@@ -140,50 +145,79 @@
     </footer>
 
     <script>
-        // Exact original sequence matched with correct codes, titles, prices and images
         const productsData = [
-            { id: "1", code: "RD0042", title: "3 Pcs Mustard Lawn Suit", price: "Rs.5,499.00 PKR", img: "https://i.ibb.co/QFyr5pJ8/RD0042a.png" },
-            { id: "2", code: "RD058", title: "3 Pcs Golden Mustard Suit", price: "Rs.5,199.00 PKR", img: "https://i.ibb.co/YFtPS8Fd/RD058a.png" },
-            { id: "3", code: "RD0545", title: "3 Pcs Deep Blue Suit", price: "Rs.4,899.00 PKR", img: "https://i.ibb.co/fYCgVKTm/RD0545a.png" },
-            { id: "4", code: "RD0556", title: "3 Pcs Lilac Glow Suit", price: "Rs.5,199.00 PKR", img: "https://i.ibb.co/TBgMQH0T/RD0556a.png" },
-            { id: "5", code: "RD0561", title: "3 Pcs Dark Brown Suit", price: "Rs.5,499.00 PKR", img: "https://i.ibb.co/ZzZwSj42/RD0561a.png" },
-            { id: "6", code: "RD0572", title: "3 Pcs Teal Green Suit", price: "Rs.5,699.00 PKR", img: "https://i.ibb.co/Y7NHV9P3/RD0572a.png" },
-            { id: "7", code: "RD0576", title: "3 Pcs Beige Nude Suit", price: "Rs.4,899.00 PKR", img: "https://i.ibb.co/LDB3kywF/RD0576a.png" },
-            { id: "8", code: "RD0582", title: "3 Pcs Ivory White Suit", price: "Rs.5,199.00 PKR", img: "https://i.ibb.co/nq1fQvG1/RD0582a.png" },
-            { id: "9", code: "RD0585", title: "3 Pcs Maroon Luxury Suit", price: "Rs.5,699.00 PKR", img: "https://i.ibb.co/5W57Nr76/RD0585a.png" },
-            { id: "10", code: "RD0586", title: "3 Pcs Mint Sage Suit", price: "Rs.5,499.00 PKR", img: "https://i.ibb.co/Z1YX7xLY/RD0586a.png" },
-            { id: "11", code: "RD0587", title: "3 Pcs Off White Suit", price: "Rs.4,899.00 PKR", img: "https://i.ibb.co/cXRtGWKT/RD0587a.png" },
-            { id: "12", code: "RD0601", title: "3 Pcs Charcoal Grey Suit", price: "Rs.5,499.00 PKR", img: "https://i.ibb.co/8gXH43Q1/RD0601a.png" },
-            { id: "13", code: "RD0605", title: "3 Pcs Forest Olive Suit", price: "Rs.5,199.00 PKR", img: "https://i.ibb.co/FbGYhD9r/RD0605a.png" },
-            { id: "14", code: "RD0607", title: "3 Pcs Royal Blue Suit", price: "Rs.5,199.00 PKR", img: "https://i.ibb.co/GvYkGkFS/RD0607a.png" },
-            { id: "15", code: "RD0609", title: "3 Pcs Sapphire Blue Suit", price: "Rs.5,499.00 PKR", img: "https://i.ibb.co/LXKv0yDN/RD0609a.png" },
-            { id: "16", code: "RD0611", title: "3 Pcs Peach Glow Suit", price: "Rs.4,899.00 PKR", img: "https://i.ibb.co/zWryTzVJ/RD0611a.png" },
-            { id: "17", code: "RD0612", title: "3 Pcs Peacock Blue Suit", price: "Rs.4,899.00 PKR", img: "https://i.ibb.co/4wGMhNLh/RD0612a.png" },
-            { id: "18", code: "RD0613", title: "3 Pcs Classic Embroidered Suit", price: "Rs.5,199.00 PKR", img: "https://i.ibb.co/4wxTWL3H/RD0613a.png" },
-            { id: "19", code: "RD0615", title: "3 Pcs Elegant Festive Suit", price: "Rs.5,499.00 PKR", img: "https://i.ibb.co/D2FMVmW/RD0615a.png" },
-            { id: "20", code: "RD06007", title: "3 Pcs Crimson Red Suit", price: "Rs.5,699.00 PKR", img: "https://i.ibb.co/C5GshYFN/RD06007a.png" }
+            { id: "1", code: "RD0042", title: "3 Pcs Mustard Lawn Suit", priceVal: 5499, img: "https://i.ibb.co/QFyr5pJ8/RD0042a.png" },
+            { id: "2", code: "RD058", title: "3 Pcs Golden Mustard Suit", priceVal: 5199, img: "https://i.ibb.co/YFtPS8Fd/RD058a.png" },
+            { id: "3", code: "RD0545", title: "3 Pcs Deep Blue Suit", priceVal: 4899, img: "https://i.ibb.co/fYCgVKTm/RD0545a.png" },
+            { id: "4", code: "RD0556", title: "3 Pcs Lilac Glow Suit", priceVal: 5199, img: "https://i.ibb.co/TBgMQH0T/RD0556a.png" },
+            { id: "5", code: "RD0561", title: "3 Pcs Dark Brown Suit", priceVal: 5499, img: "https://i.ibb.co/ZzZwSj42/RD0561a.png" },
+            { id: "6", code: "RD0572", title: "3 Pcs Teal Green Suit", priceVal: 5699, img: "https://i.ibb.co/Y7NHV9P3/RD0572a.png" },
+            { id: "7", code: "RD0576", title: "3 Pcs Beige Nude Suit", priceVal: 4899, img: "https://i.ibb.co/LDB3kywF/RD0576a.png" },
+            { id: "8", code: "RD0582", title: "3 Pcs Ivory White Suit", priceVal: 5199, img: "https://i.ibb.co/nq1fQvG1/RD0582a.png" },
+            { id: "9", code: "RD0585", title: "3 Pcs Maroon Luxury Suit", priceVal: 5699, img: "https://i.ibb.co/5W57Nr76/RD0585a.png" },
+            { id: "10", code: "RD0586", title: "3 Pcs Mint Sage Suit", priceVal: 5499, img: "https://i.ibb.co/Z1YX7xLY/RD0586a.png" },
+            { id: "11", code: "RD0587", title: "3 Pcs Off White Suit", priceVal: 4899, img: "https://i.ibb.co/cXRtGWKT/RD0587a.png" },
+            { id: "12", code: "RD0601", title: "3 Pcs Charcoal Grey Suit", priceVal: 5499, img: "https://i.ibb.co/8gXH43Q1/RD0601a.png" },
+            { id: "13", code: "RD0605", title: "3 Pcs Forest Olive Suit", priceVal: 5199, img: "https://i.ibb.co/FbGYhD9r/RD0605a.png" },
+            { id: "14", code: "RD0607", title: "3 Pcs Royal Blue Suit", priceVal: 5199, img: "https://i.ibb.co/GvYkGkFS/RD0607a.png" },
+            { id: "15", code: "RD0609", title: "3 Pcs Sapphire Blue Suit", priceVal: 5499, img: "https://i.ibb.co/LXKv0yDN/RD0609a.png" },
+            { id: "16", code: "RD0611", title: "3 Pcs Peach Glow Suit", priceVal: 4899, img: "https://i.ibb.co/zWryTzVJ/RD0611a.png" },
+            { id: "17", code: "RD0612", title: "3 Pcs Peacock Blue Suit", priceVal: 4899, img: "https://i.ibb.co/4wGMhNLh/RD0612a.png" },
+            { id: "18", code: "RD0613", title: "3 Pcs Classic Embroidered Suit", priceVal: 5199, img: "https://i.ibb.co/4wxTWL3H/RD0613a.png" },
+            { id: "19", code: "RD0615", title: "3 Pcs Elegant Festive Suit", priceVal: 5499, img: "https://i.ibb.co/D2FMVmW/RD0615a.png" },
+            { id: "20", code: "RD06007", title: "3 Pcs Crimson Red Suit", priceVal: 5699, img: "https://i.ibb.co/C5GshYFN/RD06007a.png" }
         ];
 
-        // Render Cards Dynamically
-        const shopGrid = document.getElementById('shop-grid');
-        shopGrid.innerHTML = '';
+        const exchangeRates = {
+            PKR: { rate: 1, symbol: "Rs.", code: "PKR" },
+            USD: { rate: 0.0036, symbol: "$", code: "USD" },
+            GBP: { rate: 0.0028, symbol: "£", code: "GBP" },
+            AED: { rate: 0.0132, symbol: "AED ", code: "AED" },
+            SAR: { rate: 0.0135, symbol: "SAR ", code: "SAR" }
+        };
 
-        productsData.forEach(item => {
-            shopGrid.innerHTML += `
-                <a href="product.html?id=${item.id}" class="product-card">
-                    <div class="card-img-container">
-                        <span class="tag-badge">Unstitched</span>
-                        <img src="${item.img}" alt="${item.title}">
-                    </div>
-                    <div class="card-info">
-                        <div class="product-code">${item.code}</div>
-                        <h3 class="card-title">${item.title}</h3>
-                        <div class="card-price">${item.price}</div>
-                        <button class="view-btn">View Details</button>
-                    </div>
-                </a>
-            `;
-        });
+        const savedCurrency = localStorage.getItem('selected_currency') || 'PKR';
+        document.getElementById('currency-selector').value = savedCurrency;
+
+        function changeCurrency(currency) {
+            localStorage.setItem('selected_currency', currency);
+            renderShopProducts(currency);
+        }
+
+        function renderShopProducts(currency) {
+            const currObj = exchangeRates[currency] || exchangeRates['PKR'];
+            const shopGrid = document.getElementById('shop-grid');
+            shopGrid.innerHTML = '';
+
+            productsData.forEach(item => {
+                let convertedPrice = Math.round(item.priceVal * currObj.rate);
+
+                shopGrid.innerHTML += `
+                    <a href="product.html?id=${item.id}" class="product-card">
+                        <div class="card-img-container">
+                            <span class="tag-badge">Unstitched</span>
+                            <img src="${item.img}" alt="${item.title}">
+                        </div>
+                        <div class="card-info">
+                            <div class="product-code">${item.code}</div>
+                            <h3 class="card-title">${item.title}</h3>
+                            <div class="card-price">${currObj.symbol}${convertedPrice.toLocaleString()}.00 ${currObj.code}</div>
+                            <button class="view-btn">View Details</button>
+                        </div>
+                    </a>
+                `;
+            });
+        }
+
+        function updateCartCount() {
+            let cart = JSON.parse(localStorage.getItem('rd_cart')) || [];
+            let totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
+            const badge = document.getElementById('cart-count-badge');
+            if(badge) badge.innerText = totalQty;
+        }
+
+        renderShopProducts(savedCurrency);
+        updateCartCount();
     </script>
 </body>
 </html>

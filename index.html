@@ -12,76 +12,109 @@
 </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RANG DATA | Premium Ladies Apparel</title>
+    <title>RANG DATA - Luxury Apparel & Embroidery</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Times New Roman', Times, serif; background-color: #fdfcfb; color: #111111; line-height: 1.6; }
+        body { font-family: 'Times New Roman', Times, serif; background-color: #ffffff; color: #111111; line-height: 1.6; }
         
-        .announcement-bar { background-color: #c2ae6d; color: #4a002a; display: flex; justify-content: space-between; align-items: center; padding: 10px 5%; font-size: 14px; letter-spacing: 1px; font-weight: bold; text-transform: uppercase; }
-        .top-socials a { color: #4a002a; margin-right: 15px; text-decoration: none; font-size: 15px; transition: color 0.3s; }
-        .top-socials a:hover { color: #ffffff; }
-        .announcement-text { text-align: center; flex-grow: 1; }
-        .top-currency select { background: transparent; color: #4a002a; border: none; font-family: 'Times New Roman', serif; font-weight: bold; cursor: pointer; text-transform: uppercase; font-size: 13px; outline: none; }
-        .top-currency select option { background-color: #c2ae6d; color: #4a002a; }
-        
-        .navbar { background-color: #4A0424; padding: 18px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #f1e9e9; position: sticky; top: 0; z-index: 1000; }
-        .nav-search form { display: flex; align-items: center; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); padding: 5px 10px; border-radius: 4px; }
-        .nav-search input { background: transparent; border: none; color: #ffffff; padding-left: 10px; font-size: 13px; outline: none; width: 150px; font-family: 'Times New Roman', serif; }
-        .nav-search input::placeholder { color: rgba(255,255,255,0.5); }
-        .nav-search button { background: transparent; border: none; color: #e5e4e2; cursor: pointer; font-size: 14px; }
+        /* Announcement Bar */
+        .announcement-bar { background-color: #c2ae6d; color: #4a002a; display: flex; justify-content: space-between; align-items: center; padding: 10px 5%; font-size: 14px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
+        .top-socials { display: flex; gap: 15px; flex: 1; }
+        .top-socials a { color: #4a002a; text-decoration: none; font-size: 15px; }
+        .announcement-text { text-align: center; flex: 2; font-size: 13px; }
+        .top-currency { display: flex; justify-content: flex-end; flex: 1; align-items: center; }
+        .top-currency select { background: transparent; color: #4a002a; border: none; font-weight: bold; cursor: pointer; text-transform: uppercase; font-size: 13px; outline: none; padding: 2px 0; width: auto; text-align-last: right; }
 
-        .brand-text-logo { display: flex; flex-direction: column; align-items: center; text-decoration: none; }
-        .brand-text-logo span.brand-name { font-size: 30px; font-weight: 700; letter-spacing: 5px; text-transform: uppercase; color: #ffffff; line-height: 1; }
-        .brand-text-logo span.brand-tagline { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: #c2ae6d; margin-top: 4px; }
-        
-        .nav-right-container { display: flex; align-items: center; gap: 35px; }
-        .nav-links { display: flex; list-style: none; gap: 25px; margin: 0; padding: 0; align-items: center; }
-        .nav-links a { text-decoration: none; color: #e5e4e2; font-size: 13px; font-weight: 500; text-transform: uppercase; letter-spacing: 2px; transition: color 0.3s; }
+        /* Main Navbar */
+        .navbar { background-color: #4A0424; padding: 18px 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
+        .nav-search form { display: flex; align-items: center; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); padding: 6px 12px; border-radius: 4px; }
+        .nav-search input { background: transparent; border: none; color: #ffffff; padding-left: 8px; font-size: 13px; outline: none; width: 170px; font-family: 'Times New Roman', serif; }
+        .nav-search input::placeholder { color: rgba(255,255,255,0.6); }
+        .nav-search button { background: transparent; border: none; color: #ffffff; cursor: pointer; }
+
+        .brand-text-logo { text-decoration: none; text-align: center; }
+        .brand-text-logo span.brand-name { font-size: 28px; font-weight: 700; letter-spacing: 5px; text-transform: uppercase; color: #ffffff; display: block; line-height: 1; }
+
+        .nav-right-container { display: flex; align-items: center; gap: 25px; }
+        .nav-links { display: flex; list-style: none; gap: 22px; align-items: center; margin: 0; }
+        .nav-links a { text-decoration: none; color: #ffffff; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; transition: 0.3s; }
         .nav-links a:hover { color: #bc9c65; }
         
-        .nav-icons { display: flex; gap: 20px; align-items: center; }
-        .nav-icons a { color: #e5e4e2; font-size: 18px; text-decoration: none; position: relative; transition: color 0.3s; }
-        .nav-icons a:hover { color: #bc9c65; }
-        .cart-count { position: absolute; top: -8px; right: -10px; background-color: #c2ae6d; color: #4a002a; font-size: 10px; font-weight: bold; padding: 2px 5px; border-radius: 50%; }
-        
-        .hero-section { width: 100%; height: 80vh; position: relative; overflow: hidden; background-color: #4A0424; }
-        .mySlides { display: none; width: 100%; height: 100%; background-size: cover; background-position: center; position: relative; }
-        .hero-overlay-text { position: absolute; bottom: 15%; left: 5%; color: #ffffff; text-shadow: 2px 2px 15px rgba(0,0,0,0.6); z-index: 2; }
-        .hero-overlay-text h2 { font-size: 45px; font-weight: 300; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 15px; }
-        .hero-btn { display: inline-block; padding: 12px 35px; background-color: #ffffff; color: #111111; text-decoration: none; font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; transition: all 0.3s; border: 1px solid #ffffff; }
-        .hero-btn:hover { background-color: #bc9c65; color: #ffffff; border-color: #bc9c65; }
-        
-        .section-title { text-align: center; font-size: 28px; text-transform: uppercase; letter-spacing: 3px; color: #4A0424; margin: 60px 0 25px 0; font-family: 'Times New Roman', serif; }
-        .section-subtitle { text-align: center; font-size: 14px; color: #666; margin-top: -20px; margin-bottom: 40px; letter-spacing: 1px; font-style: italic; }
+        .nav-icons { display: flex; gap: 18px; align-items: center; }
+        .nav-icons a { color: #ffffff; font-size: 18px; text-decoration: none; position: relative; cursor: pointer; }
+        .cart-count { position: absolute; top: -8px; right: -8px; background-color: #c2ae6d; color: #4a002a; font-size: 10px; font-weight: bold; padding: 2px 5px; border-radius: 50%; }
 
-        .category-section { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        .category-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-        .category-card { position: relative; height: 180px; overflow: hidden; border-radius: 4px; display: flex; align-items: center; justify-content: center; text-decoration: none; border: 1px solid #eee; }
-        .category-card img { width: 100%; height: 100%; object-fit: contain; background: #fff; filter: brightness(0.85); transition: 0.5s; }
-        .category-card span { position: absolute; color: #ffffff; font-size: 16px; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; text-shadow: 1px 1px 4px rgba(0,0,0,0.8); border-bottom: 1px solid transparent; padding-bottom: 4px; transition: 0.3s; z-index: 2; }
-        .category-card:hover img { transform: scale(1.03); }
+        /* Hero Slider Banner */
+        .hero-slider { position: relative; width: 100%; height: 75vh; overflow: hidden; background: #000; }
+        .slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center center; opacity: 0; transition: opacity 1s ease-in-out; display: flex; align-items: center; justify-content: center; text-align: center; color: #fff; }
+        .slide.active { opacity: 1; }
+        .slide::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.4); }
+        .hero-content { position: relative; z-index: 2; max-width: 700px; padding: 0 20px; }
+        .hero-content h1 { font-size: 42px; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 15px; }
+        .hero-content p { font-size: 16px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 30px; color: #f0f0f0; }
+        .btn-shop-hero { display: inline-block; padding: 14px 35px; background: #4A0424; color: #fff; text-decoration: none; font-weight: bold; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; border: 1px solid #4A0424; transition: 0.3s; }
+        .btn-shop-hero:hover { background: #330218; }
 
-        .home-products-section { max-width: 1200px; margin: 40px auto 80px auto; padding: 0 20px; }
-        .home-product-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; }
-        .h-product-card { background: #ffffff; border: 1px solid #eeeeee; border-radius: 4px; overflow: hidden; text-decoration: none; color: #111; display: flex; flex-direction: column; transition: 0.3s; box-shadow: 0 4px 10px rgba(0,0,0,0.02); }
-        .h-product-card:hover { transform: translateY(-4px); box-shadow: 0 6px 15px rgba(0,0,0,0.06); border-color: #bc9c65; }
-        
-        .h-img-box { width: 100%; height: 380px; overflow: hidden; background-color: #ffffff; display: flex; align-items: center; justify-content: center; }
-        .h-img-box img { width: 100%; height: 100%; object-fit: contain; transition: 0.5s; }
-        .h-product-card:hover .h-img-box img { transform: scale(1.03); }
-        
-        .h-info-box { padding: 15px; text-align: center; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
-        .h-info-box h3 { font-size: 13px; font-weight: 600; text-transform: uppercase; margin-bottom: 5px; color: #222; line-height: 1.4; letter-spacing: 0.5px; }
-        .h-desc { font-size: 11px; color: #777; margin-bottom: 10px; font-style: italic; }
-        .h-price { font-size: 15px; font-weight: bold; color: #bc9c65; }
-        
-        .whatsapp-btn { position: fixed; bottom: 35px; right: 35px; background-color: #25d366; color: #ffffff; width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; text-decoration: none; font-size: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); z-index: 1000; }
-        
-        @media (max-width: 992px) {
-            .category-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
-            .home-product-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
-            .h-img-box { height: 320px; }
+        /* Collections Grid Section (Categories) */
+        .collections-section { max-width: 1200px; margin: 50px auto 20px auto; padding: 0 20px; }
+        .collections-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .collection-card { position: relative; height: 260px; overflow: hidden; text-decoration: none; color: #fff; display: flex; align-items: flex-end; padding: 25px; background: #000; }
+        .collection-card img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.8; transition: 0.5s; }
+        .collection-card:hover img { transform: scale(1.05); opacity: 0.9; }
+        .collection-card::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to top, rgba(0,0,0,0.7), transparent); }
+        .collection-info { position: relative; z-index: 2; }
+        .collection-info h3 { font-size: 18px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 5px; }
+        .collection-info span { font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: #bc9c65; font-weight: bold; }
+
+        /* Products Grid Section */
+        .container { max-width: 1200px; margin: 50px auto; padding: 0 20px; }
+        .section-header { text-align: center; margin-bottom: 45px; }
+        .section-header h2 { font-size: 26px; font-weight: 700; text-transform: uppercase; letter-spacing: 3px; color: #4A0424; margin-bottom: 8px; }
+        .section-header p { font-size: 13px; color: #666; text-transform: uppercase; letter-spacing: 1.5px; }
+
+        .products-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; }
+        .product-card { border: 1px solid #f0f0f0; text-decoration: none; color: #111; transition: 0.3s; background: #fff; text-align: center; display: flex; flex-direction: column; }
+        .product-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.08); }
+        .img-wrapper { width: 100%; height: 380px; overflow: hidden; background: #f9f9f9; }
+        .img-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: 0.4s; }
+        .product-card:hover .img-wrapper img { transform: scale(1.03); }
+        .product-info { padding: 16px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
+        .product-info h3 { font-size: 13px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; font-weight: 600; color: #222; }
+        .product-code { font-size: 11px; font-weight: bold; color: #777; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+        .product-info p { font-size: 15px; font-weight: bold; color: #bc9c65; }
+
+        /* Floating WhatsApp & Footer */
+        .whatsapp-btn { position: fixed; bottom: 30px; right: 30px; background-color: #25d366; color: #ffffff; width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; text-decoration: none; font-size: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); z-index: 1000; }
+        .footer { background-color: #4A0424; color: #ffffff; padding: 45px 5%; text-align: center; margin-top: 60px; }
+        .footer h3 { font-size: 24px; letter-spacing: 4px; margin-bottom: 10px; color: #ffffff; }
+        .footer p { color: #d0c0c0; font-size: 13px; }
+
+        /* --- CART DRAWER --- */
+        .cart-drawer-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 2000; display: none; }
+        .cart-drawer { position: fixed; top: 0; right: -420px; width: 400px; height: 100%; background: #fff; z-index: 2001; transition: 0.3s ease; display: flex; flex-direction: column; padding: 25px; }
+        .cart-drawer.open { right: 0; }
+        .cart-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+        .cart-header h2 { font-size: 20px; text-transform: uppercase; letter-spacing: 1px; color: #4A0424; }
+        .close-cart { font-size: 22px; cursor: pointer; color: #888; }
+        .cart-items-list { flex-grow: 1; overflow-y: auto; margin: 20px 0; }
+        .cart-item { display: flex; gap: 15px; margin-bottom: 15px; border-bottom: 1px solid #fafafa; padding-bottom: 15px; }
+        .cart-item img { width: 70px; height: 90px; object-fit: cover; }
+        .cart-item-details { flex-grow: 1; }
+        .cart-item-title { font-size: 13px; font-weight: bold; margin-bottom: 5px; text-transform: uppercase; }
+        .cart-item-price { font-size: 14px; color: #bc9c65; font-weight: bold; }
+        .cart-item-qty { font-size: 12px; color: #666; margin-top: 4px; }
+        .remove-item { color: red; font-size: 12px; cursor: pointer; margin-top: 5px; display: inline-block; }
+        .cart-footer { border-top: 1px solid #eee; padding-top: 20px; }
+        .cart-total { display: flex; justify-content: space-between; font-size: 18px; font-weight: bold; margin-bottom: 18px; }
+        .btn-checkout { width: 100%; padding: 14px; background: #4A0424; color: #fff; border: none; text-transform: uppercase; font-weight: bold; letter-spacing: 1.5px; cursor: pointer; }
+
+        @media(max-width: 768px) {
+            .products-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+            .collections-grid { grid-template-columns: 1fr; }
+            .hero-content h1 { font-size: 28px; }
+            .cart-drawer { width: 100%; right: -100%; }
+            .nav-search input { width: 110px; }
         }
     </style>
 </head>
@@ -89,362 +122,308 @@
 
     <div class="announcement-bar">
         <div class="top-socials">
-            <a href="https://www.facebook.com" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://www.instagram.com/rangdata.official/?hl=en" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.tiktok.com/@rangdata" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+            <a href="https://www.facebook.com/profile.php?id=100006600948601" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/rangdata.official/" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/@rangdata" target="_blank"><i class="fab fa-tiktok"></i></a>
         </div>
-        
         <div class="announcement-text">
-            Worldwide Shipping Available | UK • USA • UAE • KSA
+            WORLDWIDE SHIPPING AVAILABLE
         </div>
-        
         <div class="top-currency">
-            <select id="currency-select">
-                <option value="PKR">Pakistan | PKR Rs</option>
-                <option value="USD">United States | USD $</option>
-                <option value="GBP">United Kingdom | GBP £</option>
-                <option value="AED">UAE | AED د.إ</option>
+            <select id="currency-selector" onchange="changeCurrency(this.value)">
+                <option value="PKR">PAKISTAN | PKR RS</option>
+                <option value="USD">UNITED STATES | USD $</option>
+                <option value="GBP">UNITED KINGDOM | GBP £</option>
+                <option value="AED">UNITED ARAB EMIRATES | AED</option>
+                <option value="SAR">SAUDI ARABIA | SAR</option>
             </select>
         </div>
     </div>
 
     <nav class="navbar">
         <div class="nav-search">
-            <form action="#" method="GET" onsubmit="return false;">
+            <form id="search-form" onsubmit="handleSearch(event)">
                 <button type="submit"><i class="fas fa-search"></i></button>
-                <input type="text" id="search-input" placeholder="Search products...">
+                <input type="text" id="search-input" placeholder="Search by name, color, code...">
             </form>
         </div>
 
         <a href="index.html" class="brand-text-logo">
             <span class="brand-name">RANG DATA</span>
-            <span class="brand-tagline">LUXURY APPAREL</span>
         </a>
 
         <div class="nav-right-container">
             <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="#new-arrivals">New Arrivals</a></li>
-                <li><a href="#collections">Luxury Suite</a></li>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="#new-arrivals">NEW ARRIVALS</a></li>
+                <li><a href="shop.html">LUXURY SUITE</a></li>
             </ul>
-            
             <div class="nav-icons">
-                <a href="#" title="Login / Account"><i class="far fa-user"></i></a>
-                <a href="#" title="Shopping Bag">
-                    <i class="fas fa-shopping-bag"></i>
-                    <span class="cart-count">0</span>
-                </a>
+                <a href="#"><i class="far fa-user"></i></a>
+                <a onclick="openCartDrawer()"><i class="fas fa-shopping-bag"></i><span class="cart-count" id="cart-count-badge">0</span></a>
             </div>
         </div>
     </nav>
 
-    <section class="hero-section">
-        <div class="mySlides" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('https://i.ibb.co/QFyr5pJ8/RD0042a.png');">
-            <div class="hero-overlay-text">
-                <h2>Mustard Festive Lawn [RD0042]</h2>
-                <a href="#new-arrivals" class="hero-btn">Discover</a>
+    <!-- Hero Slider Section -->
+    <div class="hero-slider">
+        <div class="slide active" style="background-image: url('https://i.ibb.co/C5GshYFN/RD06007a.png');">
+            <div class="hero-content">
+                <h1>LUXURY EMBROIDERED SUITS</h1>
+                <p>Discover the finest unstitched collection crafted with elegance</p>
+                <a href="#new-arrivals" class="btn-shop-hero">EXPLORE COLLECTION</a>
             </div>
         </div>
-        
-        <div class="mySlides" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('https://i.ibb.co/TBgMQH0T/RD0556a.png');">
-            <div class="hero-overlay-text">
-                <h2>Lilac Luxury Lawn [RD0556]</h2>
-                <a href="#new-arrivals" class="hero-btn">Shop Now</a>
+        <div class="slide" style="background-image: url('https://i.ibb.co/QFyr5pJ8/RD0042a.png');">
+            <div class="hero-content">
+                <h1>FESTIVE LAWN EDIT</h1>
+                <p>Exquisite color palettes designed for your special moments</p>
+                <a href="#new-arrivals" class="btn-shop-hero">SHOP NOW</a>
             </div>
         </div>
-        
-        <div class="mySlides" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('https://i.ibb.co/5W57Nr76/RD0585a.png');">
-            <div class="hero-overlay-text">
-                <h2>Maroon Velvet & Lawn [RD0585]</h2>
-                <a href="#new-arrivals" class="hero-btn">View Luxury</a>
+        <div class="slide" style="background-image: url('https://i.ibb.co/YFtPS8Fd/RD058a.png');">
+            <div class="hero-content">
+                <h1>ROYAL THREADWORK</h1>
+                <p>Intricate multi-head industrial embroidery masterpiece</p>
+                <a href="#new-arrivals" class="btn-shop-hero">VIEW LOOKS</a>
             </div>
         </div>
-    </section>
+    </div>
 
-    <div class="category-section" id="collections">
-        <h2 class="section-title">Shop By Collection</h2>
-        <p class="section-subtitle">Select your favorite luxury segment</p>
-        <div class="category-grid">
-            <a href="#new-arrivals" class="category-card">
-                <img src="https://i.ibb.co/QFyr5pJ8/RD0042a.png" alt="Summer">
-                <span>Unstitched Lawn</span>
+    <!-- Featured Collections Section -->
+    <div class="collections-section">
+        <div class="collections-grid">
+            <a href="shop.html" class="collection-card">
+                <img src="https://i.ibb.co/C5GshYFN/RD06007a.png" alt="Luxury Lawn">
+                <div class="collection-info">
+                    <h3>Luxury Lawn</h3>
+                    <span>Explore Collection</span>
+                </div>
             </a>
-            <a href="#new-arrivals" class="category-card">
-                <img src="https://i.ibb.co/TBgMQH0T/RD0556a.png" alt="Festive">
-                <span>Chiffon Dupatta</span>
+            <a href="shop.html" class="collection-card">
+                <img src="https://i.ibb.co/QFyr5pJ8/RD0042a.png" alt="Festive Wear">
+                <div class="collection-info">
+                    <h3>Festive Wear</h3>
+                    <span>Explore Collection</span>
+                </div>
             </a>
-            <a href="#new-arrivals" class="category-card">
-                <img src="https://i.ibb.co/nq1fQvG1/RD0582a.png" alt="Luxury">
-                <span>Embroidered 3PC</span>
-            </a>
-            <a href="#new-arrivals" class="category-card">
-                <img src="https://i.ibb.co/5W57Nr76/RD0585a.png" alt="Festive">
-                <span>Festive Collection</span>
+            <a href="shop.html" class="collection-card">
+                <img src="https://i.ibb.co/YFtPS8Fd/RD058a.png" alt="Signature Series">
+                <div class="collection-info">
+                    <h3>Signature Series</h3>
+                    <span>Explore Collection</span>
+                </div>
             </a>
         </div>
     </div>
 
-    <div class="home-products-section" id="new-arrivals">
-        <h2 class="section-title">New Arrivals</h2>
-        <p class="section-subtitle">Pure Unstitched Lawn with Heavy Embroidery & Chiffon Dupatta</p>
-        
-        <div class="home-product-grid">
-            
-            <!-- 1. RD0042 -->
-            <a href="product.html?id=1" class="h-product-card">
-                <div class="h-img-box"><img src="https://i.ibb.co/QFyr5pJ8/RD0042a.png" alt="RD0042"></div>
-                <div class="h-info-box">
-                    <h3>3 Pcs Mustard Lawn Suit (RD0042)</h3>
-                    <p class="h-desc">3PC Unstitched Lawn • Embroidered • Chiffon Dupatta</p>
-                    <p class="h-price">PKR 5,499</p>
-                </div>
-            </a>
+    <div class="container" id="new-arrivals">
+        <div class="section-header">
+            <h2>New Arrivals</h2>
+            <p>Explore our latest luxury designs</p>
+        </div>
+        <div class="products-grid" id="products-grid"></div>
+    </div>
 
-            <!-- 2. RD058 -->
-            <a href="product.html?id=2" class="h-product-card">
-                <div class="h-img-box"><img src="https://i.ibb.co/YFtPS8Fd/RD058a.png" alt="RD058"></div>
-                <div class="h-info-box">
-                    <h3>3 Pcs Golden Mustard Suit (RD058)</h3>
-                    <p class="h-desc">3PC Unstitched Lawn • Embroidered • Chiffon Dupatta</p>
-                    <p class="h-price">PKR 5,199</p>
-                </div>
-            </a>
-
-            <!-- 3. RD0545 -->
-            <a href="product.html?id=3" class="h-product-card">
-                <div class="h-img-box"><img src="https://i.ibb.co/fYCgVKTm/RD0545a.png" alt="RD0545"></div>
-                <div class="h-info-box">
-                    <h3>3 Pcs Deep Blue Suit (RD0545)</h3>
-                    <p class="h-desc">3PC Unstitched Lawn • Embroidered • Chiffon Dupatta</p>
-                    <p class="h-price">PKR 4,899</p>
-                </div>
-            </a>
-
-            <!-- 4. RD0556 -->
-            <a href="product.html?id=4" class="h-product-card">
-                <div class="h-img-box"><img src="https://i.ibb.co/TBgMQH0T/RD0556a.png" alt="RD0556"></div>
-                <div class="h-info-box">
-                    <h3>3 Pcs Lilac Glow Suit (RD0556)</h3>
-                    <p class="h-desc">3PC Unstitched Lawn • Embroidered • Chiffon Dupatta</p>
-                    <p class="h-price">PKR 5,199</p>
-                </div>
-            </a>
-
-            <!-- 5. RD0561 -->
-            <a href="product.html?id=5" class="h-product-card">
-                <div class="h-img-box"><img src="https://i.ibb.co/ZzZwSj42/RD0561a.png" alt="RD0561"></div>
-                <div class="h-info-box">
-                    <h3>3 Pcs Dark Brown Suit (RD0561)</h3>
-                    <p class="h-desc">3PC Unstitched Lawn • Embroidered • Chiffon Dupatta</p>
-                    <p class="h-price">PKR 5,499</p>
-                </div>
-            </a>
-
-            <!-- 6. RD0572 -->
-            <a href="product.html?id=6" class="h-product-card">
-                <div class="h-img-box"><img src="https://i.ibb.co/Y7NHV9P3/RD0572a.png" alt="RD0572"></div>
-                <div class="h-info-box">
-                    <h3>3 Pcs Teal Green Suit (RD0572)</h3>
-                    <p class="h-desc">3PC Unstitched Lawn • Embroidered • Chiffon Dupatta</p>
-                    <p class="h-price">PKR 5,699</p>
-                </div>
-            </a>
-
-            <!-- 7. RD0576 -->
-            <a href="product.html?id=7" class="h-product-card">
-                <div class="h-img-box"><img src="https://i.ibb.co/LDB3kywF/RD0576a.png" alt="RD0576"></div>
-                <div class="h-info-box">
-                    <h3>3 Pcs Beige Nude Suit (RD0576)</h3>
-                    <p class="h-desc">3PC Unstitched Lawn • Embroidered • Chiffon Dupatta</p>
-                    <p class="h-price">PKR 4,899</p>
-                </div>
-            </a>
-
-            <!-- 8. RD0582 -->
-            <a href="product.html?id=8" class="h-product-card">
-                <div class="h-img-box"><img src="https://i.ibb.co/nq1fQvG1/RD0582a.png" alt="RD0582"></div>
-                <div class="h-info-box">
-                    <h3>3 Pcs Ivory White Suit (RD0582)</h3>
-                    <p class="h-desc">3PC Unstitched Lawn • Embroidered • Chiffon Dupatta</p>
-                    <p class="h-price">PKR 5,199</p>
-                </div>
-            </a>
-
-            <!-- 9. RD0585 -->
-            <a href="product.html?id=9" class="h-product-card">
-                <div class="h-img-box"><img src="https://i.ibb.co/5W57Nr76/RD0585a.png" alt="RD0585"></div>
-                <div class="h-info-box">
-                    <h3>3 Pcs Maroon Luxury Suit (RD0585)</h3>
-                    <p class="h-desc">3PC Unstitched Lawn • Embroidered • Chiffon Dupatta</p>
-                    <p class="h-price">PKR 5,699</p>
-                </div>
-            </a>
-
-            <!-- 10. RD0586 -->
-            <a href="product.html?id=10" class="h-product-card">
-                <div class="h-img-box"><img src="https://i.ibb.co/Z1YX7xLY/RD0586a.png" alt="RD0586"></div>
-                <div class="h-info-box">
-                    <h3>3 Pcs Mint Sage Suit (RD0586)</h3>
-                    <p class="h-desc">3PC Unstitched Lawn • Embroidered • Chiffon Dupatta</p>
-                    <p class="h-price">PKR 5,499</p>
-                </div>
-            </a>
-
-            <!-- 11. RD0587 -->
-            <a href="product.html?id=11" class="h-product-card">
-                <div class="h-img-box"><img src="https://i.ibb.co/cXRtGWKT/RD0587a.png" alt="RD0587"></div>
-                <div class="h-info-box">
-                    <h3>3 Pcs Off White Suit (RD0587)</h3>
-                    <p class="h-desc">3PC Unstitched Lawn • Embroidered • Chiffon Dupatta</p>
-                    <p class="h-price">PKR 4,899</p>
-                </div>
-            </a>
-
-            <!-- 12. RD0601 -->
-            <a href="product.html?id=12" class="h-product-card">
-                <div class="h-img-box"><img src="https://i.ibb.co/8gXH43Q1/RD0601a.png" alt="RD0601"></div>
-                <div class="h-info-box">
-                    <h3>3 Pcs Charcoal Grey Suit (RD0601)</h3>
-                    <p class="h-desc">3PC Unstitched Lawn • Embroidered • Chiffon Dupatta</p>
-                    <p class="h-price">PKR 5,499</p>
-                </div>
-            </a>
-
-            <!-- 13. RD0605 -->
-            <a href="product.html?id=13" class="h-product-card">
-                <div class="h-img-box"><img src="https://i.ibb.co/FbGYhD9r/RD0605a.png" alt="RD0605"></div>
-                <div class="h-info-box">
-                    <h3>3 Pcs Forest Olive Suit (RD0605)</h3>
-                    <p class="h-desc">3PC Unstitched Lawn • Embroidered • Chiffon Dupatta</p>
-                    <p class="h-price">PKR 5,199</p>
-                </div>
-            </a>
-
-            <!-- 14. RD0607 -->
-            <a href="product.html?id=14" class="h-product-card">
-                <div class="h-img-box"><img src="https://i.ibb.co/GvYkGkFS/RD0607a.png" alt="RD0607"></div>
-                <div class="h-info-box">
-                    <h3>3 Pcs Royal Blue Suit (RD0607)</h3>
-                    <p class="h-desc">3PC Unstitched Lawn • Embroidered • Chiffon Dupatta</p>
-                    <p class="h-price">PKR 5,199</p>
-                </div>
-            </a>
-
-            <!-- 15. RD0609 -->
-            <a href="product.html?id=15" class="h-product-card">
-                <div class="h-img-box"><img src="https://i.ibb.co/LXKv0yDN/RD0609a.png" alt="RD0609"></div>
-                <div class="h-info-box">
-                    <h3>3 Pcs Sapphire Blue Suit (RD0609)</h3>
-                    <p class="h-desc">3PC Unstitched Lawn • Embroidered • Chiffon Dupatta</p>
-                    <p class="h-price">PKR 5,499</p>
-                </div>
-            </a>
-
-            <!-- 16. RD0611 -->
-            <a href="product.html?id=16" class="h-product-card">
-                <div class="h-img-box"><img src="https://i.ibb.co/zWryTzVJ/RD0611a.png" alt="RD0611"></div>
-                <div class="h-info-box">
-                    <h3>3 Pcs Peach Glow Suit (RD0611)</h3>
-                    <p class="h-desc">3PC Unstitched Lawn • Embroidered • Chiffon Dupatta</p>
-                    <p class="h-price">PKR 4,899</p>
-                </div>
-            </a>
-
-            <!-- 17. RD0612 -->
-            <a href="product.html?id=17" class="h-product-card">
-                <div class="h-img-box"><img src="https://i.ibb.co/4wGMhNLh/RD0612a.png" alt="RD0612"></div>
-                <div class="h-info-box">
-                    <h3>3 Pcs Peacock Blue Suit (RD0612)</h3>
-                    <p class="h-desc">3PC Unstitched Lawn • Embroidered • Chiffon Dupatta</p>
-                    <p class="h-price">PKR 4,899</p>
-                </div>
-            </a>
-
-            <!-- 18. RD0613 -->
-            <a href="product.html?id=18" class="h-product-card">
-                <div class="h-img-box"><img src="https://i.ibb.co/4wxTWL3H/RD0613a.png" alt="RD0613"></div>
-                <div class="h-info-box">
-                    <h3>3 Pcs Classic Embroidered Suit (RD0613)</h3>
-                    <p class="h-desc">3PC Unstitched Lawn • Embroidered • Chiffon Dupatta</p>
-                    <p class="h-price">PKR 5,199</p>
-                </div>
-            </a>
-
-            <!-- 19. RD0615 -->
-            <a href="product.html?id=19" class="h-product-card">
-                <div class="h-img-box"><img src="https://i.ibb.co/D2FMVmW/RD0615a.png" alt="RD0615"></div>
-                <div class="h-info-box">
-                    <h3>3 Pcs Elegant Festive Suit (RD0615)</h3>
-                    <p class="h-desc">3PC Unstitched Lawn • Embroidered • Chiffon Dupatta</p>
-                    <p class="h-price">PKR 5,499</p>
-                </div>
-            </a>
-
-            <!-- 20. RD06007 -->
-            <a href="product.html?id=20" class="h-product-card">
-                <div class="h-img-box"><img src="https://i.ibb.co/67p4y3TD/RD06007b.png" alt="RD06007"></div>
-                <div class="h-info-box">
-                    <h3>3 Pcs Crimson Red Suit (RD06007)</h3>
-                    <p class="h-desc">3PC Unstitched Lawn • Embroidered • Chiffon Dupatta</p>
-                    <p class="h-price">PKR 5,699</p>
-                </div>
-            </a>
-
+    <!-- Cart Drawer -->
+    <div class="cart-drawer-overlay" id="cart-overlay" onclick="closeCartDrawer()"></div>
+    <div class="cart-drawer" id="cart-drawer">
+        <div class="cart-header">
+            <h2>Your Shopping Bag</h2>
+            <span class="close-cart" onclick="closeCartDrawer()">&times;</span>
+        </div>
+        <div class="cart-items-list" id="cart-items-container">
+            <p style="text-align: center; color: #777; margin-top: 30px;">Your cart is currently empty.</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cart-total-price">Rs.0 PKR</span>
+            </div>
+            <button class="btn-checkout" onclick="proceedToCheckoutFromCart()">PROCEED TO CHECKOUT</button>
         </div>
     </div>
 
-    <a href="https://wa.me/923406751076" class="whatsapp-btn" target="_blank">
+    <a id="wa-floating" href="https://wa.me/923406751076" class="whatsapp-btn" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <footer style="background-color: #fcfcfc; border-top: 1px solid #e8e8e8; padding: 40px 20px; text-align: center; font-family: sans-serif; margin-top: 50px;">
-        <div style="max-width: 1200px; margin: 0 auto;">
-            <h3 style="font-family: 'Times New Roman', serif; font-size: 24px; color: #4A0424; letter-spacing: 2px; margin-bottom: 15px;">RANG DATA</h3>
-            <div style="margin-bottom: 20px;">
-                <a href="index.html" style="color: #555; text-decoration: none; margin: 0 12px; font-size: 14px;">Home</a>
-                <a href="index.html#new-arrivals" style="color: #555; text-decoration: none; margin: 0 12px; font-size: 14px;">Collection</a>
-                <a href="https://wa.me/923406751076" target="_blank" style="color: #555; text-decoration: none; margin: 0 12px; font-size: 14px;">Contact Us</a>
-            </div>
-
-            <div style="margin-bottom: 20px; display: flex; justify-content: center; gap: 20px;">
-                <a href="https://www.facebook.com" target="_blank" style="color: #4A0424; font-size: 22px; text-decoration: none;"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://www.instagram.com/rangdata.official/?hl=en" target="_blank" style="color: #4A0424; font-size: 22px; text-decoration: none;"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.tiktok.com/@rangdata" target="_blank" style="color: #4A0424; font-size: 22px; text-decoration: none;"><i class="fab fa-tiktok"></i></a>
-                <a href="https://wa.me/923406751076" target="_blank" style="color: #4A0424; font-size: 22px; text-decoration: none;"><i class="fab fa-whatsapp"></i></a>
-            </div>
-
-            <p style="color: #888; font-size: 12px; margin-top: 10px;">&copy; 2026 RANG DATA. All Rights Reserved.</p>
-        </div>
+    <footer class="footer">
+        <h3>RANG DATA</h3>
+        <p>&copy; 2026 RANG DATA Luxury Apparel. All Rights Reserved.</p>
     </footer>
 
     <script>
-        let slideIndex = 0;
-        carousel();
-        function carousel() {
-            let i;
-            let x = document.getElementsByClassName("mySlides");
-            for (i = 0; i < x.length; i++) {
-                x[i].style.display = "none";
-            }
-            slideIndex++;
-            if (slideIndex > x.length) {slideIndex = 1}
-            x[slideIndex-1].style.display = "block";
-            setTimeout(carousel, 3000);
+        const productsData = {
+            "1": { id:"1", code: "RD0042", title: "3 Pcs Mustard Lawn Suit", priceVal: 5499, imgs: ["https://i.ibb.co/QFyr5pJ8/RD0042a.png", "https://i.ibb.co/PZG1D8Vh/RD0042b.png"] },
+            "2": { id:"2", code: "RD058", title: "3 Pcs Golden Mustard Suit", priceVal: 5199, imgs: ["https://i.ibb.co/YFtPS8Fd/RD058a.png", "https://i.ibb.co/nNt0LfFX/RD058b.png"] },
+            "3": { id:"3", code: "RD0545", title: "3 Pcs Deep Blue Suit", priceVal: 4899, imgs: ["https://i.ibb.co/fYCgVKTm/RD0545a.png", "https://i.ibb.co/x8d31tRk/RD0545b.png"] },
+            "4": { id:"4", code: "RD0556", title: "3 Pcs Lilac Glow Suit", priceVal: 5199, imgs: ["https://i.ibb.co/TBgMQH0T/RD0556a.png", "https://i.ibb.co/TMtzKFMP/RD0556b.png"] },
+            "5": { id:"5", code: "RD0561", title: "3 Pcs Dark Brown Suit", priceVal: 5499, imgs: ["https://i.ibb.co/ZzZwSj42/RD0561a.png", "https://i.ibb.co/Y7DpDMLv/RD0561b.png"] },
+            "6": { id:"6", code: "RD0572", title: "3 Pcs Teal Green Suit", priceVal: 5699, imgs: ["https://i.ibb.co/Y7NHV9P3/RD0572a.png", "https://i.ibb.co/yF6rfzTQ/RD0572b.png"] },
+            "7": { id:"7", code: "RD0576", title: "3 Pcs Beige Nude Suit", priceVal: 4899, imgs: ["https://i.ibb.co/LDB3kywF/RD0576a.png", "https://i.ibb.co/V0s54Ycw/RD0576b.png"] },
+            "8": { id:"8", code: "RD0582", title: "3 Pcs Ivory White Suit", priceVal: 5199, imgs: ["https://i.ibb.co/nq1fQvG1/RD0582a.png", "https://i.ibb.co/cSgxdSbg/RD0582ac.png"] },
+            "9": { id:"9", code: "RD0585", title: "3 Pcs Maroon Luxury Suit", priceVal: 5699, imgs: ["https://i.ibb.co/5W57Nr76/RD0585a.png", "https://i.ibb.co/QFgTbsV1/RD0585b.png"] },
+            "10": { id:"10", code: "RD0586", title: "3 Pcs Mint Sage Suit", priceVal: 5499, imgs: ["https://i.ibb.co/Z1YX7xLY/RD0586a.png", "https://i.ibb.co/PGnzpMbJ/RD0586b.png"] },
+            "11": { id:"11", code: "RD0587", title: "3 Pcs Off White Suit", priceVal: 4899, imgs: ["https://i.ibb.co/cXRtGWKT/RD0587a.png", "https://i.ibb.co/V5qS6pj/RD0587b.png"] },
+            "12": { id:"12", code: "RD0601", title: "3 Pcs Charcoal Grey Suit", priceVal: 5499, imgs: ["https://i.ibb.co/8gXH43Q1/RD0601a.png", "https://i.ibb.co/YBd72ZJM/RD0601b.png"] },
+            "13": { id:"13", code: "RD0605", title: "3 Pcs Forest Olive Suit", priceVal: 5199, imgs: ["https://i.ibb.co/FbGYhD9r/RD0605a.png", "https://i.ibb.co/6JGJZ6vW/RD0605b.png"] },
+            "14": { id:"14", code: "RD0607", title: "3 Pcs Royal Blue Suit", priceVal: 5199, imgs: ["https://i.ibb.co/GvYkGkFS/RD0607a.png", "https://i.ibb.co/KzSXsXTM/RD0607b.png"] },
+            "15": { id:"15", code: "RD0609", title: "3 Pcs Sapphire Blue Suit", priceVal: 5499, imgs: ["https://i.ibb.co/LXKv0yDN/RD0609a.png", "https://i.ibb.co/fdLbPSNj/RD0609b.png"] },
+            "16": { id:"16", code: "RD0611", title: "3 Pcs Peach Glow Suit", priceVal: 4899, imgs: ["https://i.ibb.co/zWryTzVJ/RD0611a.png", "https://i.ibb.co/v4fYRHxV/RD0611b.png"] },
+            "17": { id:"17", code: "RD0612", title: "3 Pcs Peacock Blue Suit", priceVal: 4899, imgs: ["https://i.ibb.co/4wGMhNLh/RD0612a.png", "https://i.ibb.co/5WXvWBKv/RD0612b.png"] },
+            "18": { id:"18", code: "RD0613", title: "3 Pcs Classic Embroidered Suit", priceVal: 5199, imgs: ["https://i.ibb.co/4wxTWL3H/RD0613a.png", "https://i.ibb.co/848dgbvs/RD0613b.png"] },
+            "19": { id:"19", code: "RD0615", title: "3 Pcs Elegant Festive Suit", priceVal: 5499, imgs: ["https://i.ibb.co/D2FMVmW/RD0615a.png", "https://i.ibb.co/1GmdmfwS/RD0615b.png"] },
+            "20": { id:"20", code: "RD06007", title: "3 Pcs Crimson Red Suit", priceVal: 5699, imgs: ["https://i.ibb.co/C5GshYFN/RD06007a.png", "https://i.ibb.co/67p4y3TD/RD06007b.png"] }
+        };
+
+        const exchangeRates = {
+            PKR: { rate: 1, symbol: "Rs.", code: "PKR" },
+            USD: { rate: 0.0036, symbol: "$", code: "USD" },
+            GBP: { rate: 0.0028, symbol: "£", code: "GBP" },
+            AED: { rate: 0.0132, symbol: "AED ", code: "AED" },
+            SAR: { rate: 0.0135, symbol: "SAR ", code: "SAR" }
+        };
+
+        const savedCurrency = localStorage.getItem('selected_currency') || 'PKR';
+        document.getElementById('currency-selector').value = savedCurrency;
+
+        function changeCurrency(currency) {
+            localStorage.setItem('selected_currency', currency);
+            renderProducts();
+            updateCartUI();
         }
 
-        document.getElementById('search-input').addEventListener('keyup', function() {
-            let searchQuery = this.value.toLowerCase();
-            let productCards = document.getElementsByClassName('h-product-card');
+        function renderProducts() {
+            const grid = document.getElementById('products-grid');
+            grid.innerHTML = '';
+            const currentCurr = localStorage.getItem('selected_currency') || 'PKR';
+            const currObj = exchangeRates[currentCurr];
+
+            Object.keys(productsData).forEach(id => {
+                let item = productsData[id];
+                let convertedPrice = Math.round(item.priceVal * currObj.rate);
+
+                grid.innerHTML += `
+                    <a href="product.html?id=${id}" class="product-card">
+                        <div class="img-wrapper">
+                            <img src="${item.imgs[0]}" alt="${item.title}" onmouseover="this.src='${item.imgs[1] || item.imgs[0]}'" onmouseout="this.src='${item.imgs[0]}'">
+                        </div>
+                        <div class="product-info">
+                            <div>
+                                <h3>${item.title}</h3>
+                                <div class="product-code">Code: ${item.code}</div>
+                            </div>
+                            <p>${currObj.symbol}${convertedPrice.toLocaleString()}.00 ${currObj.code}</p>
+                        </div>
+                    </a>
+                `;
+            });
+        }
+
+        let cart = JSON.parse(localStorage.getItem('rd_cart')) || [];
+
+        function updateCartUI() {
+            const container = document.getElementById('cart-items-container');
+            const badge = document.getElementById('cart-count-badge');
+            const totalElem = document.getElementById('cart-total-price');
+            const currentCurr = localStorage.getItem('selected_currency') || 'PKR';
+            const currObj = exchangeRates[currentCurr];
             
-            for (let i = 0; i < productCards.length; i++) {
-                let productTitle = productCards[i].querySelector('.h-info-box h3').innerText.toLowerCase();
-                if (productTitle.includes(searchQuery)) {
-                    productCards[i].style.display = "flex";
-                } else {
-                    productCards[i].style.display = "none";
+            let totalQty = 0;
+            let totalPricePKR = 0;
+
+            if(cart.length === 0) {
+                container.innerHTML = `<p style="text-align: center; color: #777; margin-top: 30px;">Your cart is currently empty.</p>`;
+            } else {
+                container.innerHTML = '';
+                cart.forEach((item, idx) => {
+                    totalQty += item.qty;
+                    totalPricePKR += item.priceVal * item.qty;
+                    let itemConvertedPrice = Math.round(item.priceVal * currObj.rate);
+
+                    container.innerHTML += `
+                        <div class="cart-item">
+                            <img src="${item.img}" alt="${item.title}">
+                            <div class="cart-item-details">
+                                <div class="cart-item-title">${item.title} (${item.code})</div>
+                                <div class="cart-item-price">${currObj.symbol}${itemConvertedPrice.toLocaleString()} ${currObj.code}</div>
+                                <div class="cart-item-qty">Qty: ${item.qty}</div>
+                                <span class="remove-item" onclick="removeFromCart(${idx})">Remove</span>
+                            </div>
+                        </div>
+                    `;
+                });
+            }
+
+            let finalConvertedTotal = Math.round(totalPricePKR * currObj.rate);
+            badge.innerText = totalQty;
+            totalElem.innerText = `${currObj.symbol}${finalConvertedTotal.toLocaleString()} ${currObj.code}`;
+            localStorage.setItem('rd_cart', JSON.stringify(cart));
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCartUI();
+        }
+
+        function openCartDrawer() {
+            document.getElementById('cart-overlay').style.display = 'block';
+            document.getElementById('cart-drawer').classList.add('open');
+        }
+
+        function closeCartDrawer() {
+            document.getElementById('cart-overlay').style.display = 'none';
+            document.getElementById('cart-drawer').classList.remove('open');
+        }
+
+        function proceedToCheckoutFromCart() {
+            if(cart.length === 0) {
+                alert("Please add items to cart first!");
+                return;
+            }
+            localStorage.setItem('rd_checkout_item', JSON.stringify(cart[0]));
+            window.location.href = "checkout.html";
+        }
+
+        renderProducts();
+        updateCartUI();
+
+        // --- HERO SLIDER SCRIPT ---
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        function nextSlide() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+        setInterval(nextSlide, 4000);
+
+        // --- ENHANCED SEARCH FUNCTIONALITY (Code, Title, Color & Keywords) ---
+        function handleSearch(event) {
+            event.preventDefault();
+            const query = document.getElementById('search-input').value.trim().toLowerCase();
+            if(!query) return;
+
+            let matchedId = null;
+            // Pehle exact ya partial match dhoondhein title ya code mein
+            for(let id in productsData) {
+                let prod = productsData[id];
+                let titleLower = prod.title.toLowerCase();
+                let codeLower = prod.code.toLowerCase();
+
+                if(codeLower.includes(query) || titleLower.includes(query)) {
+                    matchedId = id;
+                    break;
                 }
             }
-        });
+
+            if(matchedId) {
+                window.location.href = `product.html?id=${matchedId}`;
+            } else {
+                alert("Koi product is name, color ya code se match nahi hui!");
+            }
+        }
     </script>
 </body>
 </html>

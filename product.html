@@ -12,7 +12,7 @@
 </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="page-title">3 Piece Suit - RANG DATA</title>
+    <title>Product Details - RANG DATA</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -20,14 +20,16 @@
         
         /* Announcement Bar */
         .announcement-bar { background-color: #c2ae6d; color: #4a002a; display: flex; justify-content: space-between; align-items: center; padding: 10px 5%; font-size: 14px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
-        .top-socials a { color: #4a002a; margin-right: 15px; text-decoration: none; font-size: 15px; }
-        .announcement-text { text-align: center; flex-grow: 1; font-size: 13px; }
-        .top-currency select { background: transparent; color: #4a002a; border: none; font-weight: bold; cursor: pointer; text-transform: uppercase; font-size: 13px; outline: none; }
+        .top-socials { display: flex; gap: 15px; flex: 1; }
+        .top-socials a { color: #4a002a; text-decoration: none; font-size: 15px; }
+        .announcement-text { text-align: center; flex: 2; font-size: 13px; }
+        .top-currency { display: flex; justify-content: flex-end; flex: 1; align-items: center; }
+        .top-currency select { background: transparent; color: #4a002a; border: none; font-weight: bold; cursor: pointer; text-transform: uppercase; font-size: 13px; outline: none; padding: 2px 0; width: auto; text-align-last: right; }
 
         /* Main Navbar */
         .navbar { background-color: #4A0424; padding: 18px 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
         .nav-search form { display: flex; align-items: center; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); padding: 6px 12px; border-radius: 4px; }
-        .nav-search input { background: transparent; border: none; color: #ffffff; padding-left: 8px; font-size: 13px; outline: none; width: 150px; font-family: 'Times New Roman', serif; }
+        .nav-search input { background: transparent; border: none; color: #ffffff; padding-left: 8px; font-size: 13px; outline: none; width: 170px; font-family: 'Times New Roman', serif; }
         .nav-search input::placeholder { color: rgba(255,255,255,0.6); }
         .nav-search button { background: transparent; border: none; color: #ffffff; cursor: pointer; }
 
@@ -43,51 +45,46 @@
         .nav-icons a { color: #ffffff; font-size: 18px; text-decoration: none; position: relative; cursor: pointer; }
         .cart-count { position: absolute; top: -8px; right: -8px; background-color: #c2ae6d; color: #4a002a; font-size: 10px; font-weight: bold; padding: 2px 5px; border-radius: 50%; }
 
-        /* Main Product Layout */
-        .product-container { max-width: 1200px; margin: 40px auto; padding: 0 20px; display: grid; grid-template-columns: 1.1fr 1fr; gap: 45px; }
+        /* Product Container */
+        .product-container { max-width: 1100px; margin: 50px auto; padding: 0 20px; display: flex; gap: 50px; }
+        .product-gallery { flex: 1; display: flex; gap: 20px; }
+        .thumbnail-list { display: flex; flex-direction: column; gap: 10px; }
+        .thumbnail-list img { width: 70px; height: 90px; object-fit: cover; cursor: pointer; border: 1px solid #ddd; transition: 0.3s; }
+        .thumbnail-list img:hover, .thumbnail-list img.active-thumb { border-color: #4A0424; }
+        .main-img-wrapper { flex-grow: 1; height: 550px; background: #f9f9f9; overflow: hidden; }
+        .main-img-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+
+        .product-details { flex: 1; display: flex; flex-direction: column; justify-content: flex-start; }
+        .product-details h1 { font-size: 26px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; color: #222; }
+        .product-code-tag { font-size: 13px; font-weight: bold; color: #777; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 15px; }
+        .product-price { font-size: 22px; font-weight: bold; color: #bc9c65; margin-bottom: 25px; }
         
-        /* Gallery with Zoom Effect */
-        .gallery-box { display: flex; flex-direction: column; gap: 15px; }
-        .main-img-box { width: 100%; height: 600px; border: 1px solid #f0f0f0; overflow: hidden; background-color: #fafafa; position: relative; cursor: zoom-in; }
-        .main-img-box img { width: 100%; height: 100%; object-fit: contain; transition: transform 0.2s ease-out; transform-origin: center center; }
-        .thumbnails-row { display: flex; gap: 12px; overflow-x: auto; padding-bottom: 5px; }
-        .thumbnails-row img { width: 85px; height: 110px; object-fit: cover; border: 1px solid #ddd; cursor: pointer; opacity: 0.7; transition: 0.3s; }
-        .thumbnails-row img:hover, .thumbnails-row img.active { border: 2px solid #4A0424; opacity: 1; }
+        .quantity-selector { display: flex; align-items: center; border: 1px solid #ccc; width: 120px; margin-bottom: 25px; }
+        .quantity-selector button { background: transparent; border: none; padding: 10px 15px; cursor: pointer; font-size: 16px; }
+        .quantity-selector input { width: 40px; text-align: center; border: none; font-size: 15px; font-family: 'Times New Roman', serif; outline: none; }
 
-        /* Details */
-        .details-box h1 { font-size: 28px; font-weight: 600; color: #111; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; line-height: 1.3; }
-        .product-code-display { font-size: 14px; font-weight: bold; color: #666; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 15px; }
-        .price { font-size: 24px; font-weight: bold; color: #bc9c65; margin-bottom: 22px; }
-        
-        .section-label { font-size: 14px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; color: #111; margin-bottom: 8px; display: block; }
-        .type-btn { background: #000; color: #fff; padding: 10px 20px; border: none; font-size: 13px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; display: inline-block; margin-bottom: 22px; }
-
-        .qty-box { display: flex; border: 1px solid #ccc; width: fit-content; margin-bottom: 25px; }
-        .qty-box button { background: none; border: none; padding: 10px 18px; cursor: pointer; font-size: 16px; font-weight: bold; }
-        .qty-box input { width: 45px; text-align: center; border: none; outline: none; font-size: 15px; font-weight: bold; }
-
-        .btn-add-cart { width: 100%; padding: 15px; background: #ffffff; color: #111; border: 1px solid #111; text-transform: uppercase; font-size: 14px; letter-spacing: 2px; font-weight: bold; cursor: pointer; margin-bottom: 12px; transition: 0.3s; }
-        .btn-add-cart:hover { background: #f5f5f5; }
-        .btn-buy-now { width: 100%; padding: 15px; background: #4A0424; color: #fff; border: 1px solid #4A0424; text-transform: uppercase; font-size: 14px; letter-spacing: 2px; font-weight: bold; cursor: pointer; margin-bottom: 30px; transition: 0.3s; }
+        .btn-actions { display: flex; gap: 15px; margin-top: 5px; margin-bottom: 30px; }
+        .btn-add-cart, .btn-buy-now { flex: 1; padding: 15px; font-size: 13px; font-weight: bold; text-transform: uppercase; letter-spacing: 1.5px; cursor: pointer; border: 1px solid #4A0424; transition: 0.3s; }
+        .btn-add-cart { background: #fff; color: #4A0424; }
+        .btn-add-cart:hover { background: #f9f9f9; }
+        .btn-buy-now { background: #4A0424; color: #fff; }
         .btn-buy-now:hover { background: #330218; }
 
-        /* Fabric Specs */
-        .specs-group { border-top: 1px solid #eee; padding-top: 25px; font-size: 15px; color: #333; }
-        .specs-item { margin-bottom: 18px; }
-        .specs-item i { width: 22px; color: #111; font-size: 16px; }
-        .specs-item strong { color: #111; text-transform: uppercase; font-size: 14px; letter-spacing: 0.8px; }
-        .specs-item p { margin-left: 26px; margin-top: 4px; font-size: 14px; color: #555; line-height: 1.5; }
+        /* Fabric Details Section */
+        .fabric-details-box { border-top: 1px solid #eee; padding-top: 20px; }
+        .fabric-section-title { font-size: 14px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; color: #222; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+        .fabric-section-desc { font-size: 13px; color: #555; margin-bottom: 15px; line-height: 1.5; }
 
         /* You May Also Like Section */
-        .recommend-section { max-width: 1200px; margin: 70px auto 40px auto; padding: 0 20px; }
-        .recommend-title { text-align: center; font-size: 24px; text-transform: uppercase; letter-spacing: 3px; color: #4A0424; margin-bottom: 35px; }
-        .recommend-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
-        .rec-card { border: 1px solid #f0f0f0; text-decoration: none; color: #111; transition: 0.3s; background: #fff; text-align: center; }
-        .rec-card:hover { transform: translateY(-4px); box-shadow: 0 6px 18px rgba(0,0,0,0.06); }
-        .rec-card img { width: 100%; height: 340px; object-fit: cover; }
-        .rec-info { padding: 14px; }
-        .rec-info h4 { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; font-weight: 600; color: #222; }
-        .rec-info p { font-size: 14px; font-weight: bold; color: #bc9c65; }
+        .related-section { max-width: 1100px; margin: 60px auto 40px; padding: 0 20px; }
+        .related-title { font-size: 22px; text-transform: uppercase; letter-spacing: 2px; text-align: center; margin-bottom: 30px; color: #4A0424; font-weight: bold; }
+        .related-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+        .product-card { text-decoration: none; color: inherit; display: block; background: #fff; border: 1px solid #eee; transition: 0.3s; }
+        .product-card:hover { box-shadow: 0 5px 15px rgba(0,0,0,0.08); }
+        .product-card img { width: 100%; height: 320px; object-fit: cover; }
+        .product-card-info { padding: 15px; text-align: center; }
+        .product-card-title { font-size: 14px; text-transform: uppercase; font-weight: bold; margin-bottom: 5px; color: #222; }
+        .product-card-price { font-size: 14px; color: #bc9c65; font-weight: bold; }
 
         /* Floating WhatsApp & Footer */
         .whatsapp-btn { position: fixed; bottom: 30px; right: 30px; background-color: #25d366; color: #ffffff; width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; text-decoration: none; font-size: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); z-index: 1000; }
@@ -114,11 +111,13 @@
         .cart-total { display: flex; justify-content: space-between; font-size: 18px; font-weight: bold; margin-bottom: 18px; }
         .btn-checkout { width: 100%; padding: 14px; background: #4A0424; color: #fff; border: none; text-transform: uppercase; font-weight: bold; letter-spacing: 1.5px; cursor: pointer; }
 
+        @media(max-width: 900px) {
+            .related-grid { grid-template-columns: repeat(2, 1fr); }
+        }
         @media(max-width: 768px) {
-            .product-container { grid-template-columns: 1fr; gap: 25px; }
-            .recommend-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
-            .main-img-box { height: 450px; }
+            .product-container { flex-direction: column; gap: 30px; margin: 30px auto; }
             .cart-drawer { width: 100%; right: -100%; }
+            .nav-search input { width: 110px; }
         }
     </style>
 </head>
@@ -131,21 +130,24 @@
             <a href="https://www.tiktok.com/@rangdata" target="_blank"><i class="fab fa-tiktok"></i></a>
         </div>
         <div class="announcement-text">
-            WORLDWIDE SHIPPING AVAILABLE | UK • USA • UAE • KSA
+            WORLDWIDE SHIPPING AVAILABLE
         </div>
         <div class="top-currency">
-            <select>
-                <option>PAKISTAN | PKR RS</option>
-                <option>UNITED STATES | USD $</option>
+            <select id="currency-selector" onchange="changeCurrency(this.value)">
+                <option value="PKR">PAKISTAN | PKR RS</option>
+                <option value="USD">UNITED STATES | USD $</option>
+                <option value="GBP">UNITED KINGDOM | GBP £</option>
+                <option value="AED">UNITED ARAB EMIRATES | AED</option>
+                <option value="SAR">SAUDI ARABIA | SAR</option>
             </select>
         </div>
     </div>
 
     <nav class="navbar">
         <div class="nav-search">
-            <form action="#" method="GET" onsubmit="return false;">
+            <form id="search-form" onsubmit="handleSearch(event)">
                 <button type="submit"><i class="fas fa-search"></i></button>
-                <input type="text" placeholder="Search products...">
+                <input type="text" id="search-input" placeholder="Search by name, color, code...">
             </form>
         </div>
 
@@ -166,55 +168,17 @@
         </div>
     </nav>
 
-    <div class="product-container">
-        <!-- Gallery with Zoom Wrapper -->
-        <div class="gallery-box">
-            <div class="main-img-box" id="zoom-container">
-                <img id="main-image" src="" alt="Main Dress Image">
-            </div>
-            <div class="thumbnails-row" id="thumb-box"></div>
-        </div>
-
-        <!-- Product Details -->
-        <div class="details-box">
-            <h1 id="p-title">3 PIECE SUIT</h1>
-            <div class="product-code-display" id="p-code">Product Code: RD-01</div>
-            <div class="price" id="p-price">Rs.4,799.00 PKR</div>
-            
-            <span class="section-label">TYPE</span>
-            <div class="type-btn">Unstitched 3-Pcs</div>
-
-            <span class="section-label">QUANTITY</span>
-            <div class="qty-box">
-                <button onclick="changeQty(-1)">-</button>
-                <input type="text" id="qty-input" value="1" readonly>
-                <button onclick="changeQty(1)">+</button>
-            </div>
-
-            <button class="btn-add-cart" onclick="addToCart()">ADD TO CART</button>
-            <button class="btn-buy-now" onclick="buyItNow()">BUY IT NOW</button>
-
-            <div class="specs-group">
-                <div class="specs-item">
-                    <i class="fas fa-cut"></i> <strong>SHIRT FABRIC :</strong>
-                    <p>Pure Summer Cotton / Lawn - 2.5 Meters<br>Complete Front Heavy Embroidered & Sleeves</p>
-                </div>
-                <div class="specs-item">
-                    <i class="fas fa-scroll"></i> <strong>DUPATTA FABRIC :</strong>
-                    <p>Fine Chiffon Dupatta - 2.5 Meters</p>
-                </div>
-                <div class="specs-item">
-                    <i class="fas fa-square"></i> <strong>TROUSER FABRIC :</strong>
-                    <p>Dyed Premium Cotton / Lawn - 2.5 Meters</p>
-                </div>
-            </div>
-        </div>
+    <!-- Product Details Section -->
+    <div class="product-container" id="product-details-container">
+        <!-- Dynamic content will load here -->
     </div>
 
-    <!-- Recommended Products Section -->
-    <div class="recommend-section">
-        <h3 class="recommend-title">YOU MAY ALSO LIKE</h3>
-        <div class="recommend-grid" id="recommend-grid"></div>
+    <!-- You May Also Like Section -->
+    <div class="related-section" id="related-section">
+        <h3 class="related-title">You May Also Like</h3>
+        <div class="related-grid" id="related-grid-container">
+            <!-- Dynamic related products will load here -->
+        </div>
     </div>
 
     <!-- Cart Drawer -->
@@ -247,120 +211,153 @@
 
     <script>
         const productsData = {
-            "1": { id:"1", code: "RD0042", title: "3 Pcs Mustard Lawn Suit", priceVal: 5499, price: "Rs.5,499.00 PKR", imgs: ["https://i.ibb.co/QFyr5pJ8/RD0042a.png", "https://i.ibb.co/PZG1D8Vh/RD0042b.png", "https://i.ibb.co/CKB8bFsr/RD0042c.png"] },
-            "2": { id:"2", code: "RD058", title: "3 Pcs Golden Mustard Suit", priceVal: 5199, price: "Rs.5,199.00 PKR", imgs: ["https://i.ibb.co/YFtPS8Fd/RD058a.png", "https://i.ibb.co/nNt0LfFX/RD058b.png", "https://i.ibb.co/GvpHzQm6/RD058c.png"] },
-            "3": { id:"3", code: "RD0545", title: "3 Pcs Deep Blue Suit", priceVal: 4899, price: "Rs.4,899.00 PKR", imgs: ["https://i.ibb.co/fYCgVKTm/RD0545a.png", "https://i.ibb.co/x8d31tRk/RD0545b.png", "https://i.ibb.co/PZpn7hjv/RD0545c.png"] },
-            "4": { id:"4", code: "RD0556", title: "3 Pcs Lilac Glow Suit", priceVal: 5199, price: "Rs.5,199.00 PKR", imgs: ["https://i.ibb.co/TBgMQH0T/RD0556a.png", "https://i.ibb.co/TMtzKFMP/RD0556b.png", "https://i.ibb.co/S4thN1Ws/RD0556c.png"] },
-            "5": { id:"5", code: "RD0561", title: "3 Pcs Dark Brown Suit", priceVal: 5499, price: "Rs.5,499.00 PKR", imgs: ["https://i.ibb.co/ZzZwSj42/RD0561a.png", "https://i.ibb.co/Y7DpDMLv/RD0561b.png", "https://i.ibb.co/prMxL4T1/RD0561c.png"] },
-            "6": { id:"6", code: "RD0572", title: "3 Pcs Teal Green Suit", priceVal: 5699, price: "Rs.5,699.00 PKR", imgs: ["https://i.ibb.co/Y7NHV9P3/RD0572a.png", "https://i.ibb.co/yF6rfzTQ/RD0572b.png", "https://i.ibb.co/d40cz4mP/RD0572c.png"] },
-            "7": { id:"7", code: "RD0576", title: "3 Pcs Beige Nude Suit", priceVal: 4899, price: "Rs.4,899.00 PKR", imgs: ["https://i.ibb.co/LDB3kywF/RD0576a.png", "https://i.ibb.co/V0s54Ycw/RD0576b.png", "https://i.ibb.co/GQqSjDHZ/RD0576c.png"] },
-            "8": { id:"8", code: "RD0582", title: "3 Pcs Ivory White Suit", priceVal: 5199, price: "Rs.5,199.00 PKR", imgs: ["https://i.ibb.co/nq1fQvG1/RD0582a.png", "https://i.ibb.co/cSgxdSbg/RD0582ac.png", "https://i.ibb.co/B2mwVRbV/RD0582b.png"] },
-            "9": { id:"9", code: "RD0585", title: "3 Pcs Maroon Luxury Suit", priceVal: 5699, price: "Rs.5,699.00 PKR", imgs: ["https://i.ibb.co/5W57Nr76/RD0585a.png", "https://i.ibb.co/QFgTbsV1/RD0585b.png", "https://i.ibb.co/03Z0RfP/RD0585c.png"] },
-            "10": { id:"10", code: "RD0586", title: "3 Pcs Mint Sage Suit", priceVal: 5499, price: "Rs.5,499.00 PKR", imgs: ["https://i.ibb.co/Z1YX7xLY/RD0586a.png", "https://i.ibb.co/PGnzpMbJ/RD0586b.png", "https://i.ibb.co/67M8M5HD/RD0586c.png"] },
-            "11": { id:"11", code: "RD0587", title: "3 Pcs Off White Suit", priceVal: 4899, price: "Rs.4,899.00 PKR", imgs: ["https://i.ibb.co/cXRtGWKT/RD0587a.png", "https://i.ibb.co/V5qS6pj/RD0587b.png", "https://i.ibb.co/gbbY7pvy/RD0587c.png"] },
-            "12": { id:"12", code: "RD0601", title: "3 Pcs Charcoal Grey Suit", priceVal: 5499, price: "Rs.5,499.00 PKR", imgs: ["https://i.ibb.co/8gXH43Q1/RD0601a.png", "https://i.ibb.co/YBd72ZJM/RD0601b.png", "https://i.ibb.co/gXcHkFC/RD0601c.png"] },
-            "13": { id:"13", code: "RD0605", title: "3 Pcs Forest Olive Suit", priceVal: 5199, price: "Rs.5,199.00 PKR", imgs: ["https://i.ibb.co/FbGYhD9r/RD0605a.png", "https://i.ibb.co/6JGJZ6vW/RD0605b.png", "https://i.ibb.co/qYYbnPwb/RD0605c.png"] },
-            "14": { id:"14", code: "RD0607", title: "3 Pcs Royal Blue Suit", priceVal: 5199, price: "Rs.5,199.00 PKR", imgs: ["https://i.ibb.co/GvYkGkFS/RD0607a.png", "https://i.ibb.co/KzSXsXTM/RD0607b.png", "https://i.ibb.co/qYhWFFnb/RD0607c.png"] },
-            "15": { id:"15", code: "RD0609", title: "3 Pcs Sapphire Blue Suit", priceVal: 5499, price: "Rs.5,499.00 PKR", imgs: ["https://i.ibb.co/LXKv0yDN/RD0609a.png", "https://i.ibb.co/fdLbPSNj/RD0609b.png", "https://i.ibb.co/Q38G3PRm/RD0609c.png"] },
-            "16": { id:"16", code: "RD0611", title: "3 Pcs Peach Glow Suit", priceVal: 4899, price: "Rs.4,899.00 PKR", imgs: ["https://i.ibb.co/zWryTzVJ/RD0611a.png", "https://i.ibb.co/v4fYRHxV/RD0611b.png", "https://i.ibb.co/DDskmJS4/RD0611c.png"] },
-            "17": { id:"17", code: "RD0612", title: "3 Pcs Peacock Blue Suit", priceVal: 4899, price: "Rs.4,899.00 PKR", imgs: ["https://i.ibb.co/4wGMhNLh/RD0612a.png", "https://i.ibb.co/5WXvWBKv/RD0612b.png", "https://i.ibb.co/8ghv4CFM/RD0612c.png", "https://i.ibb.co/zV2z5NrZ/RD0612d.png"] },
-            "18": { id:"18", code: "RD0613", title: "3 Pcs Classic Embroidered Suit", priceVal: 5199, price: "Rs.5,199.00 PKR", imgs: ["https://i.ibb.co/4wxTWL3H/RD0613a.png", "https://i.ibb.co/848dgbvs/RD0613b.png", "https://i.ibb.co/W4xMcwM4/RD0613c.png"] },
-            "19": { id:"19", code: "RD0615", title: "3 Pcs Elegant Festive Suit", priceVal: 5499, price: "Rs.5,499.00 PKR", imgs: ["https://i.ibb.co/D2FMVmW/RD0615a.png", "https://i.ibb.co/1GmdmfwS/RD0615b.png", "https://i.ibb.co/0ycV3whC/RD0615c.png"] },
-            "20": { id:"20", code: "RD06007", title: "3 Pcs Crimson Red Suit", priceVal: 5699, price: "Rs.5,699.00 PKR", imgs: ["https://i.ibb.co/C5GshYFN/RD06007a.png", "https://i.ibb.co/67p4y3TD/RD06007b.png", "https://i.ibb.co/BHmQ4QR8/RD06007c.png"] }
+            "1": { id:"1", code: "RD0042", title: "3 Pcs Mustard Lawn Suit", priceVal: 5499, imgs: ["https://i.ibb.co/QFyr5pJ8/RD0042a.png", "https://i.ibb.co/PZG1D8Vh/RD0042b.png", "https://i.ibb.co/QFyr5pJ8/RD0042a.png"] },
+            "2": { id:"2", code: "RD058", title: "3 Pcs Golden Mustard Suit", priceVal: 5199, imgs: ["https://i.ibb.co/YFtPS8Fd/RD058a.png", "https://i.ibb.co/nNt0LfFX/RD058b.png", "https://i.ibb.co/YFtPS8Fd/RD058a.png"] },
+            "3": { id:"3", code: "RD0545", title: "3 Pcs Deep Blue Suit", priceVal: 4899, imgs: ["https://i.ibb.co/fYCgVKTm/RD0545a.png", "https://i.ibb.co/x8d31tRk/RD0545b.png", "https://i.ibb.co/fYCgVKTm/RD0545a.png"] },
+            "4": { id:"4", code: "RD0556", title: "3 Pcs Lilac Glow Suit", priceVal: 5199, imgs: ["https://i.ibb.co/TBgMQH0T/RD0556a.png", "https://i.ibb.co/TMtzKFMP/RD0556b.png", "https://i.ibb.co/TBgMQH0T/RD0556a.png"] },
+            "5": { id:"5", code: "RD0561", title: "3 Pcs Dark Brown Suit", priceVal: 5499, imgs: ["https://i.ibb.co/ZzZwSj42/RD0561a.png", "https://i.ibb.co/Y7DpDMLv/RD0561b.png", "https://i.ibb.co/ZzZwSj42/RD0561a.png"] },
+            "6": { id:"6", code: "RD0572", title: "3 Pcs Teal Green Suit", priceVal: 5699, imgs: ["https://i.ibb.co/Y7NHV9P3/RD0572a.png", "https://i.ibb.co/yF6rfzTQ/RD0572b.png", "https://i.ibb.co/Y7NHV9P3/RD0572a.png"] },
+            "7": { id:"7", code: "RD0576", title: "3 Pcs Beige Nude Suit", priceVal: 4899, imgs: ["https://i.ibb.co/LDB3kywF/RD0576a.png", "https://i.ibb.co/V0s54Ycw/RD0576b.png", "https://i.ibb.co/LDB3kywF/RD0576a.png"] },
+            "8": { id:"8", code: "RD0582", title: "3 Pcs Ivory White Suit", priceVal: 5199, imgs: ["https://i.ibb.co/nq1fQvG1/RD0582a.png", "https://i.ibb.co/cSgxdSbg/RD0582ac.png", "https://i.ibb.co/nq1fQvG1/RD0582a.png"] },
+            "9": { id:"9", code: "RD0585", title: "3 Pcs Maroon Luxury Suit", priceVal: 5699, imgs: ["https://i.ibb.co/5W57Nr76/RD0585a.png", "https://i.ibb.co/QFgTbsV1/RD0585b.png", "https://i.ibb.co/5W57Nr76/RD0585a.png"] },
+            "10": { id:"10", code: "RD0586", title: "3 Pcs Mint Sage Suit", priceVal: 5499, imgs: ["https://i.ibb.co/Z1YX7xLY/RD0586a.png", "https://i.ibb.co/PGnzpMbJ/RD0586b.png", "https://i.ibb.co/Z1YX7xLY/RD0586a.png"] },
+            "11": { id:"11", code: "RD0587", title: "3 Pcs Off White Suit", priceVal: 4899, imgs: ["https://i.ibb.co/cXRtGWKT/RD0587a.png", "https://i.ibb.co/V5qS6pj/RD0587b.png", "https://i.ibb.co/cXRtGWKT/RD0587a.png"] },
+            "12": { id:"12", code: "RD0601", title: "3 Pcs Charcoal Grey Suit", priceVal: 5499, imgs: ["https://i.ibb.co/8gXH43Q1/RD0601a.png", "https://i.ibb.co/YBd72ZJM/RD0601b.png", "https://i.ibb.co/8gXH43Q1/RD0601a.png"] },
+            "13": { id:"13", code: "RD0605", title: "3 Pcs Forest Olive Suit", priceVal: 5199, imgs: ["https://i.ibb.co/FbGYhD9r/RD0605a.png", "https://i.ibb.co/6JGJZ6vW/RD0605b.png", "https://i.ibb.co/FbGYhD9r/RD0605a.png"] },
+            "14": { id:"14", code: "RD0607", title: "3 Pcs Royal Blue Suit", priceVal: 5199, imgs: ["https://i.ibb.co/GvYkGkFS/RD0607a.png", "https://i.ibb.co/KzSXsXTM/RD0607b.png", "https://i.ibb.co/GvYkGkFS/RD0607a.png"] },
+            "15": { id:"15", code: "RD0609", title: "3 Pcs Sapphire Blue Suit", priceVal: 5499, imgs: ["https://i.ibb.co/LXKv0yDN/RD0609a.png", "https://i.ibb.co/fdLbPSNj/RD0609b.png", "https://i.ibb.co/LXKv0yDN/RD0609a.png"] },
+            "16": { id:"16", code: "RD0611", title: "3 Pcs Peach Glow Suit", priceVal: 4899, imgs: ["https://i.ibb.co/zWryTzVJ/RD0611a.png", "https://i.ibb.co/v4fYRHxV/RD0611b.png", "https://i.ibb.co/zWryTzVJ/RD0611a.png"] },
+            "17": { id:"17", code: "RD0612", title: "3 Pcs Peacock Blue Suit", priceVal: 4899, imgs: ["https://i.ibb.co/4wGMhNLh/RD0612a.png", "https://i.ibb.co/5WXvWBKv/RD0612b.png", "https://i.ibb.co/4wGMhNLh/RD0612a.png"] },
+            "18": { id:"18", code: "RD0613", title: "3 Pcs Classic Embroidered Suit", priceVal: 5199, imgs: ["https://i.ibb.co/4wxTWL3H/RD0613a.png", "https://i.ibb.co/848dgbvs/RD0613b.png", "https://i.ibb.co/4wxTWL3H/RD0613a.png"] },
+            "19": { id:"19", code: "RD0615", title: "3 Pcs Elegant Festive Suit", priceVal: 5499, imgs: ["https://i.ibb.co/D2FMVmW/RD0615a.png", "https://i.ibb.co/1GmdmfwS/RD0615b.png", "https://i.ibb.co/D2FMVmW/RD0615a.png"] },
+            "20": { id:"20", code: "RD06007", title: "3 Pcs Crimson Red Suit", priceVal: 5699, imgs: ["https://i.ibb.co/C5GshYFN/RD06007a.png", "https://i.ibb.co/67p4y3TD/RD06007b.png", "https://i.ibb.co/C5GshYFN/RD06007a.png"] }
         };
+
+        const exchangeRates = {
+            PKR: { rate: 1, symbol: "Rs.", code: "PKR" },
+            USD: { rate: 0.0036, symbol: "$", code: "USD" },
+            GBP: { rate: 0.0028, symbol: "£", code: "GBP" },
+            AED: { rate: 0.0132, symbol: "AED ", code: "AED" },
+            SAR: { rate: 0.0135, symbol: "SAR ", code: "SAR" }
+        };
+
+        const savedCurrency = localStorage.getItem('selected_currency') || 'PKR';
+        document.getElementById('currency-selector').value = savedCurrency;
+
+        function changeCurrency(currency) {
+            localStorage.setItem('selected_currency', currency);
+            loadProductDetails();
+            loadRelatedProducts();
+            updateCartUI();
+        }
 
         const urlParams = new URLSearchParams(window.location.search);
         const productId = urlParams.get('id') || "1";
-        const currentProduct = productsData[productId] || productsData["1"];
+        let currentProduct = productsData[productId] || productsData["1"];
 
-        document.getElementById('page-title').innerText = currentProduct.title + " - RANG DATA";
-        document.getElementById('p-title').innerText = currentProduct.title;
-        document.getElementById('p-code').innerText = "Product Code: " + currentProduct.code;
-        document.getElementById('p-price').innerText = currentProduct.price;
-        document.getElementById('main-image').src = currentProduct.imgs[0];
+        function loadProductDetails() {
+            const container = document.getElementById('product-details-container');
+            const currentCurr = localStorage.getItem('selected_currency') || 'PKR';
+            const currObj = exchangeRates[currentCurr];
+            let convertedPrice = Math.round(currentProduct.priceVal * currObj.rate);
 
-        const thumbBox = document.getElementById('thumb-box');
-        thumbBox.innerHTML = '';
-        currentProduct.imgs.forEach((imgUrl, idx) => {
-            const img = document.createElement('img');
-            img.src = imgUrl;
-            if(idx === 0) img.classList.add('active');
-            img.onclick = () => {
-                document.getElementById('main-image').src = imgUrl;
-                document.querySelectorAll('.thumbnails-row img').forEach(i => i.classList.remove('active'));
-                img.classList.add('active');
-            };
-            thumbBox.appendChild(img);
-        });
+            let thumbsHTML = '';
+            currentProduct.imgs.forEach((img, idx) => {
+                thumbsHTML += `<img src="${img}" class="${idx === 0 ? 'active-thumb' : ''}" onclick="changeMainImage('${img}', this)">`;
+            });
 
-        /* --- IMAGE ZOOM FUNCTIONALITY --- */
-        const container = document.getElementById('zoom-container');
-        const imgEl = document.getElementById('main-image');
+            container.innerHTML = `
+                <div class="product-gallery">
+                    <div class="thumbnail-list">
+                        ${thumbsHTML}
+                    </div>
+                    <div class="main-img-wrapper">
+                        <img id="main-product-img" src="${currentProduct.imgs[0]}" alt="${currentProduct.title}">
+                    </div>
+                </div>
+                <div class="product-details">
+                    <h1>${currentProduct.title}</h1>
+                    <div class="product-code-tag">Design Code: ${currentProduct.code}</div>
+                    <div class="product-price" id="prod-price-display">${currObj.symbol}${convertedPrice.toLocaleString()}.00 ${currObj.code}</div>
 
-        container.addEventListener('mousemove', (e) => {
-            const rect = container.getBoundingClientRect();
-            const x = ((e.clientX - rect.left) / container.offsetWidth) * 100;
-            const y = ((e.clientY - rect.top) / container.offsetHeight) * 100;
-            
-            imgEl.style.transformOrigin = `${x}% ${y}%`;
-            imgEl.style.transform = "scale(2)";
-        });
+                    <div class="quantity-selector">
+                        <button type="button" onclick="decreaseQty()">-</button>
+                        <input type="text" id="quantity-input" value="1" readonly>
+                        <button type="button" onclick="increaseQty()">+</button>
+                    </div>
 
-        container.addEventListener('mouseleave', () => {
-            imgEl.style.transformOrigin = "center center";
-            imgEl.style.transform = "scale(1)";
-        });
+                    <div class="btn-actions">
+                        <button class="btn-add-cart" onclick="addToCart()">ADD TO CART</button>
+                        <button class="btn-buy-now" onclick="buyNow()">BUY IT NOW</button>
+                    </div>
 
-        function changeQty(val) {
-            let input = document.getElementById('qty-input');
-            let currVal = parseInt(input.value) + val;
-            if(currVal >= 1) input.value = currVal;
+                    <div class="fabric-details-box">
+                        <div class="fabric-section-title"><i class="fas fa-cut"></i> SHIRT FABRIC :</div>
+                        <div class="fabric-section-desc">Pure Summer Cotton / Lawn - 2.5 Meters<br>Complete Front Heavy Embroidered & Sleeves</div>
+
+                        <div class="fabric-section-title"><i class="fas fa-scroll"></i> DUPATTA FABRIC :</div>
+                        <div class="fabric-section-desc">Fine Chiffon Dupatta - 2.5 Meters</div>
+
+                        <div class="fabric-section-title"><i class="fas fa-layer-group"></i> TROUSER FABRIC :</div>
+                        <div class="fabric-section-desc">Dyed Premium Cotton / Lawn - 2.5 Meters</div>
+                    </div>
+                </div>
+            `;
         }
 
-        /* --- CART & CHECKOUT REDIRECT --- */
+        function loadRelatedProducts() {
+            const container = document.getElementById('related-grid-container');
+            const currentCurr = localStorage.getItem('selected_currency') || 'PKR';
+            const currObj = exchangeRates[currentCurr];
+
+            let productKeys = Object.keys(productsData).filter(id => id !== currentProduct.id);
+            let shuffled = productKeys.sort(() => 0.5 - Math.random());
+            let selectedKeys = shuffled.slice(0, 4);
+
+            let html = '';
+            selectedKeys.forEach(key => {
+                let p = productsData[key];
+                let pPrice = Math.round(p.priceVal * currObj.rate);
+                html += `
+                    <a href="product.html?id=${p.id}" class="product-card">
+                        <img src="${p.imgs[0]}" alt="${p.title}">
+                        <div class="product-card-info">
+                            <div class="product-card-title">${p.title}</div>
+                            <div class="product-card-price">${currObj.symbol}${pPrice.toLocaleString()} ${currObj.code}</div>
+                        </div>
+                    </a>
+                `;
+            });
+            container.innerHTML = html;
+        }
+
+        function changeMainImage(imgSrc, thumbElement) {
+            document.getElementById('main-product-img').src = imgSrc;
+            document.querySelectorAll('.thumbnail-list img').forEach(el => el.classList.remove('active-thumb'));
+            thumbElement.classList.add('active-thumb');
+        }
+
+        function increaseQty() {
+            let input = document.getElementById('quantity-input');
+            input.value = parseInt(input.value) + 1;
+        }
+
+        function decreaseQty() {
+            let input = document.getElementById('quantity-input');
+            if(parseInt(input.value) > 1) {
+                input.value = parseInt(input.value) - 1;
+            }
+        }
+
         let cart = JSON.parse(localStorage.getItem('rd_cart')) || [];
 
-        function updateCartUI() {
-            const container = document.getElementById('cart-items-container');
-            const badge = document.getElementById('cart-count-badge');
-            const totalElem = document.getElementById('cart-total-price');
-            
-            let totalQty = 0;
-            let totalPrice = 0;
-
-            if(cart.length === 0) {
-                container.innerHTML = `<p style="text-align: center; color: #777; margin-top: 30px;">Your cart is currently empty.</p>`;
-            } else {
-                container.innerHTML = '';
-                cart.forEach((item, idx) => {
-                    totalQty += item.qty;
-                    totalPrice += item.priceVal * item.qty;
-
-                    container.innerHTML += `
-                        <div class="cart-item">
-                            <img src="${item.img}" alt="${item.title}">
-                            <div class="cart-item-details">
-                                <div class="cart-item-title">${item.title} (${item.code})</div>
-                                <div class="cart-item-price">Rs.${item.priceVal.toLocaleString()} PKR</div>
-                                <div class="cart-item-qty">Qty: ${item.qty}</div>
-                                <span class="remove-item" onclick="removeFromCart(${idx})">Remove</span>
-                            </div>
-                        </div>
-                    `;
-                });
-            }
-
-            badge.innerText = totalQty;
-            totalElem.innerText = `Rs.${totalPrice.toLocaleString()} PKR`;
-            localStorage.setItem('rd_cart', JSON.stringify(cart));
-        }
-
         function addToCart() {
-            let qty = parseInt(document.getElementById('qty-input').value);
-            let existingIdx = cart.findIndex(i => i.id === currentProduct.id);
+            let qtyInput = document.getElementById('quantity-input');
+            let qty = qtyInput ? parseInt(qtyInput.value) : 1;
+            let existingItem = cart.find(item => item.id === currentProduct.id);
 
-            if(existingIdx > -1) {
-                cart[existingIdx].qty += qty;
+            if(existingItem) {
+                existingItem.qty += qty;
             } else {
                 cart.push({
                     id: currentProduct.id,
@@ -376,26 +373,10 @@
             openCartDrawer();
         }
 
-        function removeFromCart(index) {
-            cart.splice(index, 1);
-            updateCartUI();
-        }
-
-        function openCartDrawer() {
-            document.getElementById('cart-overlay').style.display = 'block';
-            document.getElementById('cart-drawer').classList.add('open');
-        }
-
-        function closeCartDrawer() {
-            document.getElementById('cart-overlay').style.display = 'none';
-            document.getElementById('cart-drawer').classList.remove('open');
-        }
-
-        /* DIRECT CHECKOUT REDIRECT FOR BUY IT NOW */
-        function buyItNow() {
-            let qty = parseInt(document.getElementById('qty-input').value);
-            
-            const checkoutItem = {
+        function buyNow() {
+            let qtyInput = document.getElementById('quantity-input');
+            let qty = qtyInput ? parseInt(qtyInput.value) : 1;
+            let itemToBuy = {
                 id: currentProduct.id,
                 code: currentProduct.code,
                 title: currentProduct.title,
@@ -403,9 +384,68 @@
                 img: currentProduct.imgs[0],
                 qty: qty
             };
-
-            localStorage.setItem('rd_checkout_item', JSON.stringify(checkoutItem));
+            localStorage.setItem('rd_checkout_item', JSON.stringify(itemToBuy));
             window.location.href = "checkout.html";
+        }
+
+        function updateCartUI() {
+            const container = document.getElementById('cart-items-container');
+            const badge = document.getElementById('cart-count-badge');
+            const totalElem = document.getElementById('cart-total-price');
+            const currentCurr = localStorage.getItem('selected_currency') || 'PKR';
+            const currObj = exchangeRates[currentCurr];
+            
+            let totalQty = 0;
+            let totalPricePKR = 0;
+
+            if(!container || !badge || !totalElem) return;
+
+            if(cart.length === 0) {
+                container.innerHTML = `<p style="text-align: center; color: #777; margin-top: 30px;">Your cart is currently empty.</p>`;
+            } else {
+                container.innerHTML = '';
+                cart.forEach((item, idx) => {
+                    totalQty += item.qty;
+                    totalPricePKR += item.priceVal * item.qty;
+                    let itemConvertedPrice = Math.round(item.priceVal * currObj.rate);
+
+                    container.innerHTML += `
+                        <div class="cart-item">
+                            <img src="${item.img}" alt="${item.title}">
+                            <div class="cart-item-details">
+                                <div class="cart-item-title">${item.title} (${item.code})</div>
+                                <div class="cart-item-price">${currObj.symbol}${itemConvertedPrice.toLocaleString()} ${currObj.code}</div>
+                                <div class="cart-item-qty">Qty: ${item.qty}</div>
+                                <span class="remove-item" onclick="removeFromCart(${idx})">Remove</span>
+                            </div>
+                        </div>
+                    `;
+                });
+            }
+
+            let finalConvertedTotal = Math.round(totalPricePKR * currObj.rate);
+            badge.innerText = totalQty;
+            totalElem.innerText = `${currObj.symbol}${finalConvertedTotal.toLocaleString()} ${currObj.code}`;
+            localStorage.setItem('rd_cart', JSON.stringify(cart));
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCartUI();
+        }
+
+        function openCartDrawer() {
+            const overlay = document.getElementById('cart-overlay');
+            const drawer = document.getElementById('cart-drawer');
+            if(overlay) overlay.style.display = 'block';
+            if(drawer) drawer.classList.add('open');
+        }
+
+        function closeCartDrawer() {
+            const overlay = document.getElementById('cart-overlay');
+            const drawer = document.getElementById('cart-drawer');
+            if(overlay) overlay.style.display = 'none';
+            if(drawer) drawer.classList.remove('open');
         }
 
         function proceedToCheckoutFromCart() {
@@ -417,26 +457,34 @@
             window.location.href = "checkout.html";
         }
 
-        // Initialize UI
+        loadProductDetails();
+        loadRelatedProducts();
         updateCartUI();
 
-        // Recommendations
-        const recGrid = document.getElementById('recommend-grid');
-        recGrid.innerHTML = '';
-        Object.keys(productsData).forEach(id => {
-            if(id !== productId && recGrid.children.length < 4) {
-                let item = productsData[id];
-                recGrid.innerHTML += `
-                    <a href="product.html?id=${id}" class="rec-card">
-                        <img src="${item.imgs[0]}" alt="${item.title}">
-                        <div class="rec-info">
-                            <h4>${item.title}</h4>
-                            <p>${item.price}</p>
-                        </div>
-                    </a>
-                `;
+        // --- ENHANCED SEARCH FUNCTIONALITY ---
+        function handleSearch(event) {
+            event.preventDefault();
+            const query = document.getElementById('search-input').value.trim().toLowerCase();
+            if(!query) return;
+
+            let matchedId = null;
+            for(let id in productsData) {
+                let prod = productsData[id];
+                let titleLower = prod.title.toLowerCase();
+                let codeLower = prod.code.toLowerCase();
+
+                if(codeLower.includes(query) || titleLower.includes(query)) {
+                    matchedId = id;
+                    break;
+                }
             }
-        });
+
+            if(matchedId) {
+                window.location.href = `product.html?id=${matchedId}`;
+            } else {
+                alert("Koi product is name, color ya code se match nahi hui!");
+            }
+        }
     </script>
 </body>
 </html>
