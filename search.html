@@ -3,22 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Shop All Unstitched Suits | RANG DATA</title>
-<meta name="description" content="Browse all 30 RANG DATA unstitched embroidered suits across the summer and winter collections. Filter by collection, pieces and availability. Cash on delivery in Pakistan.">
-<link rel="canonical" href="https://rangdata.com/shop.html">
+<title>Search | RANG DATA</title>
+<meta name="description" content="Search the RANG DATA catalogue by article code, colour, fabric or number of pieces across the summer and winter unstitched collections.">
+<link rel="canonical" href="https://rangdata.com/search.html">
 <meta name="theme-color" content="#4A0424">
-<meta name="robots" content="index, follow">
+<meta name="robots" content="noindex, follow">
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="RANG DATA">
-<meta property="og:title" content="Shop All Unstitched Suits | RANG DATA">
-<meta property="og:description" content="Browse all 30 RANG DATA unstitched embroidered suits across the summer and winter collections. Filter by collection, pieces and availability. Cash on delivery in Pakistan.">
-<meta property="og:url" content="https://rangdata.com/shop.html">
+<meta property="og:title" content="Search | RANG DATA">
+<meta property="og:description" content="Search the RANG DATA catalogue by article code, colour, fabric or number of pieces across the summer and winter unstitched collections.">
+<meta property="og:url" content="https://rangdata.com/search.html">
 <meta property="og:image" content="https://i.ibb.co/C5GshYFN/RD06007a.png">
 <meta property="og:locale" content="en_PK">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Shop All Unstitched Suits | RANG DATA">
-<meta name="twitter:description" content="Browse all 30 RANG DATA unstitched embroidered suits across the summer and winter collections. Filter by collection, pieces and availability. Cash on delivery in Pakistan.">
+<meta name="twitter:title" content="Search | RANG DATA">
+<meta name="twitter:description" content="Search the RANG DATA catalogue by article code, colour, fabric or number of pieces across the summer and winter unstitched collections.">
 <meta name="twitter:image" content="https://i.ibb.co/C5GshYFN/RD06007a.png">
 
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
@@ -29,7 +29,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link rel="stylesheet" href="assets/css/style.css">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Shop All Unstitched Suits","url":"https://rangdata.com/shop.html","isPartOf":{"@type":"WebSite","name":"RANG DATA","url":"https://rangdata.com/"}}</script>
+
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XQQH342VF3"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XQQH342VF3');</script>
 </head>
@@ -149,49 +149,52 @@
 <section class="page-hero">
   <div class="wrap">
     <nav class="breadcrumb" aria-label="Breadcrumb">
-      <a href="index.html">Home</a> <span aria-hidden="true">/</span> <span aria-current="page">Shop All</span>
+      <a href="index.html">Home</a> <span aria-hidden="true">/</span> <span aria-current="page">Search</span>
     </nav>
-    <span class="eyebrow">The full catalogue</span>
-    <h1>Shop All Suits</h1>
-    <p>Thirty designs across two seasons. Every set is unstitched, embroidered in-house and dispatched from Faisalabad.</p>
+    <span class="eyebrow">Find a design</span>
+    <h1 id="srTitle">Search</h1>
+    <p>Search by article code, colour, fabric or number of pieces &mdash; for example <b>RD0545</b>, <b>maroon</b>, <b>khaddar</b> or <b>3 pcs</b>.</p>
   </div>
 </section>
 
 <section class="section section-tight">
   <div class="wrap">
-    <div class="catalog-toolbar">
-      <div class="catalog-count" id="catCount">Loading&hellip;</div>
+    <form class="search-page-form" id="srForm" role="search" autocomplete="off" style="max-width:620px;margin:0 auto 40px;display:flex;gap:10px">
+      <label class="visually-hidden" for="srInput">Search products</label>
+      <input id="srInput" type="search" name="q" placeholder="Try a code, colour or fabric" style="flex:1">
+      <button type="submit" class="btn">Search</button>
+    </form>
+
+    <div class="catalog-toolbar" id="srToolbar" hidden>
+      <div class="catalog-count" id="srCount"></div>
       <div class="catalog-filters">
-        <button type="button" class="chip active" data-filter="collection" data-value="all">All</button>
-        <button type="button" class="chip" data-filter="collection" data-value="summer">Summer</button>
-        <button type="button" class="chip" data-filter="collection" data-value="winter">Winter</button>
-        <button type="button" class="chip" data-filter="pieces" data-value="all">All pieces</button>
-        <button type="button" class="chip" data-filter="pieces" data-value="2">2 Pcs</button>
-        <button type="button" class="chip" data-filter="pieces" data-value="3">3 Pcs</button>
-        <button type="button" class="chip" data-filter="stock" data-value="instock">In stock only</button>
-        <label class="visually-hidden" for="catSort">Sort products</label>
-        <select id="catSort">
-          <option value="featured">Sort: Featured</option>
-          <option value="low">Price: low to high</option>
-          <option value="high">Price: high to low</option>
-          <option value="name">Name: A to Z</option>
-        </select>
+        <button type="button" class="chip" id="srStock">In stock only</button>
       </div>
     </div>
 
-    <div class="product-grid" id="catGrid"></div>
+    <div class="product-grid" id="srGrid"></div>
 
-    <div class="empty-state" id="catEmpty" hidden>
+    <div class="empty-state" id="srEmpty" hidden>
       <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
-      <h3>Nothing matches those filters</h3>
-      <p>Try clearing a filter, or browse the full catalogue.</p>
-      <button type="button" class="btn btn-ghost" id="catReset">Clear filters</button>
+      <h3 id="srEmptyTitle">No matching designs</h3>
+      <p id="srEmptyText">Check the spelling of the article code, or try a colour such as &ldquo;maroon&rdquo; instead.</p>
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+        <a class="btn" href="shop.html">Browse all 30 designs</a>
+        <a class="btn btn-wa" href="https://wa.me/923406751076" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Ask us directly</a>
+      </div>
     </div>
   </div>
 </section>
 
-
-
+<section class="section bg-cream" id="srSuggest">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Popular right now</span>
+      <h2>In Stock Today</h2>
+    </div>
+    <div class="product-grid" id="srPopular"></div>
+  </div>
+</section>
 </main>
 
 <section class="newsletter">
@@ -257,7 +260,7 @@
         <h4>Get in Touch</h4>
         <ul class="footer-contact">
           <li><i class="fa-brands fa-whatsapp" aria-hidden="true"></i><a href="https://wa.me/923406751076" target="_blank" rel="noopener">+92 340 675 1076</a></li>
-          <li><i class="fa-regular fa-envelope" aria-hidden="true"></i><a href="/cdn-cgi/l/email-protection#3a0b08485b545d5e5b4e5b7a5d575b535614595557"><span class="__cf_email__" data-cfemail="31000343505f565550455071565c50585d1f525e5c">[email&#160;protected]</span></a></li>
+          <li><i class="fa-regular fa-envelope" aria-hidden="true"></i><a href="/cdn-cgi/l/email-protection#f9c8cb8b98979e9d988d98b99e94989095d79a9694"><span class="__cf_email__" data-cfemail="fccdce8e9d929b989d889dbc9b919d9590d29f9391">[email&#160;protected]</span></a></li>
           <li><i class="fa-regular fa-clock" aria-hidden="true"></i><span>Mon &ndash; Sat, 10am &ndash; 8pm (PKT)</span></li>
           <li><i class="fa-solid fa-location-dot" aria-hidden="true"></i><span>Faisalabad, Punjab, Pakistan</span></li>
         </ul>
@@ -294,84 +297,75 @@
 
 window.RD_PAGE = { init: function () {
   var P = window.RD_PRODUCTS;
-  var SCOPE = "all";
-  var base = SCOPE === 'all' ? P.all() : P.byCollection(SCOPE);
-  var state = { collection: 'all', pieces: 'all', stock: 'all', sort: 'featured' };
+  var input = document.getElementById('srInput');
+  var grid = document.getElementById('srGrid');
+  var empty = document.getElementById('srEmpty');
+  var toolbar = document.getElementById('srToolbar');
+  var count = document.getElementById('srCount');
+  var suggest = document.getElementById('srSuggest');
+  var stockChip = document.getElementById('srStock');
+  var stockOnly = false;
+  var current = '';
 
-  var grid = document.getElementById('catGrid');
-  var count = document.getElementById('catCount');
-  var empty = document.getElementById('catEmpty');
-  var sortSel = document.getElementById('catSort');
+  document.getElementById('srPopular').innerHTML =
+    P.all().filter(function (p) { return p.status === 'in-stock'; }).slice(0, 4).map(window.rdCardHTML).join('');
 
-  function apply() {
-    var list = base.slice();
-    if (state.collection !== 'all') list = list.filter(function (p) { return p.collection === state.collection; });
-    if (state.pieces !== 'all') list = list.filter(function (p) { return String(p.pieces) === state.pieces; });
-    if (state.stock === 'instock') list = list.filter(function (p) { return p.status === 'in-stock'; });
+  function run(q, push) {
+    current = q;
+    input.value = q;
 
-    if (state.sort === 'low') list.sort(function (a, b) { return a.price - b.price; });
-    else if (state.sort === 'high') list.sort(function (a, b) { return b.price - a.price; });
-    else if (state.sort === 'name') list.sort(function (a, b) { return a.name.localeCompare(b.name); });
-    else list.sort(function (a, b) {
-      /* featured = in-stock first, then original catalogue order */
-      var s = (a.status === 'in-stock' ? 0 : 1) - (b.status === 'in-stock' ? 0 : 1);
-      return s !== 0 ? s : base.indexOf(a) - base.indexOf(b);
-    });
+    if (!q) {
+      grid.innerHTML = '';
+      grid.hidden = true;
+      empty.hidden = true;
+      toolbar.hidden = true;
+      suggest.hidden = false;
+      document.getElementById('srTitle').textContent = 'Search';
+      document.title = 'Search | RANG DATA';
+      return;
+    }
 
-    grid.innerHTML = list.map(window.rdCardHTML).join('');
-    var avail = list.filter(function (p) { return p.status === 'in-stock'; }).length;
-    count.textContent = list.length + (list.length === 1 ? ' design' : ' designs') +
-      (avail === list.length ? '' : ' \u00b7 ' + avail + ' available');
-    empty.hidden = list.length > 0;
-    grid.hidden = list.length === 0;
+    var hits = P.search(q);
+    if (stockOnly) hits = hits.filter(function (p) { return p.status === 'in-stock'; });
+
+    document.getElementById('srTitle').textContent = 'Results for \u201c' + q + '\u201d';
+    document.title = 'Search: ' + q + ' | RANG DATA';
+
+    if (!hits.length) {
+      grid.innerHTML = '';
+      grid.hidden = true;
+      toolbar.hidden = true;
+      empty.hidden = false;
+      suggest.hidden = false;
+      document.getElementById('srEmptyTitle').textContent = 'Nothing found for \u201c' + q + '\u201d';
+    } else {
+      grid.innerHTML = hits.map(window.rdCardHTML).join('');
+      grid.hidden = false;
+      empty.hidden = true;
+      toolbar.hidden = false;
+      suggest.hidden = true;
+      count.textContent = hits.length + (hits.length === 1 ? ' design found' : ' designs found');
+    }
+
+    if (push) {
+      var url = 'search.html?q=' + encodeURIComponent(q);
+      history.replaceState(null, '', url);
+    }
   }
 
-  document.querySelectorAll('.chip[data-filter]').forEach(function (chip) {
-    chip.addEventListener('click', function () {
-      var f = chip.getAttribute('data-filter');
-      var v = chip.getAttribute('data-value');
-
-      if (f === 'stock') {
-        var on = chip.classList.toggle('active');
-        state.stock = on ? 'instock' : 'all';
-      } else {
-        document.querySelectorAll('.chip[data-filter="' + f + '"]').forEach(function (c) { c.classList.remove('active'); });
-        chip.classList.add('active');
-        state[f] = v;
-      }
-      apply();
-    });
+  document.getElementById('srForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    run(input.value.trim(), true);
   });
 
-  sortSel.addEventListener('change', function () { state.sort = sortSel.value; apply(); });
-
-  document.getElementById('catReset').addEventListener('click', function () {
-    state = { collection: 'all', pieces: 'all', stock: 'all', sort: 'featured' };
-    sortSel.value = 'featured';
-    document.querySelectorAll('.chip[data-filter]').forEach(function (c) {
-      c.classList.toggle('active', c.getAttribute('data-value') === 'all');
-    });
-    apply();
+  stockChip.addEventListener('click', function () {
+    stockOnly = stockChip.classList.toggle('active');
+    run(current, false);
   });
 
-  /* deep links such as shop.html?cat=winter (old nav used these) */
-  var q = new URLSearchParams(location.search);
-  var cat = (q.get('cat') || '').toLowerCase();
-  if (SCOPE === 'all' && (cat === 'summer' || cat === 'winter')) {
-    state.collection = cat;
-    document.querySelectorAll('.chip[data-filter="collection"]').forEach(function (c) {
-      c.classList.toggle('active', c.getAttribute('data-value') === cat);
-    });
-  }
-  var pcs = q.get('pieces');
-  if (pcs === '2' || pcs === '3') {
-    state.pieces = pcs;
-    document.querySelectorAll('.chip[data-filter="pieces"]').forEach(function (c) {
-      c.classList.toggle('active', c.getAttribute('data-value') === pcs);
-    });
-  }
-
-  apply();
+  var q = new URLSearchParams(location.search).get('q') || '';
+  run(q.trim(), false);
+  if (!q) input.focus();
 }};
 </script>
 <script src="assets/js/site.js"></script>

@@ -1,0 +1,12 @@
+# RANG DATA — https://rangdata.com
+User-agent: *
+Allow: /
+
+# No value in crawling these
+Disallow: /checkout.html
+Disallow: /search.html
+Disallow: /404.html
+Disallow: /product-summer.html
+Disallow: /product-winter.html
+
+Sitemap: https://rangdata.com/sitemap.xml

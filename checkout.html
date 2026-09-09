@@ -1,247 +1,410 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Checkout - RANG DATA</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background-color: #ffffff; color: #333333; line-height: 1.5; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Checkout | RANG DATA</title>
+<meta name="description" content="Complete your RANG DATA order. Cash on delivery, JazzCash or bank transfer, with confirmation sent over WhatsApp.">
+<link rel="canonical" href="https://rangdata.com/checkout.html">
+<meta name="theme-color" content="#4A0424">
+<meta name="robots" content="noindex, follow">
 
-        .checkout-layout { display: flex; min-height: 100vh; flex-wrap: wrap; }
-        
-        /* Left Section (Form) */
-        .main-section { flex: 1.2; padding: 40px 60px 40px 10%; border-right: 1px solid #e6e6e6; }
-        .brand-header { font-family: 'Times New Roman', serif; font-size: 32px; font-weight: bold; letter-spacing: 4px; color: #4A0424; text-decoration: none; display: inline-block; margin-bottom: 25px; }
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="RANG DATA">
+<meta property="og:title" content="Checkout | RANG DATA">
+<meta property="og:description" content="Complete your RANG DATA order. Cash on delivery, JazzCash or bank transfer, with confirmation sent over WhatsApp.">
+<meta property="og:url" content="https://rangdata.com/checkout.html">
+<meta property="og:image" content="https://i.ibb.co/C5GshYFN/RD06007a.png">
+<meta property="og:locale" content="en_PK">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Checkout | RANG DATA">
+<meta name="twitter:description" content="Complete your RANG DATA order. Cash on delivery, JazzCash or bank transfer, with confirmation sent over WhatsApp.">
+<meta name="twitter:image" content="https://i.ibb.co/C5GshYFN/RD06007a.png">
 
-        .section-title { font-size: 18px; font-weight: 600; color: #111; margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center; }
-        .section-title a { font-size: 13px; color: #4A0424; text-decoration: underline; font-weight: normal; }
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/img/favicon.svg">
 
-        .form-group { margin-bottom: 12px; }
-        .form-row { display: flex; gap: 12px; }
-        .form-row .form-group { flex: 1; }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="assets/css/style.css">
 
-        input, select, textarea { width: 100%; padding: 12px 14px; border: 1px solid #d9d9d9; border-radius: 5px; font-size: 14px; outline: none; transition: 0.2s; background: #fff; color: #333; }
-        input:focus, select:focus, textarea:focus { border-color: #4A0424; box-shadow: 0 0 0 1px #4A0424; }
-
-        .checkbox-group { display: flex; align-items: center; gap: 8px; font-size: 13px; color: #555; margin-top: 8px; margin-bottom: 20px; }
-        .checkbox-group input { width: auto; cursor: pointer; }
-
-        .shipping-box { background: #fafafa; border: 1px solid #e6e6e6; padding: 15px; border-radius: 5px; display: flex; justify-content: space-between; font-size: 14px; font-weight: 500; margin-top: 10px; margin-bottom: 25px; }
-
-        .payment-box { border: 1px solid #d9d9d9; border-radius: 5px; overflow: hidden; margin-top: 10px; margin-bottom: 30px; }
-        .payment-option { padding: 14px 16px; background: #fcfcfc; border-bottom: 1px solid #d9d9d9; }
-        .payment-details { background: #fafafa; padding: 15px 20px; font-size: 13px; color: #555; }
-        
-        .btn-complete-order { width: 100%; background: #4A0424; color: #ffffff; padding: 18px; border: none; border-radius: 5px; font-size: 16px; font-weight: bold; cursor: pointer; letter-spacing: 1px; transition: 0.3s; }
-        .btn-complete-order:hover { background: #330218; }
-
-        /* Right Section (Order Summary) */
-        .sidebar-section { flex: 0.8; background: #fafafa; padding: 40px 10% 40px 40px; }
-        .product-item { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; }
-        .product-img-wrap { position: relative; width: 68px; height: 68px; border-radius: 8px; border: 1px solid #e1e1e1; background: #fff; }
-        .product-img-wrap img { width: 100%; height: 100%; object-fit: cover; border-radius: 8px; }
-        .product-qty-badge { position: absolute; top: -8px; right: -8px; background: rgba(114, 114, 114, 0.9); color: #fff; font-size: 12px; font-weight: bold; width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
-        .product-info { flex-grow: 1; }
-        .product-info h4 { font-size: 14px; font-weight: 600; color: #333; margin-bottom: 3px; }
-        .product-info p { font-size: 12px; color: #777; }
-        .product-price { font-size: 14px; font-weight: 600; color: #333; }
-
-        .discount-row { display: flex; gap: 10px; margin: 20px 0; border-top: 1px solid #e6e6e6; border-bottom: 1px solid #e6e6e6; padding: 20px 0; }
-        .discount-row input { flex-grow: 1; }
-        .discount-row button { background: #e6e6e6; color: #555; border: none; padding: 0 18px; border-radius: 5px; font-weight: 600; font-size: 13px; cursor: pointer; }
-
-        .summary-line { display: flex; justify-content: space-between; font-size: 14px; color: #555; margin-bottom: 10px; }
-        .total-line { display: flex; justify-content: space-between; align-items: center; font-size: 18px; font-weight: bold; color: #111; margin-top: 15px; border-top: 1px solid #e6e6e6; padding-top: 15px; }
-        .total-line span.currency { font-size: 12px; font-weight: normal; color: #777; margin-right: 5px; }
-
-        @media(max-width: 900px) {
-            .checkout-layout { flex-direction: column-reverse; }
-            .main-section, .sidebar-section { padding: 25px 20px; }
-        }
-    </style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XQQH342VF3"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XQQH342VF3');</script>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="checkout" id="checkoutView">
+  <div class="checkout-main">
+    <a class="checkout-brand" href="index.html">
+      <span class="brand-name">RANG DATA</span>
+      <span class="brand-tag">Luxury Unstitched</span>
+    </a>
 
-    <div class="checkout-layout">
-        <!-- Left Column: Form -->
-        <div class="main-section">
-            <a href="index.html" class="brand-header">RANG DATA</a>
+    <nav class="breadcrumb" aria-label="Breadcrumb" style="margin-bottom:26px">
+      <a href="shop.html">Shop</a> <span aria-hidden="true">/</span> <span aria-current="page">Checkout</span>
+    </nav>
 
-            <form id="checkoutForm" onsubmit="processOrder(event)">
-                <div class="section-title">
-                    <span>Contact</span>
-                    <a href="#">Log in</a>
-                </div>
-                <div class="form-group">
-                    <input type="text" id="email_phone" placeholder="Email or mobile phone number" required>
-                </div>
-                <div class="checkbox-group">
-                    <input type="checkbox" id="news" checked>
-                    <label for="news">Email me with news and offers</label>
-                </div>
+    <form id="orderForm" novalidate>
+      <div class="checkout-step">
+        <h2>Contact</h2>
+        <span class="step-note">We confirm every order on WhatsApp</span>
+      </div>
 
-                <div class="section-title" style="margin-top: 25px;">
-                    <span>Delivery</span>
-                </div>
-                <div class="form-group">
-                    <select id="country">
-                        <option value="Pakistan">Pakistan</option>
-                        <option value="United Arab Emirates">United Arab Emirates</option>
-                        <option value="United Kingdom">United Kingdom</option>
-                        <option value="United States">United States</option>
-                        <option value="Canada">Canada</option>
-                        <option value="Saudi Arabia">Saudi Arabia</option>
-                        <option value="India">India</option>
-                    </select>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <input type="text" id="fname" placeholder="First name" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" id="lname" placeholder="Last name (optional)">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <input type="text" id="address" placeholder="Address" required>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <input type="text" id="city" placeholder="City" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" id="postal" placeholder="Postal code (optional)">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <input type="tel" id="phone" placeholder="Phone" required>
-                </div>
-                <div class="checkbox-group">
-                    <input type="checkbox" id="save_info">
-                    <label for="save_info">Save this information for next time</label>
-                </div>
-
-                <div class="section-title" style="margin-top: 25px;">
-                    <span>Shipping method</span>
-                </div>
-                <div class="shipping-box">
-                    <span>Standard Shipping</span>
-                    <span>Rs 150.00</span>
-                </div>
-
-                <div class="section-title" style="margin-top: 25px;">
-                    <span>Payment</span>
-                </div>
-                <p style="font-size: 12px; color: #777; margin-bottom: 8px;">All transactions are secure and encrypted.</p>
-                
-                <div class="payment-box">
-                    <div class="payment-option">
-                        <label for="payment_method_select" style="font-size: 13px; font-weight: 600; display: block; margin-bottom: 6px; color: #333;">Select Payment Method</label>
-                        <select id="payment_method_select" required>
-                            <option value="" disabled selected>-- Choose Payment Option --</option>
-                            <option value="Payoneer (International Card / USD)">Payoneer (International Card / USD)</option>
-                            <option value="JazzCash (Local PKR Transfer)">JazzCash (Local PKR Transfer)</option>
-                            <option value="Bank Transfer">Bank Transfer</option>
-                        </select>
-                    </div>
-                    <div class="payment-details">
-                        <i class="fa-solid fa-lock" style="color: #4A0424; margin-right: 5px;"></i> Once your order is complete, we will send the payment details to you via WhatsApp.
-                    </div>
-                </div>
-
-                <button type="submit" class="btn-complete-order">Complete Order</button>
-            </form>
+      <div class="field-row">
+        <div class="field">
+          <label for="cName">Full name <span class="req">*</span></label>
+          <input id="cName" name="name" type="text" autocomplete="name" required>
+          <span class="field-error" id="errName">Please enter your full name.</span>
         </div>
-
-        <!-- Right Column: Order Summary -->
-        <div class="sidebar-section">
-            <div id="checkout-product-list">
-                <!-- Products dynamically inserted here -->
-            </div>
-
-            <div class="discount-row">
-                <input type="text" placeholder="Discount code">
-                <button type="button">Apply</button>
-            </div>
-
-            <div class="summary-line">
-                <span>Subtotal</span>
-                <span id="subtotal-val">Rs 0.00</span>
-            </div>
-            <div class="summary-line">
-                <span>Shipping</span>
-                <span>Rs 150.00</span>
-            </div>
-
-            <div class="total-line">
-                <span>Total</span>
-                <div>
-                    <span class="currency">PKR</span>
-                    <span id="total-val" style="font-size: 22px;">Rs 150.00</span>
-                </div>
-            </div>
+        <div class="field">
+          <label for="cPhone">WhatsApp number <span class="req">*</span></label>
+          <input id="cPhone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="03XX XXXXXXX" required>
+          <span class="field-error" id="errPhone">Enter a valid Pakistani mobile number, e.g. 0340 6751076.</span>
         </div>
-    </div>
+      </div>
 
-    <script>
-        const checkoutItem = JSON.parse(localStorage.getItem('rd_checkout_item')) || JSON.parse(localStorage.getItem('rd_cart'))[0];
-        let calculatedTotal = 0;
+      <div class="field">
+        <label for="cEmail">Email <span class="field-hint">(optional)</span></label>
+        <input id="cEmail" name="email" type="email" autocomplete="email" placeholder="your@email.com">
+        <span class="field-error" id="errEmail">That email address does not look right.</span>
+      </div>
 
-        if(checkoutItem) {
-            const listContainer = document.getElementById('checkout-product-list');
-            const subtotal = checkoutItem.priceVal * checkoutItem.qty;
-            calculatedTotal = subtotal + 150;
+      <div class="checkout-step">
+        <h2>Delivery address</h2>
+        <span class="step-note">Pakistan only, at present</span>
+      </div>
 
-            listContainer.innerHTML = `
-                <div class="product-item">
-                    <div class="product-img-wrap">
-                        <img src="${checkoutItem.img}" alt="${checkoutItem.title}">
-                        <span class="product-qty-badge">${checkoutItem.qty}</span>
-                    </div>
-                    <div class="product-info">
-                        <h4>${checkoutItem.title}</h4>
-                        <p>Unstitched 3-Pcs</p>
-                    </div>
-                    <div class="product-price">Rs ${subtotal.toLocaleString()}.00</div>
-                </div>
-            `;
+      <div class="field">
+        <label for="cAddress">Street address <span class="req">*</span></label>
+        <input id="cAddress" name="address" type="text" autocomplete="street-address" placeholder="House / flat, street, area" required>
+        <span class="field-error" id="errAddress">Please enter a complete address so the courier can find you.</span>
+      </div>
 
-            document.getElementById('subtotal-val').innerText = `Rs ${subtotal.toLocaleString()}.00`;
-            document.getElementById('total-val').innerText = `Rs ${calculatedTotal.toLocaleString()}.00`;
-        } else {
-            window.location.href = "index.html";
-        }
+      <div class="field-row">
+        <div class="field">
+          <label for="cCity">City <span class="req">*</span></label>
+          <input id="cCity" name="city" type="text" autocomplete="address-level2" required>
+          <span class="field-error" id="errCity">Please enter your city.</span>
+        </div>
+        <div class="field">
+          <label for="cPostal">Postal code <span class="field-hint">(optional)</span></label>
+          <input id="cPostal" name="postal" type="text" inputmode="numeric" autocomplete="postal-code">
+        </div>
+      </div>
 
-        function processOrder(e) {
-            e.preventDefault();
-            
-            const fname = document.getElementById('fname').value;
-            const lname = document.getElementById('lname').value;
-            const fullName = (fname + " " + lname).trim();
-            const phone = document.getElementById('phone').value;
-            const address = document.getElementById('address').value;
-            const city = document.getElementById('city').value;
-            const country = document.getElementById('country').value;
-            const paymentMethod = document.getElementById('payment_method_select').value;
+      <div class="field">
+        <label for="cNotes">Order notes <span class="field-hint">(optional)</span></label>
+        <textarea id="cNotes" name="notes" rows="3" placeholder="Landmark, preferred delivery time, or anything else we should know."></textarea>
+      </div>
 
-            let waMessage = `*NEW ORDER - RANG DATA*%0A%0A` +
-                            `*Customer Name:* ${fullName}%0A` +
-                            `*Phone:* ${phone}%0A` +
-                            `*Address:* ${address}, ${city}, ${country}%0A` +
-                            `*Payment Method:* ${paymentMethod}%0A%0A` +
-                            `*Item:* ${checkoutItem.title} (Qty: ${checkoutItem.qty})%0A` +
-                            `*Total Amount:* Rs ${calculatedTotal.toLocaleString()}.00 (Shipping Included)`;
+      <div class="checkout-step">
+        <h2>Payment</h2>
+        <span class="step-note">No card details are collected on this site</span>
+      </div>
 
-            let myNumber = "923406751076";
-            let waURL = `https://wa.me/${myNumber}?text=${waMessage}`;
+      <div class="pay-list" id="payList">
+        <label class="pay-opt active">
+          <span class="pay-opt-head">
+            <input type="radio" name="pay" value="Cash on Delivery" checked>
+            <span class="pay-opt-title">Cash on Delivery</span>
+          </span>
+          <span class="pay-opt-desc">Pay the courier in cash when your parcel arrives. Available nationwide.</span>
+        </label>
+        <label class="pay-opt">
+          <span class="pay-opt-head">
+            <input type="radio" name="pay" value="JazzCash / EasyPaisa">
+            <span class="pay-opt-title">JazzCash / EasyPaisa</span>
+          </span>
+          <span class="pay-opt-desc">We send the account number on WhatsApp after you place the order. Dispatch follows payment.</span>
+        </label>
+        <label class="pay-opt">
+          <span class="pay-opt-head">
+            <input type="radio" name="pay" value="Bank Transfer">
+            <span class="pay-opt-title">Bank Transfer</span>
+          </span>
+          <span class="pay-opt-desc">Bank details are shared on WhatsApp once the order is confirmed.</span>
+        </label>
+      </div>
 
-            alert(`Thank you ${fullName}!\n\nYour order details have been prepared. Click OK to send your order on WhatsApp.`);
+      <p class="secure-note">
+        <i class="fa-solid fa-lock" aria-hidden="true"></i>
+        <span>This site takes no payment online and stores no card data. Your details are used only to place this order, and the summary is sent to us over WhatsApp so you keep a copy too.</span>
+      </p>
 
-            localStorage.removeItem('rd_checkout_item');
-            window.location.href = waURL;
-        }
-    </script>
+      <div class="checkline" style="margin-top:16px">
+        <input type="checkbox" id="cTerms">
+        <label for="cTerms">I have read the <a class="link-underline" href="policies.html#returns" target="_blank">exchange policy</a> and understand that unstitched fabric cannot be returned once cut or washed.</label>
+      </div>
+      <span class="field-error" id="errTerms" style="display:none">Please confirm you have read the exchange policy.</span>
+
+      <button type="submit" class="btn btn-block" id="placeOrderBtn" style="margin-top:22px">Place order</button>
+      <p class="pdp-note" style="margin-top:12px">Pressing <b>Place order</b> opens WhatsApp with your order summary ready to send.</p>
+    </form>
+  </div>
+
+  <aside class="checkout-side" aria-label="Order summary">
+    <div class="checkout-step"><h2>Order summary</h2></div>
+    <div id="ocList"></div>
+
+    <hr class="oc-divider">
+
+    <div class="sum-row"><span>Subtotal</span><span id="ocSubtotal">Rs. 0</span></div>
+    <div class="sum-row" id="ocDeliveryRow"><span>Delivery</span><span id="ocDelivery">Rs. 0</span></div>
+    <p class="cart-progress" id="ocProgress"></p>
+    <div class="sum-total"><span>Total</span><span id="ocTotal">Rs. 0</span></div>
+
+    <p class="secure-note" style="margin-top:18px">
+      <i class="fa-solid fa-truck-fast" aria-hidden="true"></i>
+      <span>Dispatch in 1&ndash;2 working days. Delivery in 3&ndash;5 working days for major cities, 5&ndash;7 elsewhere.</span>
+    </p>
+
+    <a class="btn btn-ghost btn-block" href="shop.html" style="margin-top:18px">Continue shopping</a>
+  </aside>
+</div>
+
+<div class="wrap" id="emptyView" hidden>
+  <div class="empty-state" style="padding-top:110px">
+    <i class="fa-solid fa-bag-shopping" aria-hidden="true"></i>
+    <h3>Your bag is empty</h3>
+    <p>Add a suit to your bag and the checkout will open with your order ready to confirm.</p>
+    <a class="btn" href="shop.html">Shop all suits</a>
+  </div>
+</div>
+
+<div class="wrap order-done" id="doneView" hidden>
+  <div class="tick"><i class="fa-solid fa-check" aria-hidden="true"></i></div>
+  <h1>Order placed</h1>
+  <p>Thank you. Your order summary has been prepared for WhatsApp &mdash; send that message and we will confirm stock, total and delivery time.</p>
+  <div class="order-id">Order reference: <b id="doneRef">&mdash;</b></div>
+  <div id="doneSummary"></div>
+  <div class="btn-row">
+    <a class="btn btn-wa" id="doneWa" href="#" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Re-open WhatsApp</a>
+    <a class="btn btn-ghost" href="shop.html">Keep shopping</a>
+  </div>
+</div>
+
+<div class="toast-stack" id="toastStack" aria-live="polite"></div>
+<script src="assets/js/products.js"></script>
+<script>
+
+window.RD_PAGE = { init: function () {
+  var Cart = window.RD_CART, CFG = window.RD_CONFIG;
+  var money = window.rdMoney, esc = window.rdEsc;
+
+  var checkoutView = document.getElementById('checkoutView');
+  var emptyView = document.getElementById('emptyView');
+  var doneView = document.getElementById('doneView');
+  var form = document.getElementById('orderForm');
+
+  /* ---------- summary, always driven by the validated cart ---------- */
+  function renderSummary() {
+    var items = Cart.detailed();
+    var t = Cart.totals();
+
+    if (!items.length) {
+      checkoutView.hidden = true;
+      emptyView.hidden = false;
+      return false;
+    }
+    checkoutView.hidden = false;
+    emptyView.hidden = true;
+
+    document.getElementById('ocList').innerHTML = items.map(function (it) {
+      return '<div class="oc-item">' +
+        '<span class="oc-thumb">' +
+          '<img src="' + esc(it.img) + '" alt="' + esc(it.name) + '" loading="lazy">' +
+          '<span class="oc-qty">' + it.qty + '</span>' +
+        '</span>' +
+        '<span>' +
+          '<span class="oc-name">' + esc(it.name) + '</span>' +
+          '<span class="oc-meta">' + esc(it.code) + ' \u00b7 ' + it.pieces + ' pcs \u00b7 ' + esc(it.fabric) + '</span>' +
+        '</span>' +
+        '<span class="oc-price">' + money(it.line) + '</span>' +
+      '</div>';
+    }).join('');
+
+    document.getElementById('ocSubtotal').textContent = money(t.subtotal);
+    var del = document.getElementById('ocDelivery');
+    del.textContent = t.freeShip ? 'Free' : money(t.delivery);
+    document.getElementById('ocDeliveryRow').classList.toggle('free', t.freeShip);
+    document.getElementById('ocTotal').textContent = money(t.total);
+
+    var prog = document.getElementById('ocProgress');
+    if (t.freeShip) prog.innerHTML = '<b>Free delivery applied</b> \u2014 3 items or more.';
+    else prog.innerHTML = 'Add <b>' + t.toFree + ' more item' + (t.toFree > 1 ? 's' : '') + '</b> and delivery becomes free.';
+    return true;
+  }
+
+  renderSummary();
+  document.addEventListener('rd:cart', renderSummary);
+
+  /* ---------- payment option highlight ---------- */
+  document.querySelectorAll('#payList input[name="pay"]').forEach(function (r) {
+    r.addEventListener('change', function () {
+      document.querySelectorAll('.pay-opt').forEach(function (o) { o.classList.remove('active'); });
+      r.closest('.pay-opt').classList.add('active');
+    });
+  });
+
+  /* ---------- validation ---------- */
+  function fail(id, errId, on) {
+    var f = document.getElementById(id).closest('.field');
+    f.classList.toggle('has-error', on);
+    var e = document.getElementById(errId);
+    if (e) e.style.display = on ? 'block' : '';
+    return !on;
+  }
+
+  function validPhone(v) {
+    var d = v.replace(/[^0-9]/g, '');
+    /* 03xxxxxxxxx (11), 923xxxxxxxxx (12), 00923xxxxxxxxx (14) */
+    if (/^03[0-9]{9}$/.test(d)) return true;
+    if (/^923[0-9]{9}$/.test(d)) return true;
+    if (/^00923[0-9]{9}$/.test(d)) return true;
+    return false;
+  }
+
+  function validate() {
+    var ok = true;
+    var name = document.getElementById('cName').value.trim();
+    var phone = document.getElementById('cPhone').value.trim();
+    var email = document.getElementById('cEmail').value.trim();
+    var addr = document.getElementById('cAddress').value.trim();
+    var city = document.getElementById('cCity').value.trim();
+
+    ok = fail('cName', 'errName', name.length < 3) && ok;
+    ok = fail('cPhone', 'errPhone', !validPhone(phone)) && ok;
+    ok = fail('cEmail', 'errEmail', email !== '' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) && ok;
+    ok = fail('cAddress', 'errAddress', addr.length < 10) && ok;
+    ok = fail('cCity', 'errCity', city.length < 2) && ok;
+
+    var terms = document.getElementById('cTerms').checked;
+    document.getElementById('errTerms').style.display = terms ? 'none' : 'block';
+    if (!terms) ok = false;
+
+    return ok;
+  }
+
+  /* live error clearing once the customer fixes a field */
+  ['cName', 'cPhone', 'cEmail', 'cAddress', 'cCity'].forEach(function (id) {
+    document.getElementById(id).addEventListener('input', function () {
+      this.closest('.field').classList.remove('has-error');
+    });
+  });
+  document.getElementById('cTerms').addEventListener('change', function () {
+    if (this.checked) document.getElementById('errTerms').style.display = 'none';
+  });
+
+  /* ---------- order reference ---------- */
+  function makeRef() {
+    var d = new Date();
+    var p = function (n) { return String(n).padStart(2, '0'); };
+    return 'RD' + String(d.getFullYear()).slice(2) + p(d.getMonth() + 1) + p(d.getDate()) +
+      '-' + String(Math.floor(Math.random() * 9000) + 1000);
+  }
+
+  /* ---------- submit ---------- */
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    if (!Cart.items.length) { renderSummary(); return; }
+
+    if (!validate()) {
+      window.rdToast('Please check the highlighted fields.', 'fa-circle-exclamation');
+      var bad = document.querySelector('.field.has-error input, .field.has-error textarea');
+      if (bad) { bad.focus(); bad.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+      else document.getElementById('cTerms').focus();
+      return;
+    }
+
+    var items = Cart.detailed();
+    var t = Cart.totals();
+    var ref = makeRef();
+    var pay = document.querySelector('#payList input[name="pay"]:checked').value;
+
+    var d = {
+      ref: ref,
+      name: document.getElementById('cName').value.trim(),
+      phone: document.getElementById('cPhone').value.trim(),
+      email: document.getElementById('cEmail').value.trim(),
+      address: document.getElementById('cAddress').value.trim(),
+      city: document.getElementById('cCity').value.trim(),
+      postal: document.getElementById('cPostal').value.trim(),
+      notes: document.getElementById('cNotes').value.trim(),
+      pay: pay,
+      items: items,
+      totals: t,
+      at: new Date().toISOString()
+    };
+
+    /* Build the WhatsApp message. encodeURIComponent handles every newline
+       and special character, so the old manual %0A escaping is gone. */
+    var lines = [];
+    lines.push('*NEW ORDER \u2014 RANG DATA*');
+    lines.push('Reference: ' + ref);
+    lines.push('');
+    lines.push('*Items*');
+    items.forEach(function (it, n) {
+      lines.push((n + 1) + '. ' + it.code + ' \u2014 ' + it.name);
+      lines.push('   ' + it.pieces + ' pcs ' + it.fabric + ' \u00b7 Qty ' + it.qty + ' \u00b7 ' + money(it.line));
+    });
+    lines.push('');
+    lines.push('Subtotal: ' + money(t.subtotal));
+    lines.push('Delivery: ' + (t.freeShip ? 'Free (3+ items)' : money(t.delivery)));
+    lines.push('*Total: ' + money(t.total) + '*');
+    lines.push('');
+    lines.push('*Deliver to*');
+    lines.push(d.name);
+    lines.push(d.phone);
+    lines.push(d.address);
+    lines.push(d.city + (d.postal ? ' ' + d.postal : ''));
+    if (d.email) lines.push(d.email);
+    lines.push('');
+    lines.push('Payment: ' + pay);
+    if (d.notes) { lines.push('Notes: ' + d.notes); }
+
+    var wa = 'https://wa.me/923406751076?text=' + encodeURIComponent(lines.join('\n'));
+
+    try { localStorage.setItem(CFG.orderKey, JSON.stringify(d)); } catch (err) {}
+
+    if (typeof gtag === 'function') {
+      gtag('event', 'purchase', {
+        transaction_id: ref, currency: 'PKR', value: t.total, shipping: t.delivery,
+        items: items.map(function (it) {
+          return { item_id: it.code, item_name: it.name, price: it.price, quantity: it.qty };
+        })
+      });
+    }
+
+    window.open(wa, '_blank');
+    showDone(d, wa);
+    Cart.clear();
+  });
+
+  /* ---------- confirmation view ---------- */
+  function showDone(d, wa) {
+    checkoutView.hidden = true;
+    emptyView.hidden = true;
+    doneView.hidden = false;
+    document.getElementById('doneRef').textContent = d.ref;
+    document.getElementById('doneWa').setAttribute('href', wa);
+
+    document.getElementById('doneSummary').innerHTML =
+      '<div style="max-width:420px;margin:8px auto 0;text-align:left">' +
+        d.items.map(function (it) {
+          return '<div class="sum-row"><span>' + esc(it.code) + ' \u00d7 ' + it.qty + '</span><span>' + money(it.line) + '</span></div>';
+        }).join('') +
+        '<div class="sum-row"><span>Delivery</span><span>' + (d.totals.freeShip ? 'Free' : money(d.totals.delivery)) + '</span></div>' +
+        '<div class="sum-total"><span>Total</span><span>' + money(d.totals.total) + '</span></div>' +
+        '<p class="pdp-note" style="margin-top:14px">Payment method: ' + esc(d.pay) + '<br>Delivering to ' + esc(d.city) + '</p>' +
+      '</div>';
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+}};
+</script>
+<script src="assets/js/site.js"></script>
 </body>
 </html>
