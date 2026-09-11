@@ -294,6 +294,16 @@
       if (parentLi) {
         parentLi.innerHTML = '<i class="fa-regular fa-envelope" aria-hidden="true"></i><a href="https://mail.google.com/mail/?view=cm&fs=1&to=12rangdata@gmail.com" target="_blank" style="display:inline; color:#d0c0c0; text-decoration:underline;">12rangdata@gmail.com</a>';
       }
+       
+    // Footer Location
+    var locIcon = document.querySelector('.footer-contact li i.fa-location-dot');
+    if (locIcon) {
+      var locLi = locIcon.closest('li');
+      if (locLi) {
+        var locSpan = locLi.querySelector('span');
+        if (locSpan) locSpan.textContent = CFG.location;
+      }
+    }
     }
   }
 
