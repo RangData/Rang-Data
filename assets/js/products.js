@@ -94,7 +94,7 @@
       imgs: ['https://i.ibb.co/pB9htnC6/RD-011-Khaddar-a.jpg', 'https://i.ibb.co/ynG0xtrM/RD-011-Khaddar-b.jpg', 'https://i.ibb.co/fGX8q2BP/RD-011-Khaddar-c.jpg'] },
 
     /* ---------- NEW WINTER PRODUCTS (WITH NAMES, COLORS & PRICES) ---------- */
-    { id: 'rd0162', code: 'RD 0162', collection: 'winter', name: 'Beige Winter Khaddar Suit', color: 'Beige', pieces: 3, fabric: 'Winter Khaddar', price: 4799, status: 'in-stock',
+    { id: 'rd0162', code: 'RD 0162', collection: 'winter', name: 'Deep Green Winter Khaddar Suit', color: 'Deep Green', pieces: 3, fabric: 'Winter Khaddar', price: 4799, status: 'in-stock',
       imgs: ['https://i.ibb.co/bgbs94Jc/RD-0162-Khaddar-a.jpg', 'https://i.ibb.co/RkPhN7dL/RD-0162-Khaddar-b.jpg', 'https://i.ibb.co/xSYfDsWX/RD-0162-Khaddar-c.jpg'] },
     { id: 'rd0253', code: 'RD 0253', collection: 'winter', name: 'Dusty Rose Warm Dhank Suit', color: 'Dusty Rose', pieces: 3, fabric: 'Warm Dhank', price: 4499, status: 'in-stock',
       imgs: ['https://i.ibb.co/1gwfhyh/RD-0253-dannak-a.jpg', 'https://i.ibb.co/qY7fHXqM/RD-0253-dannak-b.jpg', 'https://i.ibb.co/wFC1vmhp/RD-0253-dannak-c.jpg'] },
