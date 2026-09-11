@@ -96,7 +96,7 @@
     /* ---------- NEW WINTER PRODUCTS (WITH NAMES, COLORS & PRICES) ---------- */
     { id: 'rd0162', code: 'RD 0162', collection: 'winter', name: 'Deep Green Winter Khaddar Suit', color: 'Deep Green', pieces: 3, fabric: 'Winter Khaddar', price: 4799, status: 'in-stock',
       imgs: ['https://i.ibb.co/bgbs94Jc/RD-0162-Khaddar-a.jpg', 'https://i.ibb.co/RkPhN7dL/RD-0162-Khaddar-b.jpg', 'https://i.ibb.co/xSYfDsWX/RD-0162-Khaddar-c.jpg'] },
-    { id: 'rd0253', code: 'RD 0253', collection: 'winter', name: 'Dusty Rose Warm Dhank Suit', color: 'Dusty Rose', pieces: 3, fabric: 'Warm Dhank', price: 4499, status: 'in-stock',
+    { id: 'rd0253', code: 'RD 0253', collection: 'winter', name: 'Mustard Yellow Warm Dhank Suit', color: 'Mustard Yellow', pieces: 3, fabric: 'Warm Dhank', price: 4499, status: 'in-stock',
       imgs: ['https://i.ibb.co/1gwfhyh/RD-0253-dannak-a.jpg', 'https://i.ibb.co/qY7fHXqM/RD-0253-dannak-b.jpg', 'https://i.ibb.co/wFC1vmhp/RD-0253-dannak-c.jpg'] },
     { id: 'rd0265', code: 'RD 0265', collection: 'winter', name: 'Dusty Pink Heavy Viscose Suit', color: 'Dusty Pink', pieces: 3, fabric: 'Heavy Viscose', price: 4399, status: 'in-stock',
       imgs: ['https://i.ibb.co/sdFm7zBR/RD-0265-visco-a.jpg', 'https://i.ibb.co/23Jzhjf1/RD-0265-visco-b.jpg', 'https://i.ibb.co/39jFpJ0D/RD-0265-visco-c.jpg'] },
