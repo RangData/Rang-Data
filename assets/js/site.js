@@ -1,5 +1,5 @@
-﻿/* ==========================================================================
-   RANG DATA — site behaviour (SIMPLIFIED SOCIAL INJECT)
+/* ==========================================================================
+   RANG DATA — site behaviour (SIMPLIFIED SOCIAL INJECT + LOCATION)
    ========================================================================== */
 (function () {
   'use strict';
@@ -12,6 +12,7 @@
     cartKey: 'rd_cart_v2',
     orderKey: 'rd_last_order',
     currency: 'Rs.',
+    location: 'Lahore, Punjab, Pakistan',
     social: {
       instagram: 'https://www.instagram.com/rangdata.official/',
       facebook: 'https://www.facebook.com/profile.php?id=100006600948601',
@@ -228,6 +229,7 @@
       });
     });
   }
+
   function initAccordions() {
     $$('.acc-item').forEach(function (item) {
       var q = $('.acc-q', item), a = $('.acc-a', item);
@@ -253,10 +255,8 @@
     window.addEventListener('resize', function () { $$('.acc-item.open .acc-a').forEach(function (a) { a.style.maxHeight = a.scrollHeight + 'px'; }); });
   }
 
-  /* ---------- ✅ SOCIAL LINKS INJECT (SINGLE SOURCE OF TRUTH) ---------- */
+  /* ---------- SOCIAL LINKS + LOCATION INJECT ---------- */
   function injectSocials() {
-    var s = CFG.social;
-    
     // Announcement Bar
     var announce = document.querySelector('.announce-socials');
     if (announce) {
@@ -276,7 +276,7 @@
         '<a href="https://wa.me/923406751076" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>';
     }
 
-    // Footer
+    // Footer Socials
     var footer = document.querySelector('.footer-socials');
     if (footer) {
       footer.innerHTML = 
@@ -286,14 +286,16 @@
         '<a href="https://wa.me/923406751076" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>';
     }
 
-    // Footer Email - GMAIL LINK
+    // Footer Email
     var emailLi = document.querySelector('.footer-contact li i.fa-envelope');
     if (emailLi) {
       var parentLi = emailLi.closest('li');
       if (parentLi) {
-        parentLi.innerHTML = '<i class="fa-regular fa-envelope" aria-hidden="true"></i><a href="https://mail.google.com/mail/?view=cm&fs=1&to=12rangdata@gmail.com" target="_blank" style="display:inline; color:#d0c0c0; text-decoration:underline;">12rangdata@gmail.com</a>';
+        parentLi.innerHTML = '<i class="fa-regular fa-envelope" aria-hidden="true"></i><a href="' + CFG.social.gmailLink + '" target="_blank">' + CFG.email + '</a>';
       }
-       // Footer Location
+    }
+
+    // Footer Location
     var locIcon = document.querySelector('.footer-contact li i.fa-location-dot');
     if (locIcon) {
       var locLi = locIcon.closest('li');
@@ -301,8 +303,9 @@
         var locSpan = locLi.querySelector('span');
         if (locSpan) locSpan.textContent = CFG.location;
       }
-    } 
-   
+    }
+  }
+
   /* ---------- GLOBAL EVENTS ---------- */
   function initGlobalEvents() {
     document.addEventListener('click', function (e) {
@@ -362,7 +365,7 @@
   /* ------------------------------------------------------------------- BOOT */
   function boot() {
     Cart.load();
-    injectSocials();  // <--- Yeh line automatic social links laga degi
+    injectSocials();
     initGlobalEvents();
     initSearch();
     initHero();
