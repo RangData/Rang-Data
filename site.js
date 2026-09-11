@@ -12,6 +12,7 @@
     cartKey: 'rd_cart_v2',
     orderKey: 'rd_last_order',
     currency: 'Rs.',
+     location: 'Lahore, Punjab, Pakistan',
     social: {
       instagram: 'https://www.instagram.com/rangdata.official/',
       facebook: 'https://www.facebook.com/profile.php?id=100006600948601',
