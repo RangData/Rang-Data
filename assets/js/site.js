@@ -286,12 +286,12 @@
         '<a href="https://wa.me/923406751076" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>';
     }
 
-    // Footer Email
-    var emailLi = document.querySelector('.footer-contact li i.fa-envelope');
-    if (emailLi) {
-      var parentLi = emailLi.closest('li');
-      if (parentLi) {
-        parentLi.innerHTML = '<i class="fa-regular fa-envelope" aria-hidden="true"></i><a href="' + CFG.social.gmailLink + '" target="_blank">' + CFG.email + '</a>';
+       // Footer Email
+    var emailIcon = document.querySelector('.footer-contact li i.fa-envelope');
+    if (emailIcon) {
+      var emailLi = emailIcon.closest('li');
+      if (emailLi) {
+        emailLi.innerHTML = '<i class="fa-regular fa-envelope" aria-hidden="true"></i><a href="mailto:' + CFG.email + '">' + CFG.email + '</a>';
       }
     }
 
@@ -299,10 +299,8 @@
     var locIcon = document.querySelector('.footer-contact li i.fa-location-dot');
     if (locIcon) {
       var locLi = locIcon.closest('li');
-      if (locLi) {
-        var locSpan = locLi.querySelector('span');
-        if (locSpan) locSpan.textContent = CFG.location;
-      }
+      var locSpan = locLi && locLi.querySelector('span');
+      if (locSpan) locSpan.textContent = CFG.location;
     }
   }
 
