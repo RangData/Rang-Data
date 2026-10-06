@@ -28,14 +28,18 @@
 
   function money(n) { return CFG.currency + ' ' + Number(n || 0).toLocaleString('en-US'); }
   window.rdMoney = money;
-
+    // Tasveer chhoti karke bhejta hai (tez load)
+  function thumb(u, w) {
+    var m = /^https:\/\/i\.ibb\.co\/(.+)$/.exec(u || '');
+    return m ? 'https://wsrv.nl/?url=i.ibb.co/' + m[1] + '&w=' + w + '&output=webp&q=75' : u;
+  }
   function esc(s) {
     return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
       return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
     });
   }
   window.rdEsc = esc;
-
+  
   /* ------------------------------------------------------------------ toast */
   function toast(msg, icon) {
     var stack = $('#toastStack');
