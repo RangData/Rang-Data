@@ -303,7 +303,17 @@
       if (locSpan) locSpan.textContent = CFG.location;
     }
   }
-
+    /* ---------- Desktop par email links Gmail compose mein kholo ---------- */
+  if (!/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a[href^="mailto:"]');
+      if (!a) return;
+      e.preventDefault();
+      var to = a.getAttribute('href').replace('mailto:', '').split('?')[0];
+      window.open('https://mail.google.com/mail/?view=cm&fs=1&to=' + encodeURIComponent(to), '_blank', 'noopener');
+    });
+  }
+   
   /* ---------- GLOBAL EVENTS ---------- */
   function initGlobalEvents() {
     document.addEventListener('click', function (e) {
