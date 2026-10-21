@@ -17,6 +17,7 @@
       instagram: 'https://www.instagram.com/rangdata.official/',
       facebook: 'https://www.facebook.com/profile.php?id=100006600948601',
       tiktok: 'https://www.tiktok.com/@rangdata',
+      youtube: 'https://www.youtube.com/channel/UCXMGsRNGRNmqT03Ept6IfxQ',
       gmailLink: 'https://mail.google.com/mail/?view=cm&fs=1&to=12rangdata@gmail.com'
     }
   };
@@ -283,6 +284,7 @@
         '<a href="https://www.instagram.com/rangdata.official/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>' +
         '<a href="https://www.facebook.com/profile.php?id=100006600948601" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>' +
         '<a href="https://www.tiktok.com/@rangdata" target="_blank" rel="noopener" aria-label="TikTok"><i class="fa-brands fa-tiktok" aria-hidden="true"></i></a>' +
+        '<a href="https://www.youtube.com/channel/UCXMGsRNGRNmqT03Ept6IfxQ" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>' +
         '<a href="https://wa.me/923406751076" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>';
     }
 
