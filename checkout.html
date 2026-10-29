@@ -175,8 +175,8 @@
 
 <div class="wrap order-done" id="doneView" hidden>
   <div class="tick"><i class="fa-solid fa-check" aria-hidden="true"></i></div>
-  <h1>Order placed</h1>
-  <p>Thank you. Your order summary has been prepared for WhatsApp &mdash; send that message and we will confirm stock, total and delivery time.</p>
+  <h1>Order request prepared</h1>
+  <p>Your order is not confirmed yet. Please send the prepared WhatsApp message so we can confirm stock, total and delivery time.</p>
   <div class="order-id">Order reference: <b id="doneRef">&mdash;</b></div>
   <div id="doneSummary"></div>
   <div class="btn-row">
@@ -238,7 +238,16 @@ window.RD_PAGE = { init: function () {
     return true;
   }
 
-  renderSummary();
+  if (renderSummary() && typeof gtag === 'function') {
+    var checkoutItems = Cart.detailed();
+    var checkoutTotals = Cart.totals();
+    gtag('event', 'begin_checkout', {
+      currency: 'PKR', value: checkoutTotals.total,
+      items: checkoutItems.map(function (it) {
+        return { item_id: it.code, item_name: it.name, price: it.price, quantity: it.qty };
+      })
+    });
+  }
   document.addEventListener('rd:cart', renderSummary);
 
   /* ---------- payment option highlight ---------- */
@@ -371,17 +380,17 @@ window.RD_PAGE = { init: function () {
     try { localStorage.setItem(CFG.orderKey, JSON.stringify(d)); } catch (err) {}
 
     if (typeof gtag === 'function') {
-      gtag('event', 'begin_checkout', {
-        transaction_id: ref, currency: 'PKR', value: t.total, shipping: t.delivery,
-        items: items.map(function (it) {
-          return { item_id: it.code, item_name: it.name, price: it.price, quantity: it.qty };
-        })
+      // A WhatsApp handoff is an order request, not a confirmed purchase.
+      gtag('event', 'generate_lead', {
+        currency: 'PKR', value: t.total,
+        lead_source: 'checkout_whatsapp'
       });
     }
 
     window.open(wa, '_blank');
     showDone(d, wa);
-    Cart.clear();
+    // Keep the cart until the customer returns; opening WhatsApp does not
+    // prove that the message was sent or the order was confirmed.
   });
 
   /* ---------- confirmation view ---------- */
