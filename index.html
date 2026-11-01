@@ -208,7 +208,9 @@
       <h2>Shop by Collection</h2>
       <p>Live edits, summer, winter, and now printed. Every suit is unstitched, so the fit is yours to decide.</p>
     </div>
-        <div class="collection-grid">
+    
+    <!-- Collection Grid Start -->
+    <div class="collection-grid">
       <a class="collection-card" href="summer.html">
         <img src="https://i.ibb.co/Q7FbBHrZ/RD0615a.png" alt="Summer Collection" loading="lazy" decoding="async">
         <div class="collection-body">
@@ -227,7 +229,7 @@
         </div>
       </a>
 
-      <!-- Yeh Printed Collection ka naya card hai -->
+      <!-- Printed Collection Card -->
       <a class="collection-card" href="printed.html">
         <img src="https://i.ibb.co/1cqGG9p/Rang-Data-brand.jpg" alt="Printed Collection" loading="lazy" decoding="async">
         <div class="collection-body">
@@ -237,9 +239,8 @@
         </div>
       </a>
     </div>
-      </a>
-      
-    </div>
+    <!-- Collection Grid End -->
+
   </div>
 </section>
 
@@ -423,7 +424,6 @@
 
 <script src="assets/js/products.js"></script>
 <script>
-
 window.RD_PAGE = { init: function () {
   var P = window.RD_PRODUCTS;
   var newest = P.all().filter(function (p) { return p.status === 'in-stock'; }).slice(0, 8);
