@@ -97,6 +97,17 @@
       imgs: ['https://i.ibb.co/W4k2zw9T/RD-0417-dhank-a.jpg', 'https://i.ibb.co/k247v0M2/RD-0417-dhank-b.jpg', 'https://i.ibb.co/VWDm5v88/RD-0417-dhank-c.jpg'] },
     { id: 'rd0421', code: 'RD 0421', collection: 'winter', name: 'Magenta Heavy Viscose Suit', color: 'Magenta', pieces: 3, fabric: 'Heavy Viscose', price: 6699, status: 'in-stock',
       imgs: ['https://i.ibb.co/VY5Gc77B/RD-0421-visco-a.jpg', 'https://i.ibb.co/3y8bxHwd/RD-0421-visco-b.jpg', 'https://i.ibb.co/q3sQx0vx/RD-0421-visco-c.jpg', 'https://i.ibb.co/kgFwDp06/RD-0421-visco-d.jpg'] }
+
+    /* ---------------------------- PRINTED ----------------------------
+       Printed suit add karne ka tareeqa:
+       1) Upar wali aakhri winter product ke } ke baad comma (,) laga dein.
+       2) Neeche wala template (comment markers ke bagair) us ke neeche paste karein.
+       3) season: 'summer' ya 'winter' likhein. Printed page ke 2 tabs isi se chalte hain.
+       4) Har printed suit ka id aur code alag hona chahiye.
+
+    { id: 'rdp001', code: 'RDP 001', collection: 'printed', season: 'summer', name: 'Product Name', color: 'Colour', pieces: 3, fabric: 'Cotton Lawn', price: 4999, status: 'in-stock',
+      imgs: ['https://i.ibb.co/XXXX/RDP001-a.jpg', 'https://i.ibb.co/XXXX/RDP001-b.jpg'] }
+    ------------------------------------------------------------------ */
   ];
 
   var LEGACY_IDS = {
@@ -108,7 +119,8 @@
 
   var COLLECTIONS = {
     summer: { key: 'summer', label: 'Summer Collection', page: 'summer.html', tagline: 'Breathable lawn and slub suits with multi-head thread embroidery.', spec: SUMMER_SPEC },
-    winter: { key: 'winter', label: 'Winter Collection', page: 'winter.html', tagline: 'Warm viscose, khaddar and dhank suits for the cold season.', spec: WINTER_SPEC }
+    winter: { key: 'winter', label: 'Winter Collection', page: 'winter.html', tagline: 'Warm viscose, khaddar and dhank suits for the cold season.', spec: WINTER_SPEC },
+    printed: { key: 'printed', label: 'Printed Collection', page: 'printed.html', tagline: 'Digital prints on premium fabric, in summer and winter editions.', spec: SUMMER_SPEC }
   };
 
   function winterShirtSpec(p) {
@@ -129,8 +141,13 @@
     },
     collection: function (key) { return COLLECTIONS[key] || null; },
     specs: function (p) {
-      var base = COLLECTIONS[p.collection].spec;
-      var out = [{ title: 'Shirt fabric', rows: p.collection === 'winter' ? winterShirtSpec(p) : base.shirt }];
+      var printed = p.collection === 'printed';
+      var isWinter = p.collection === 'winter' || (printed && p.season === 'winter');
+      var base = printed ? (isWinter ? WINTER_SPEC : SUMMER_SPEC) : COLLECTIONS[p.collection].spec;
+      var shirt = printed
+        ? { Material: 'Premium ' + p.fabric.toLowerCase(), Length: '3 metres', Work: 'Digital print' }
+        : (isWinter ? winterShirtSpec(p) : base.shirt);
+      var out = [{ title: 'Shirt fabric', rows: shirt }];
       if (p.pieces === 3) out.push({ title: 'Dupatta fabric', rows: base.dupatta });
       out.push({ title: 'Trouser fabric', rows: base.trouser });
       return out;
