@@ -230,7 +230,7 @@
       </a>
 
       <a class="collection-card" href="printed.html">
-        <img src=<a href="https://ibb.co/0xcCzLJ"><img src="https://i.ibb.co/8D4ZCYYr/Rang-Data-brand.jpg" alt="Printed Collection" loading="lazy" decoding="async">
+        <img src="https://i.ibb.co/8D4ZCYYr/Rang-Data-brand.jpg" alt="Printed Collection" loading="lazy" decoding="async">
         <div class="collection-body">
           <h3>Printed Collection</h3>
           <p>Digital prints on premium fabric</p>
@@ -248,7 +248,7 @@
     <div class="section-head">
       <span class="eyebrow">Just landed</span>
       <h2>New Arrivals</h2>
-      <p>The latest pieces from the winter and summer edits, ready to ship today.</p>
+      <p>The latest pieces from the winter edit, ready to ship today.</p>
     </div>
     <div class="product-grid" id="newArrivals"></div>
     <div style="text-align:center;margin-top:44px">
@@ -278,10 +278,10 @@
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">Most wanted</span>
-      <h2>Winter Best Sellers</h2>
-      <p>Heavier fabrics for the cold months &mdash; all three pieces included.</p>
+      <h2>Summer Best Sellers</h2>
+      <p>Light, breathable lawn and slub for the warm months &mdash; all three pieces included.</p>
     </div>
-    <div class="product-grid cols-3" id="winterPicks"></div>
+    <div class="product-grid cols-3" id="summerPicks"></div>
   </div>
 </section>
 
@@ -425,13 +425,13 @@
 <script>
 window.RD_PAGE = { init: function () {
   var P = window.RD_PRODUCTS;
-  var newest = P.all().filter(function (p) { return p.status === 'in-stock'; }).slice(0, 8);
+  var newest = P.byCollection('winter').filter(function (p) { return p.status === 'in-stock'; }).slice(0, 8);
   var grid = document.getElementById('newArrivals');
   if (grid) grid.innerHTML = newest.map(window.rdCardHTML).join('');
 
-  var winter = P.byCollection('winter').filter(function (p) { return p.status === 'in-stock'; }).slice(0, 3);
-  var wg = document.getElementById('winterPicks');
-  if (wg) wg.innerHTML = winter.map(window.rdCardHTML).join('');
+  var summer = P.byCollection('summer').filter(function (p) { return p.status === 'in-stock'; }).slice(0, 3);
+  var sg = document.getElementById('summerPicks');
+  if (sg) sg.innerHTML = summer.map(window.rdCardHTML).join('');
 }};
 </script>
 <script src="assets/js/site.js"></script>
