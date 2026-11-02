@@ -1,4 +1,4 @@
-﻿/* ==========================================================================
+/* ==========================================================================
    RANG DATA — Luxury Apparel
    Global stylesheet (single source of truth for every page)
    --------------------------------------------------------------------------
@@ -1038,9 +1038,4 @@ select {
 @media print {
   .header, .announce, .footer, .wa-float, .cart-panel, .drawer, .btn { display: none !important; }
   body { color: #000; }
-}
-/* Printed collection abhi hidden hai (launch par ye lines hata dein) */
-a[href="printed.html"], li:has(> a[href="printed.html"]) { display: none !important; }
-@media (min-width: 961px) {
-  .collection-grid { grid-template-columns: repeat(2, 1fr); }
 }
