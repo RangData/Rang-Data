@@ -147,12 +147,12 @@
 <main id="main">
 
 <section class="hero" id="hero" aria-label="Featured collections">
-  <div class="hero-slide active" style="background-image:url('https://i.ibb.co/Y7qgF3FZ/RD-009-dhank-c.jpg')" >
+  <div class="hero-slide active" style="background-image:url('https://i.ibb.co/RT9tqv43/CODE-K-101.jpg')" >
     <div class="hero-copy">
-      <span class="eyebrow">Autumn / Winter 2026</span>
-      <h1>Luxury Embroidered Suits</h1>
-      <p>Unstitched 2 &amp; 3 piece sets, cut from premium fabric and finished with multi-head threadwork.</p>
-      <a class="btn btn-light" href="shop.html">Shop the collection</a>
+      <span class="eyebrow">New Collection</span>
+      <h1>Noor-e-Rang</h1>
+      <p>Premium printed unstitched suits, crafted for everyday luxury.</p>
+      <a class="btn btn-light" href="winter.html">Shop the collection</a>
     </div>
   </div>
   <div class="hero-slide" style="background-image:url('https://i.ibb.co/JjL33TbM/RD0613a.png')" aria-hidden="true">
@@ -172,7 +172,7 @@
     </div>
   </div>
   <div class="hero-dots" id="heroDots" role="tablist" aria-label="Choose slide">
-    <button type="button" class="active" aria-label="Slide 1: Luxury Embroidered Suits"></button>
+    <button type="button" class="active" aria-label="Slide 1: Noor-e-Rang"></button>
     <button type="button" class="" aria-label="Slide 2: Festive Lawn Edit"></button>
     <button type="button" class="" aria-label="Slide 3: Royal Threadwork"></button>
   </div>
@@ -243,12 +243,13 @@
   </div>
 </section>
 
+<!-- 1. NEW ARRIVALS (VOLUME 01) -->
 <section class="section bg-cream" id="new-arrivals">
   <div class="wrap">
     <div class="section-head">
-      <span class="eyebrow">Just landed</span>
-      <h2>New Arrivals</h2>
-      <p>The latest pieces from the winter edit, ready to ship today.</p>
+      <span class="eyebrow">Just Landed</span>
+      <h2>NOOR-E-RANG (Volume 01)</h2>
+      <p>Classic prints and earthy tones for everyday luxury.</p>
     </div>
     <div class="product-grid" id="newArrivals"></div>
     <div style="text-align:center;margin-top:44px">
@@ -274,14 +275,35 @@
   </div>
 </section>
 
-<section class="section bg-cream">
+<!-- 2. BOOKS / CATALOGUE SECTION -->
+<section class="section bg-cream" id="lookbook">
   <div class="wrap">
     <div class="section-head">
-      <span class="eyebrow">Most wanted</span>
-      <h2>Summer Best Sellers</h2>
-      <p>Light, breathable lawn and slub for the warm months &mdash; all three pieces included.</p>
+      <span class="eyebrow">Lookbook</span>
+      <h2>Explore Our Catalogues</h2>
+      <p>Browse our complete volumes and find your perfect match.</p>
     </div>
-    <div class="product-grid cols-3" id="summerPicks"></div>
+    <div class="collection-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+      <!-- Book 1: Noor-e-Rang -->
+      <a class="collection-card" href="winter.html">
+        <img src="https://i.ibb.co/q391HbHK/CODE-K-102.jpg" alt="Noor-e-Rang Volume 01" loading="lazy" decoding="async">
+        <div class="collection-body">
+          <h3>Volume 01: Noor-e-Rang</h3>
+          <p>Classic & Earthy Prints</p>
+          <span class="collection-cta">View Book <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+        </div>
+      </a>
+      
+      <!-- Book 2: Rang-e-Nazakat -->
+      <a class="collection-card" href="winter.html">
+        <img src="https://i.ibb.co/N6VyPf4k/CODE-D-101-1.jpg" alt="Rang-e-Nazakat Volume 02" loading="lazy" decoding="async">
+        <div class="collection-body">
+          <h3>Volume 02: Rang-e-Nazakat</h3>
+          <p>Fresh & Bright Prints</p>
+          <span class="collection-cta">View Book <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+        </div>
+      </a>
+    </div>
   </div>
 </section>
 
@@ -425,13 +447,11 @@
 <script>
 window.RD_PAGE = { init: function () {
   var P = window.RD_PRODUCTS;
-  var newest = P.byCollection('winter').filter(function (p) { return p.status === 'in-stock'; }).slice(0, 8);
+  
+  // New Arrivals mein Volume 1 (K+101) show karne ke liye
+  var vol1 = P.all().filter(function (p) { return p.id.startsWith('k10') && p.status === 'in-stock'; }).slice(0, 4);
   var grid = document.getElementById('newArrivals');
-  if (grid) grid.innerHTML = newest.map(window.rdCardHTML).join('');
-
-  var summer = P.byCollection('summer').filter(function (p) { return p.status === 'in-stock'; }).slice(0, 3);
-  var sg = document.getElementById('summerPicks');
-  if (sg) sg.innerHTML = summer.map(window.rdCardHTML).join('');
+  if (grid) grid.innerHTML = vol1.map(window.rdCardHTML).join('');
 }};
 </script>
 <script src="assets/js/site.js"></script>
