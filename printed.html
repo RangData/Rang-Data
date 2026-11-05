@@ -167,6 +167,12 @@
       </div>
       <div class="catalog-count" id="printedCount"></div>
     </div>
+    <div class="catalog-toolbar" style="margin-top:-8px">
+      <div class="catalog-filters" role="tablist" aria-label="Choose catalogue book">
+        <button type="button" class="chip active" data-book="1" role="tab" aria-selected="true">Vol 01 &middot; Noor-e-Rang</button>
+        <button type="button" class="chip" data-book="2" role="tab" aria-selected="false">Vol 02 &middot; Rang-e-Nazakat</button>
+      </div>
+    </div>
     <div class="product-grid" id="printedProducts"></div>
   </div>
 </section>
@@ -272,35 +278,52 @@
 
 <script src="assets/js/products.js"></script>
 <script>
-// Printed page: Summer Printed / Winter Printed tabs
+// Printed page: Season tabs (Summer/Winter) + Book tabs (Vol 01 / Vol 02)
 window.RD_PAGE = { init: function () {
   var P = window.RD_PRODUCTS;
   var grid = document.getElementById('printedProducts');
   var count = document.getElementById('printedCount');
-  var tabs = Array.prototype.slice.call(document.querySelectorAll('[data-season]'));
+  var seasonTabs = Array.prototype.slice.call(document.querySelectorAll('[data-season]'));
+  var bookTabs = Array.prototype.slice.call(document.querySelectorAll('[data-book]'));
   if (!grid) return;
   var all = P.byCollection('printed');
+  var BOOKS = { '1': { prefix: 'CODE K', name: 'Noor-e-Rang' }, '2': { prefix: 'CODE D', name: 'Rang-e-Nazakat' } };
+  var state = { season: 'summer', book: '1' };
 
-  function show(season) {
-    var items = all.filter(function (p) { return p.season === season; });
-    tabs.forEach(function (t) {
-      var on = t.getAttribute('data-season') === season;
+  function show() {
+    var items = all.filter(function (p) {
+      return p.season === state.season && p.code.indexOf(BOOKS[state.book].prefix) === 0;
+    });
+    seasonTabs.forEach(function (t) {
+      var on = t.getAttribute('data-season') === state.season;
+      t.classList.toggle('active', on);
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+    });
+    bookTabs.forEach(function (t) {
+      var on = t.getAttribute('data-book') === state.book;
       t.classList.toggle('active', on);
       t.setAttribute('aria-selected', on ? 'true' : 'false');
     });
     if (count) count.textContent = items.length + (items.length === 1 ? ' design' : ' designs');
     if (!items.length) {
-      grid.innerHTML = '<p style="text-align:center; grid-column: 1 / -1;">New ' + season + ' printed suits are arriving soon. Please check back later or shop our other collections.</p>';
+      grid.innerHTML = '<p style="text-align:center; grid-column: 1 / -1;">New ' + state.season + ' printed suits are arriving soon. Please check back later or shop our other collections.</p>';
     } else {
       grid.innerHTML = items.map(window.rdCardHTML).join('');
     }
   }
 
-  tabs.forEach(function (t) {
-    t.addEventListener('click', function () { show(t.getAttribute('data-season')); });
+  seasonTabs.forEach(function (t) {
+    t.addEventListener('click', function () { state.season = t.getAttribute('data-season'); show(); });
   });
-  var m = /[?&]season=(summer|winter)/.exec(location.search);
-  show(m ? m[1] : 'summer');
+  bookTabs.forEach(function (t) {
+    t.addEventListener('click', function () { state.book = t.getAttribute('data-book'); show(); });
+  });
+
+  var ms = /[?&]season=(summer|winter)/.exec(location.search);
+  var mb = /[?&]book=(1|2)/.exec(location.search);
+  if (ms) state.season = ms[1];
+  if (mb) state.book = mb[1];
+  show();
 }};
 </script>
 <script src="assets/js/site.js"></script>
