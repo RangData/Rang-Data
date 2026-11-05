@@ -167,7 +167,7 @@
       </div>
       <div class="catalog-count" id="printedCount"></div>
     </div>
-    <div class="catalog-toolbar" style="margin-top:-8px">
+    <div class="catalog-toolbar" id="bookBar" style="margin-top:-8px">
       <div class="catalog-filters" role="tablist" aria-label="Choose catalogue book">
         <button type="button" class="chip active" data-book="1" role="tab" aria-selected="true">Vol 01 &middot; Noor-e-Rang</button>
         <button type="button" class="chip" data-book="2" role="tab" aria-selected="false">Vol 02 &middot; Rang-e-Nazakat</button>
@@ -291,6 +291,20 @@ window.RD_PAGE = { init: function () {
   var state = { season: 'summer', book: '1' };
 
   function show() {
+    // Sirf wahi books dikhayein jin ke is season mein suits hon
+    var avail = {};
+    all.forEach(function (p) {
+      if (p.season !== state.season) return;
+      Object.keys(BOOKS).forEach(function (k) {
+        if (p.code.indexOf(BOOKS[k].prefix) === 0) avail[k] = true;
+      });
+    });
+    var keys = Object.keys(avail);
+    if (keys.length && !avail[state.book]) state.book = keys[0];
+    bookTabs.forEach(function (t) { t.hidden = !avail[t.getAttribute('data-book')]; });
+    var bar = document.getElementById('bookBar');
+    if (bar) bar.hidden = !keys.length;
+
     var items = all.filter(function (p) {
       return p.season === state.season && p.code.indexOf(BOOKS[state.book].prefix) === 0;
     });
