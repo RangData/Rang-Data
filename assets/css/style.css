@@ -1039,3 +1039,6 @@ select {
   .header, .announce, .footer, .wa-float, .cart-panel, .drawer, .btn { display: none !important; }
   body { color: #000; }
 }
+/* Product page: poori tasveer dikhe (crop na ho) */
+.pdp-stage img { object-fit: contain; }
+.pdp-thumbs img { object-fit: contain; background: var(--cream-dark); }
