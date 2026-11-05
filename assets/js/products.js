@@ -161,7 +161,8 @@
         ? { Material: 'Premium ' + p.fabric.toLowerCase(), Length: '3 metres', Work: 'Digital print' }
         : (isWinter ? winterShirtSpec(p) : base.shirt);
       var out = [{ title: 'Shirt fabric', rows: shirt }];
-      if (p.pieces === 3) out.push({ title: 'Dupatta fabric', rows: base.dupatta });
+      var dupatta = printed ? { Material: 'Premium ' + p.fabric.toLowerCase(), Length: '2.5 metres', Colour: 'Matching to design' } : base.dupatta;
+      if (p.pieces === 3) out.push({ title: 'Dupatta fabric', rows: dupatta });
       out.push({ title: 'Trouser fabric', rows: base.trouser });
       return out;
     },
