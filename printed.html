@@ -167,14 +167,15 @@
   <div class="wrap">
     <div class="catalog-toolbar">
       <div class="catalog-filters" role="tablist" aria-label="Printed collection season">
-        <button type="button" class="chip active" data-season="summer" role="tab" aria-selected="true">Summer Printed</button>
-        <button type="button" class="chip" data-season="winter" role="tab" aria-selected="false">Winter Printed</button>
+        <button type="button" class="chip" data-season="summer" role="tab" aria-selected="false">Summer Printed</button>
+        <button type="button" class="chip active" data-season="winter" role="tab" aria-selected="true">Winter Printed</button>
       </div>
       <div class="catalog-count" id="printedCount"></div>
     </div>
     <div class="catalog-toolbar" id="bookBar" style="margin-top:-8px">
       <div class="catalog-filters" role="tablist" aria-label="Choose catalogue book">
-        <button type="button" class="chip active" data-book="1" role="tab" aria-selected="true">Vol 01 &middot; Noor-e-Rang</button>
+        <button type="button" class="chip active" data-book="all" role="tab" aria-selected="true">All Designs</button>
+        <button type="button" class="chip" data-book="1" role="tab" aria-selected="false">Vol 01 &middot; Noor-e-Rang</button>
         <button type="button" class="chip" data-book="2" role="tab" aria-selected="false">Vol 02 &middot; Rang-e-Nazakat</button>
         <button type="button" class="chip" data-book="3" role="tab" aria-selected="false">Lilen &middot; 3 Piece</button>
       </div>
@@ -284,7 +285,7 @@
 
 <script src="assets/js/products.js"></script>
 <script>
-// Printed page: Season tabs (Summer/Winter) + Book tabs (Vol 01 / Vol 02)
+// Printed page: opens on Winter with all designs; Season tabs + Book tabs (All / Vol 01 / Vol 02 / Lilen)
 window.RD_PAGE = { init: function () {
   var P = window.RD_PRODUCTS;
   var grid = document.getElementById('printedProducts');
@@ -294,7 +295,7 @@ window.RD_PAGE = { init: function () {
   if (!grid) return;
   var all = P.byCollection('printed');
   var BOOKS = { '1': { prefix: 'CODE K', name: 'Noor-e-Rang' }, '2': { prefix: 'CODE D', name: 'Rang-e-Nazakat' }, '3': { prefix: 'LEN-', name: 'Lilen' } };
-  var state = { season: 'summer', book: '1' };
+  var state = { season: 'winter', book: 'all' };
 
   function show() {
     // Sirf wahi books dikhayein jin ke is season mein suits hon
@@ -306,13 +307,16 @@ window.RD_PAGE = { init: function () {
       });
     });
     var keys = Object.keys(avail);
-    if (keys.length && !avail[state.book]) state.book = keys[0];
-    bookTabs.forEach(function (t) { t.hidden = !avail[t.getAttribute('data-book')]; });
+    if (state.book !== 'all' && !avail[state.book]) state.book = 'all';
+    bookTabs.forEach(function (t) {
+      var k = t.getAttribute('data-book');
+      t.hidden = (k !== 'all' && !avail[k]);
+    });
     var bar = document.getElementById('bookBar');
     if (bar) bar.hidden = !keys.length;
 
     var items = all.filter(function (p) {
-      return p.season === state.season && p.code.indexOf(BOOKS[state.book].prefix) === 0;
+      return p.season === state.season && (state.book === 'all' || p.code.indexOf(BOOKS[state.book].prefix) === 0);
     });
     seasonTabs.forEach(function (t) {
       var on = t.getAttribute('data-season') === state.season;
@@ -340,7 +344,7 @@ window.RD_PAGE = { init: function () {
   });
 
   var ms = /[?&]season=(summer|winter)/.exec(location.search);
-  var mb = /[?&]book=(1|2|3)/.exec(location.search);
+  var mb = /[?&]book=(all|1|2|3)/.exec(location.search);
   if (ms) state.season = ms[1];
   if (mb) state.book = mb[1];
   show();
