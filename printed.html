@@ -176,6 +176,7 @@
       <div class="catalog-filters" role="tablist" aria-label="Choose catalogue book">
         <button type="button" class="chip active" data-book="1" role="tab" aria-selected="true">Vol 01 &middot; Noor-e-Rang</button>
         <button type="button" class="chip" data-book="2" role="tab" aria-selected="false">Vol 02 &middot; Rang-e-Nazakat</button>
+        <button type="button" class="chip" data-book="3" role="tab" aria-selected="false">Lilen &middot; 3 Piece</button>
       </div>
     </div>
     <div class="product-grid" id="printedProducts"></div>
@@ -292,7 +293,7 @@ window.RD_PAGE = { init: function () {
   var bookTabs = Array.prototype.slice.call(document.querySelectorAll('[data-book]'));
   if (!grid) return;
   var all = P.byCollection('printed');
-  var BOOKS = { '1': { prefix: 'CODE K', name: 'Noor-e-Rang' }, '2': { prefix: 'CODE D', name: 'Rang-e-Nazakat' } };
+  var BOOKS = { '1': { prefix: 'CODE K', name: 'Noor-e-Rang' }, '2': { prefix: 'CODE D', name: 'Rang-e-Nazakat' }, '3': { prefix: 'LEN-', name: 'Lilen' } };
   var state = { season: 'summer', book: '1' };
 
   function show() {
@@ -339,7 +340,7 @@ window.RD_PAGE = { init: function () {
   });
 
   var ms = /[?&]season=(summer|winter)/.exec(location.search);
-  var mb = /[?&]book=(1|2)/.exec(location.search);
+  var mb = /[?&]book=(1|2|3)/.exec(location.search);
   if (ms) state.season = ms[1];
   if (mb) state.book = mb[1];
   show();
