@@ -98,7 +98,7 @@
     { id: 'rd0421', code: 'RD 0421', collection: 'winter', name: 'Magenta Heavy Viscose Suit', color: 'Magenta', pieces: 3, fabric: 'Heavy Viscose', price: 6699, status: 'in-stock',
       imgs: ['https://i.ibb.co/VY5Gc77B/RD-0421-visco-a.jpg', 'https://i.ibb.co/3y8bxHwd/RD-0421-visco-b.jpg', 'https://i.ibb.co/q3sQx0vx/RD-0421-visco-c.jpg', 'https://i.ibb.co/kgFwDp06/RD-0421-visco-d.jpg'] },
 
-    /* ---------------------------- PRINTED (Vol 1, Vol 2, LILEN COLLECTION) ---------------------------- */
+    /* ---------------------------- PRINTED ---------------------------- */
     { id: 'rdk101', code: 'CODE K 101', collection: 'printed', season: 'winter', name: 'Chocolate Brown Printed Khaddar Suit', color: 'Chocolate Brown', pieces: 3, fabric: 'Winter Khaddar', price: 2500, status: 'in-stock',
       imgs: ['https://i.ibb.co/RT9tqv43/CODE-K-101.jpg', 'https://i.ibb.co/xtFdDwsY/CODE-K-101-a.jpg', 'https://i.ibb.co/8gGBrkQQ/CODE-K-101-b.jpg', 'https://i.ibb.co/dsd8MfmZ/CODE-K-101-c.jpg'] },
     { id: 'rdk102', code: 'CODE K 102', collection: 'printed', season: 'winter', name: 'Coral Orange Printed Khaddar Suit', color: 'Coral Orange', pieces: 3, fabric: 'Winter Khaddar', price: 2500, status: 'in-stock',
