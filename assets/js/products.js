@@ -123,15 +123,15 @@
       imgs: ['https://i.ibb.co/r2Tm5FSC/CODE-D-106.jpg', 'https://i.ibb.co/N6wKsWT1/CODE-D-106-1.jpg', 'https://i.ibb.co/rfKVbHZ8/CODE-D-106a.jpg'] },
 
     /* ---------------------------- LILEN COLLECTION ---------------------------- */
-    { id: 'len101', code: 'LEN-101', collection: 'winter', name: 'Mustard Lilen 3 Piece Suit', color: 'Mustard', pieces: 3, fabric: 'Premium Lilen', price: 2300, status: 'in-stock',
+    { id: 'len101', code: 'LEN-101', collection: 'printed', name: 'Mustard Lilen 3 Piece Suit', color: 'Mustard', pieces: 3, fabric: 'Premium Lilen', price: 2300, status: 'in-stock',
       imgs: ['https://i.ibb.co/Nd072LMZ/1.jpg', 'https://i.ibb.co/k6BF17gt/1a.jpg', 'https://i.ibb.co/HDyrZRz7/image-82a24dce-jpg-f3a648b9-2-K.jpg'] },
-    { id: 'len102', code: 'LEN-102', collection: 'winter', name: 'Black Floral Lilen 3 Piece Suit', color: 'Black', pieces: 3, fabric: 'Premium Lilen', price: 2300, status: 'in-stock',
+    { id: 'len102', code: 'LEN-102', collection: 'printed', name: 'Black Floral Lilen 3 Piece Suit', color: 'Black', pieces: 3, fabric: 'Premium Lilen', price: 2300, status: 'in-stock',
       imgs: ['https://i.ibb.co/YBbfYsQr/2.jpg', 'https://i.ibb.co/SXwdJCzf/2a.jpg', 'https://i.ibb.co/M51kPQBX/Fabric-presentation-photoshoot-f-1fa55784-2-K.jpg'] },
-    { id: 'len103', code: 'LEN-103', collection: 'winter', name: 'Brown Floral Lilen 3 Piece Suit', color: 'Brown', pieces: 3, fabric: 'Premium Lilen', price: 2300, status: 'in-stock',
+    { id: 'len103', code: 'LEN-103', collection: 'printed', name: 'Brown Floral Lilen 3 Piece Suit', color: 'Brown', pieces: 3, fabric: 'Premium Lilen', price: 2300, status: 'in-stock',
       imgs: ['https://i.ibb.co/dsZv5zMW/3.jpg', 'https://i.ibb.co/JRj6YPkt/3a.jpg', 'https://i.ibb.co/JwCzG14C/3aa.jpg', 'https://i.ibb.co/k6SPv5hH/image-3fbd5796-jpg-98454ee3-2-K.jpg'] },
-    { id: 'len104', code: 'LEN-104', collection: 'winter', name: 'Teal Tulip Lilen 3 Piece Suit', color: 'Teal', pieces: 3, fabric: 'Premium Lilen', price: 2300, status: 'in-stock',
+    { id: 'len104', code: 'LEN-104', collection: 'printed', name: 'Teal Tulip Lilen 3 Piece Suit', color: 'Teal', pieces: 3, fabric: 'Premium Lilen', price: 2300, status: 'in-stock',
       imgs: ['https://i.ibb.co/PGd2Tk32/4.jpg', 'https://i.ibb.co/WN8Z4F8w/4a.jpg', 'https://i.ibb.co/gFBdrBC1/Fabric-presentation-photoshoot-f-6983cd08-2-K.jpg'] },
-    { id: 'len105', code: 'LEN-105', collection: 'winter', name: 'Dark Brown Lily Lilen 3 Piece Suit', color: 'Dark Brown', pieces: 3, fabric: 'Premium Lilen', price: 2300, status: 'in-stock',
+    { id: 'len105', code: 'LEN-105', collection: 'printed', name: 'Dark Brown Lily Lilen 3 Piece Suit', color: 'Dark Brown', pieces: 3, fabric: 'Premium Lilen', price: 2300, status: 'in-stock',
       imgs: ['https://i.ibb.co/Y4jNdJS6/5.jpg', 'https://i.ibb.co/qYgLRJrx/5a.jpg', 'https://i.ibb.co/d032D05h/Fabric-presentation-photoshoot-f-faa7c650-2-K.jpg'] }
   ];
 
