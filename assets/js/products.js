@@ -122,7 +122,7 @@
     { id: 'rdd106', code: 'CODE D 106', collection: 'printed', season: 'winter', name: 'Soft Beige Printed Dhank Suit', color: 'Soft Beige', pieces: 3, fabric: 'Warm Dhank', price: 2500, status: 'in-stock',
       imgs: ['https://i.ibb.co/r2Tm5FSC/CODE-D-106.jpg', 'https://i.ibb.co/N6wKsWT1/CODE-D-106-1.jpg', 'https://i.ibb.co/rfKVbHZ8/CODE-D-106a.jpg'] },
 
-    /* ---------------------------- LILEN COLLECTION ---------------------------- */
+    /* ---------------------------- PRINTED (LILEN COLLECTION) ---------------------------- */
     { id: 'len101', code: 'LEN-101', collection: 'printed', name: 'Mustard Lilen 3 Piece Suit', color: 'Mustard', pieces: 3, fabric: 'Premium Lilen', price: 2300, status: 'in-stock',
       imgs: ['https://i.ibb.co/Nd072LMZ/1.jpg', 'https://i.ibb.co/k6BF17gt/1a.jpg', 'https://i.ibb.co/HDyrZRz7/image-82a24dce-jpg-f3a648b9-2-K.jpg'] },
     { id: 'len102', code: 'LEN-102', collection: 'printed', name: 'Black Floral Lilen 3 Piece Suit', color: 'Black', pieces: 3, fabric: 'Premium Lilen', price: 2300, status: 'in-stock',
