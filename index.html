@@ -249,17 +249,17 @@
   </div>
 </section>
 
-<!-- 1. NEW ARRIVALS (VOLUME 01) -->
+<!-- 1. NEW ARRIVALS (LILEN COLLECTION) -->
 <section class="section bg-cream" id="new-arrivals">
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">Just Landed</span>
-      <h2>NOOR-E-RANG (Volume 01)</h2>
-      <p>Classic prints and earthy tones for everyday luxury.</p>
+      <h2>Premium Lilen Collection</h2>
+      <p>New winter arrivals - comfortable, elegant, and perfect for everyday wear.</p>
     </div>
     <div class="product-grid" id="newArrivals"></div>
     <div style="text-align:center;margin-top:44px">
-      <a class="btn btn-ghost" href="printed.html?season=winter&amp;book=1">View all designs</a>
+      <a class="btn btn-ghost" href="shop.html">View all designs</a>
     </div>
   </div>
 </section>
@@ -474,13 +474,15 @@ window.RD_PAGE = { init: function () {
     var el = document.getElementById(id);
     if (el) el.innerHTML = items.map(window.rdCardHTML).join('');
   }
-  // Volume 01 (Noor-e-Rang): CODE K suits
-  fill('newArrivals', P.byCollection('printed').filter(function (p) {
-    return p.code.indexOf('CODE K') === 0 && p.status === 'in-stock';
+  
+  // New Arrivals (Lilen Collection)
+  fill('newArrivals', P.all().filter(function (p) {
+    return p.code.indexOf('LEN-') === 0 && p.status === 'in-stock';
   }).slice(0, 4));
+
   // Winter Collection picks
   fill('winterPicks', P.byCollection('winter').filter(function (p) {
-    return p.status === 'in-stock';
+    return p.status === 'in-stock' && p.code.indexOf('LEN-') !== 0;
   }).slice(0, 4));
 }};
 </script>
