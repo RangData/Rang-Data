@@ -98,7 +98,7 @@
     { id: 'rd0421', code: 'RD 0421', collection: 'winter', name: 'Magenta Heavy Viscose Suit', color: 'Magenta', pieces: 3, fabric: 'Heavy Viscose', price: 6699, status: 'in-stock',
       imgs: ['https://i.ibb.co/VY5Gc77B/RD-0421-visco-a.jpg', 'https://i.ibb.co/3y8bxHwd/RD-0421-visco-b.jpg', 'https://i.ibb.co/q3sQx0vx/RD-0421-visco-c.jpg', 'https://i.ibb.co/kgFwDp06/RD-0421-visco-d.jpg'] },
 
-    /* ---------------------------- PRINTED (Vol 1, Vol 2) ---------------------------- */
+    /* ---------------------------- PRINTED (Vol 1, Vol 2, LILEN COLLECTION) ---------------------------- */
     { id: 'rdk101', code: 'CODE K 101', collection: 'printed', season: 'winter', name: 'Chocolate Brown Printed Khaddar Suit', color: 'Chocolate Brown', pieces: 3, fabric: 'Winter Khaddar', price: 2500, status: 'in-stock',
       imgs: ['https://i.ibb.co/RT9tqv43/CODE-K-101.jpg', 'https://i.ibb.co/xtFdDwsY/CODE-K-101-a.jpg', 'https://i.ibb.co/8gGBrkQQ/CODE-K-101-b.jpg', 'https://i.ibb.co/dsd8MfmZ/CODE-K-101-c.jpg'] },
     { id: 'rdk102', code: 'CODE K 102', collection: 'printed', season: 'winter', name: 'Coral Orange Printed Khaddar Suit', color: 'Coral Orange', pieces: 3, fabric: 'Winter Khaddar', price: 2500, status: 'in-stock',
@@ -121,9 +121,7 @@
       imgs: ['https://i.ibb.co/nNhV31ms/CODE-D-105.jpg', 'https://i.ibb.co/tPWNLjFd/CODE-D-105-1.jpg', 'https://i.ibb.co/LX1Gscbn/CODE-D-105a.jpg'] },
     { id: 'rdd106', code: 'CODE D 106', collection: 'printed', season: 'winter', name: 'Soft Beige Printed Dhank Suit', color: 'Soft Beige', pieces: 3, fabric: 'Warm Dhank', price: 2500, status: 'in-stock',
       imgs: ['https://i.ibb.co/r2Tm5FSC/CODE-D-106.jpg', 'https://i.ibb.co/N6wKsWT1/CODE-D-106-1.jpg', 'https://i.ibb.co/rfKVbHZ8/CODE-D-106a.jpg'] },
-
-    /* ---------------------------- PRINTED (LILEN COLLECTION) ---------------------------- */
-    { id: 'len101', code: 'LEN-101', collection: 'printed', name: 'Mustard Lilen 3 Piece Suit', color: 'Mustard', pieces: 3, fabric: 'Premium Lilen', price: 2300, status: 'in-stock',
+     { id: 'len101', code: 'LEN-101', collection: 'printed', name: 'Mustard Lilen 3 Piece Suit', color: 'Mustard', pieces: 3, fabric: 'Premium Lilen', price: 2300, status: 'in-stock',
       imgs: ['https://i.ibb.co/Nd072LMZ/1.jpg', 'https://i.ibb.co/k6BF17gt/1a.jpg', 'https://i.ibb.co/HDyrZRz7/image-82a24dce-jpg-f3a648b9-2-K.jpg'] },
     { id: 'len102', code: 'LEN-102', collection: 'printed', name: 'Black Floral Lilen 3 Piece Suit', color: 'Black', pieces: 3, fabric: 'Premium Lilen', price: 2300, status: 'in-stock',
       imgs: ['https://i.ibb.co/YBbfYsQr/2.jpg', 'https://i.ibb.co/SXwdJCzf/2a.jpg', 'https://i.ibb.co/M51kPQBX/Fabric-presentation-photoshoot-f-1fa55784-2-K.jpg'] },
@@ -133,7 +131,8 @@
       imgs: ['https://i.ibb.co/PGd2Tk32/4.jpg', 'https://i.ibb.co/WN8Z4F8w/4a.jpg', 'https://i.ibb.co/gFBdrBC1/Fabric-presentation-photoshoot-f-6983cd08-2-K.jpg'] },
     { id: 'len105', code: 'LEN-105', collection: 'printed', name: 'Dark Brown Lily Lilen 3 Piece Suit', color: 'Dark Brown', pieces: 3, fabric: 'Premium Lilen', price: 2300, status: 'in-stock',
       imgs: ['https://i.ibb.co/Y4jNdJS6/5.jpg', 'https://i.ibb.co/qYgLRJrx/5a.jpg', 'https://i.ibb.co/d032D05h/Fabric-presentation-photoshoot-f-faa7c650-2-K.jpg'] }
-  ];
+
+   ];
 
   var LEGACY_IDS = {
     '1': 'rd0042', '2': 'rd058', '3': 'rd0545', '4': 'rd0556', '5': 'rd0561',
