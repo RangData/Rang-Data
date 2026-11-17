@@ -198,11 +198,13 @@ window.RD_PAGE = { init: function () {
   var doneView = document.getElementById('doneView');
   var form = document.getElementById('orderForm');
 
+  function cityVal() { var el = document.getElementById('cCity'); return el ? el.value : ''; }
+
   /* ---------- summary, always driven by the validated cart ---------- */
  function renderSummary() {
     if (!doneView.hidden) return false;
     var items = Cart.detailed();
-    var t = Cart.totals();
+    var t = Cart.totals(cityVal());
 
     if (!items.length) {
       checkoutView.hidden = true;
@@ -228,19 +230,19 @@ window.RD_PAGE = { init: function () {
 
     document.getElementById('ocSubtotal').textContent = money(t.subtotal);
     var del = document.getElementById('ocDelivery');
-    del.textContent = t.freeShip ? 'Free' : money(t.delivery);
+    del.textContent = t.freeShip ? 'Free' : (t.cityKnown ? money(t.delivery) : 'Enter city');
     document.getElementById('ocDeliveryRow').classList.toggle('free', t.freeShip);
     document.getElementById('ocTotal').textContent = money(t.total);
 
     var prog = document.getElementById('ocProgress');
     if (t.freeShip) prog.innerHTML = '<b>Free delivery applied</b> \u2014 3 items or more.';
-    else prog.innerHTML = 'Add <b>' + t.toFree + ' more item' + (t.toFree > 1 ? 's' : '') + '</b> and delivery becomes free.';
+    else prog.innerHTML = 'Delivery: <b>Rs. ' + CFG.deliveryLahore + '</b> Lahore, <b>Rs. ' + CFG.deliveryOther + '</b> other cities. Add <b>' + t.toFree + ' more item' + (t.toFree > 1 ? 's' : '') + '</b> and delivery becomes free.';
     return true;
   }
 
   if (renderSummary() && typeof gtag === 'function') {
     var checkoutItems = Cart.detailed();
-    var checkoutTotals = Cart.totals();
+    var checkoutTotals = Cart.totals(cityVal());
     gtag('event', 'begin_checkout', {
       currency: 'PKR', value: checkoutTotals.total,
       items: checkoutItems.map(function (it) {
@@ -249,6 +251,7 @@ window.RD_PAGE = { init: function () {
     });
   }
   document.addEventListener('rd:cart', renderSummary);
+  document.getElementById('cCity').addEventListener('input', renderSummary);
 
   /* ---------- payment option highlight ---------- */
   document.querySelectorAll('#payList input[name="pay"]').forEach(function (r) {
@@ -330,7 +333,7 @@ window.RD_PAGE = { init: function () {
     }
 
     var items = Cart.detailed();
-    var t = Cart.totals();
+    var t = Cart.totals(document.getElementById('cCity').value);
     var ref = makeRef();
     var pay = document.querySelector('#payList input[name="pay"]:checked').value;
 
@@ -362,7 +365,7 @@ window.RD_PAGE = { init: function () {
     });
     lines.push('');
     lines.push('Subtotal: ' + money(t.subtotal));
-    lines.push('Delivery: ' + (t.freeShip ? 'Free (3+ items)' : money(t.delivery)));
+    lines.push('Delivery: ' + (t.freeShip ? 'Free (3+ items)' : money(t.delivery) + (t.lahore ? ' (Lahore)' : ' (outside Lahore)')));
     lines.push('*Total: ' + money(t.total) + '*');
     lines.push('');
     lines.push('*Deliver to*');
