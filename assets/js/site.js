@@ -7,7 +7,8 @@
   var CFG = {
     whatsapp: '923406751076',
     email: '12rangdata@gmail.com',
-    delivery: 250,
+    deliveryLahore: 250,
+    deliveryOther: 350,
     freeDeliveryQty: 3,
     cartKey: 'rd_cart_v2',
     orderKey: 'rd_last_order',
@@ -84,12 +85,18 @@
       });
     },
     count: function () { return this.items.reduce(function (n, r) { return n + r.qty; }, 0); },
-    totals: function () {
+    isLahore: function (city) {
+      return /lahore|lahor|lhr|\u0644\u0627\u06c1\u0648\u0631/i.test(String(city || ''));
+    },
+    totals: function (city) {
       var subtotal = this.detailed().reduce(function (n, r) { return n + r.line; }, 0);
       var qty = this.count();
       var freeShip = qty >= CFG.freeDeliveryQty;
-      var delivery = (qty === 0 || freeShip) ? 0 : CFG.delivery;
-      return { qty: qty, subtotal: subtotal, delivery: delivery, freeShip: freeShip, total: subtotal + delivery, toFree: Math.max(0, CFG.freeDeliveryQty - qty) };
+      var cityKnown = String(city || '').trim().length >= 2;
+      var lahore = cityKnown && this.isLahore(city);
+      var rate = lahore ? CFG.deliveryLahore : CFG.deliveryOther;
+      var delivery = (qty === 0 || freeShip || !cityKnown) ? 0 : rate;
+      return { qty: qty, subtotal: subtotal, delivery: delivery, freeShip: freeShip, cityKnown: cityKnown, lahore: lahore, total: subtotal + delivery, toFree: Math.max(0, CFG.freeDeliveryQty - qty) };
     },
     add: function (id, qty) {
       var p = P.get(id);
@@ -126,7 +133,7 @@
         }
       }
       var sub = $('#cartSubtotal'); if (sub) sub.textContent = money(t.subtotal);
-      var del = $('#cartDelivery'); if (del) { del.textContent = t.qty === 0 ? money(0) : (t.freeShip ? 'Free' : money(t.delivery)); del.parentNode.classList.toggle('free', t.freeShip && t.qty > 0); }
+      var del = $('#cartDelivery'); if (del) { del.textContent = t.qty === 0 ? money(0) : (t.freeShip ? 'Free' : 'Rs. ' + CFG.deliveryLahore + ' Lahore / Rs. ' + CFG.deliveryOther + ' other'); del.parentNode.classList.toggle('free', t.freeShip && t.qty > 0); }
       var tot = $('#cartTotal'); if (tot) tot.textContent = money(t.total);
       var prog = $('#cartProgress');
       if (prog) {
