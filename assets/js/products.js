@@ -130,7 +130,19 @@
     { id: 'len104', code: 'LEN-104', collection: 'printed', season: 'winter', name: 'Teal Tulip Lilen 3 Piece Suit', color: 'Teal', pieces: 3, fabric: 'Lilen', price: 2300, status: 'in-stock',
       imgs: ['https://i.ibb.co/PGd2Tk32/4.jpg', 'https://i.ibb.co/WN8Z4F8w/4a.jpg', 'https://i.ibb.co/gFBdrBC1/Fabric-presentation-photoshoot-f-6983cd08-2-K.jpg'] },
     { id: 'len105', code: 'LEN-105', collection: 'printed', season: 'winter', name: 'Dark Brown Lily Lilen 3 Piece Suit', color: 'Dark Brown', pieces: 3, fabric: 'Lilen', price: 2300, status: 'in-stock',
-      imgs: ['https://i.ibb.co/Y4jNdJS6/5.jpg', 'https://i.ibb.co/qYgLRJrx/5a.jpg', 'https://i.ibb.co/d032D05h/Fabric-presentation-photoshoot-f-faa7c650-2-K.jpg'] }
+      imgs: ['https://i.ibb.co/Y4jNdJS6/5.jpg', 'https://i.ibb.co/qYgLRJrx/5a.jpg', 'https://i.ibb.co/d032D05h/Fabric-presentation-photoshoot-f-faa7c650-2-K.jpg'] },
+    { id: 'len201', code: 'LEN-201', collection: 'printed', season: 'winter', name: 'Mustard Floral Lilen 2 Piece Suit', color: 'Mustard', pieces: 2, fabric: 'Lilen', price: 1200, status: 'in-stock',
+      imgs: ['https://i.ibb.co/zWFRMRN7/1.jpg', 'https://i.ibb.co/twLKPdkQ/1a.jpg', 'https://i.ibb.co/DDzybm5r/1aa.jpg', 'https://i.ibb.co/Zp6qk1Wy/1aaa.jpg'] },
+    { id: 'len202', code: 'LEN-202', collection: 'printed', season: 'winter', name: 'Yellow Paisley Lilen 2 Piece Suit', color: 'Yellow', pieces: 2, fabric: 'Lilen', price: 1200, status: 'in-stock',
+      imgs: ['https://i.ibb.co/fdjvB0pB/2.jpg', 'https://i.ibb.co/F4QxmZ0r/2a.jpg', 'https://i.ibb.co/jvVqSxbK/2aa.jpg', 'https://i.ibb.co/JFRs6V3t/2aaa.jpg'] },
+    { id: 'len203', code: 'LEN-203', collection: 'printed', season: 'winter', name: 'Black Orange Floral Lilen 2 Piece Suit', color: 'Black', pieces: 2, fabric: 'Lilen', price: 1200, status: 'in-stock',
+      imgs: ['https://i.ibb.co/3QGyt0X/3.jpg', 'https://i.ibb.co/ymZB8QdY/3a.jpg', 'https://i.ibb.co/XfhqfcnY/3aa.jpg', 'https://i.ibb.co/RWJgyWf/3aaa.jpg'] },
+    { id: 'len204', code: 'LEN-204', collection: 'printed', season: 'winter', name: 'Yellow Floral Palazzo Lilen 2 Piece Suit', color: 'Yellow', pieces: 2, fabric: 'Lilen', price: 1200, status: 'in-stock',
+      imgs: ['https://i.ibb.co/YT7SXymp/4.jpg', 'https://i.ibb.co/mVBxrd6z/4a.jpg', 'https://i.ibb.co/TDKTHZgH/4aa.jpg', 'https://i.ibb.co/j9WzTChr/4aaa.jpg'] },
+    { id: 'len205', code: 'LEN-205', collection: 'printed', season: 'winter', name: 'Green Floral Lilen 2 Piece Suit', color: 'Bottle Green', pieces: 2, fabric: 'Lilen', price: 1200, status: 'in-stock',
+      imgs: ['https://i.ibb.co/Xxtw7dJB/5.jpg', 'https://i.ibb.co/BHRdZrnq/5a.jpg', 'https://i.ibb.co/dwjx9P3Y/5aa.jpg', 'https://i.ibb.co/XxsBcfw8/5aaa.jpg'] },
+    { id: 'len206', code: 'LEN-206', collection: 'printed', season: 'winter', name: 'Red Floral Lilen 2 Piece Suit', color: 'Red', pieces: 2, fabric: 'Lilen', price: 1200, status: 'in-stock',
+      imgs: ['https://i.ibb.co/KxjvdwVP/6.jpg', 'https://i.ibb.co/tVjmbQP/6a.jpg', 'https://i.ibb.co/nNt1xpGJ/6aa.jpg', 'https://i.ibb.co/xtQgSd1c/6aaa.jpg'] }
 
    ];
 
