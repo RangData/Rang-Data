@@ -178,6 +178,7 @@
         <button type="button" class="chip" data-book="1" role="tab" aria-selected="false">Vol 01 &middot; Noor-e-Rang</button>
         <button type="button" class="chip" data-book="2" role="tab" aria-selected="false">Vol 02 &middot; Rang-e-Nazakat</button>
         <button type="button" class="chip" data-book="3" role="tab" aria-selected="false">Lilen &middot; 3 Piece</button>
+        <button type="button" class="chip" data-book="4" role="tab" aria-selected="false">Lilen &middot; 2 Piece</button>
       </div>
     </div>
     <div class="product-grid" id="printedProducts"></div>
@@ -294,7 +295,7 @@ window.RD_PAGE = { init: function () {
   var bookTabs = Array.prototype.slice.call(document.querySelectorAll('[data-book]'));
   if (!grid) return;
   var all = P.byCollection('printed');
-  var BOOKS = { '1': { prefix: 'CODE K', name: 'Noor-e-Rang' }, '2': { prefix: 'CODE D', name: 'Rang-e-Nazakat' }, '3': { prefix: 'LEN-', name: 'Lilen' } };
+  var BOOKS = { '1': { prefix: 'CODE K', name: 'Noor-e-Rang' }, '2': { prefix: 'CODE D', name: 'Rang-e-Nazakat' }, '3': { prefix: 'LEN-1', name: 'Lilen 3 Piece' }, '4': { prefix: 'LEN-2', name: 'Lilen 2 Piece' } };
   var state = { season: 'winter', book: 'all' };
 
   function show() {
@@ -344,7 +345,7 @@ window.RD_PAGE = { init: function () {
   });
 
   var ms = /[?&]season=(summer|winter)/.exec(location.search);
-  var mb = /[?&]book=(all|1|2|3)/.exec(location.search);
+  var mb = /[?&]book=(all|1|2|3|4)/.exec(location.search);
   if (ms) state.season = ms[1];
   if (mb) state.book = mb[1];
   show();
