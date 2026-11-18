@@ -172,13 +172,19 @@
       </div>
       <div class="catalog-count" id="printedCount"></div>
     </div>
-    <div class="catalog-toolbar" id="bookBar" style="margin-top:-8px">
-      <div class="catalog-filters" role="tablist" aria-label="Choose catalogue book">
-        <button type="button" class="chip active" data-book="all" role="tab" aria-selected="true">All Designs</button>
-        <button type="button" class="chip" data-book="1" role="tab" aria-selected="false">Vol 01 &middot; Noor-e-Rang</button>
-        <button type="button" class="chip" data-book="2" role="tab" aria-selected="false">Vol 02 &middot; Rang-e-Nazakat</button>
-        <button type="button" class="chip" data-book="3" role="tab" aria-selected="false">Lilen &middot; 3 Piece</button>
-        <button type="button" class="chip" data-book="4" role="tab" aria-selected="false">Lilen &middot; 2 Piece</button>
+    <div class="catalog-toolbar" id="fabricBar" style="margin-top:-8px">
+      <div class="catalog-filters" role="tablist" aria-label="Choose fabric">
+        <button type="button" class="chip active" data-fabric="all" role="tab" aria-selected="true">All Designs</button>
+        <button type="button" class="chip" data-fabric="khaddar" role="tab" aria-selected="false">Khaddar</button>
+        <button type="button" class="chip" data-fabric="lilen" role="tab" aria-selected="false">Lilen</button>
+        <button type="button" class="chip" data-fabric="dhank" role="tab" aria-selected="false">Dhank</button>
+      </div>
+    </div>
+    <div class="catalog-toolbar" id="pieceBar" style="margin-top:-8px" hidden>
+      <div class="catalog-filters" role="tablist" aria-label="Choose pieces">
+        <button type="button" class="chip active" data-pieces="all" role="tab" aria-selected="true">All</button>
+        <button type="button" class="chip" data-pieces="3" role="tab" aria-selected="false">3 Piece</button>
+        <button type="button" class="chip" data-pieces="2" role="tab" aria-selected="false">2 Piece</button>
       </div>
     </div>
     <div class="product-grid" id="printedProducts"></div>
@@ -286,46 +292,68 @@
 
 <script src="assets/js/products.js"></script>
 <script>
-// Printed page: opens on Winter with all designs; Season tabs + Book tabs (All / Vol 01 / Vol 02 / Lilen)
+// Printed page: opens on Winter with all designs; Season tabs, then Fabric (Khaddar / Lilen / Dhank), then 3 Piece / 2 Piece
 window.RD_PAGE = { init: function () {
   var P = window.RD_PRODUCTS;
   var grid = document.getElementById('printedProducts');
   var count = document.getElementById('printedCount');
   var seasonTabs = Array.prototype.slice.call(document.querySelectorAll('[data-season]'));
-  var bookTabs = Array.prototype.slice.call(document.querySelectorAll('[data-book]'));
+  var fabricTabs = Array.prototype.slice.call(document.querySelectorAll('[data-fabric]'));
+  var pieceTabs = Array.prototype.slice.call(document.querySelectorAll('[data-pieces]'));
   if (!grid) return;
   var all = P.byCollection('printed');
-  var BOOKS = { '1': { prefix: 'CODE K', name: 'Noor-e-Rang' }, '2': { prefix: 'CODE D', name: 'Rang-e-Nazakat' }, '3': { prefix: 'LEN-1', name: 'Lilen 3 Piece' }, '4': { prefix: 'LEN-2', name: 'Lilen 2 Piece' } };
-  var state = { season: 'winter', book: 'all' };
+  var state = { season: 'winter', fabric: 'all', pieces: 'all' };
+
+  function fabricOf(p) {
+    var f = String(p.fabric || '').toLowerCase();
+    if (f.indexOf('khaddar') > -1 || f.indexOf('khadder') > -1) return 'khaddar';
+    if (f.indexOf('lilen') > -1) return 'lilen';
+    if (f.indexOf('dhank') > -1) return 'dhank';
+    return 'other';
+  }
 
   function show() {
-    // Sirf wahi books dikhayein jin ke is season mein suits hon
-    var avail = {};
-    all.forEach(function (p) {
-      if (p.season !== state.season) return;
-      Object.keys(BOOKS).forEach(function (k) {
-        if (p.code.indexOf(BOOKS[k].prefix) === 0) avail[k] = true;
-      });
-    });
-    var keys = Object.keys(avail);
-    if (state.book !== 'all' && !avail[state.book]) state.book = 'all';
-    bookTabs.forEach(function (t) {
-      var k = t.getAttribute('data-book');
-      t.hidden = (k !== 'all' && !avail[k]);
-    });
-    var bar = document.getElementById('bookBar');
-    if (bar) bar.hidden = !keys.length;
+    var inSeason = all.filter(function (p) { return p.season === state.season; });
 
-    var items = all.filter(function (p) {
-      return p.season === state.season && (state.book === 'all' || p.code.indexOf(BOOKS[state.book].prefix) === 0);
+    // sirf wahi fabrics dikhayein jin ke is season mein suits hon
+    var fabAvail = {};
+    inSeason.forEach(function (p) { fabAvail[fabricOf(p)] = true; });
+    if (state.fabric !== 'all' && !fabAvail[state.fabric]) state.fabric = 'all';
+    fabricTabs.forEach(function (t) {
+      var k = t.getAttribute('data-fabric');
+      t.hidden = (k !== 'all' && !fabAvail[k]);
     });
+    var fbar = document.getElementById('fabricBar');
+    if (fbar) fbar.hidden = !inSeason.length;
+
+    // 3 Piece / 2 Piece sirf tab, jab koi fabric chuna ho aur us ke dono option hon
+    var inFabric = inSeason.filter(function (p) { return state.fabric === 'all' || fabricOf(p) === state.fabric; });
+    var pcAvail = {};
+    inFabric.forEach(function (p) { pcAvail[String(p.pieces)] = true; });
+    if (state.pieces !== 'all' && !pcAvail[state.pieces]) state.pieces = 'all';
+    var pbar = document.getElementById('pieceBar');
+    var showPieces = state.fabric !== 'all' && Object.keys(pcAvail).length > 1;
+    if (pbar) pbar.hidden = !showPieces;
+    if (!showPieces) state.pieces = 'all';
+    pieceTabs.forEach(function (t) {
+      var k = t.getAttribute('data-pieces');
+      t.hidden = (k !== 'all' && !pcAvail[k]);
+    });
+
+    var items = inFabric.filter(function (p) { return state.pieces === 'all' || String(p.pieces) === state.pieces; });
+
     seasonTabs.forEach(function (t) {
       var on = t.getAttribute('data-season') === state.season;
       t.classList.toggle('active', on);
       t.setAttribute('aria-selected', on ? 'true' : 'false');
     });
-    bookTabs.forEach(function (t) {
-      var on = t.getAttribute('data-book') === state.book;
+    fabricTabs.forEach(function (t) {
+      var on = t.getAttribute('data-fabric') === state.fabric;
+      t.classList.toggle('active', on);
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+    });
+    pieceTabs.forEach(function (t) {
+      var on = t.getAttribute('data-pieces') === state.pieces;
       t.classList.toggle('active', on);
       t.setAttribute('aria-selected', on ? 'true' : 'false');
     });
@@ -340,14 +368,26 @@ window.RD_PAGE = { init: function () {
   seasonTabs.forEach(function (t) {
     t.addEventListener('click', function () { state.season = t.getAttribute('data-season'); show(); });
   });
-  bookTabs.forEach(function (t) {
-    t.addEventListener('click', function () { state.book = t.getAttribute('data-book'); show(); });
+  fabricTabs.forEach(function (t) {
+    t.addEventListener('click', function () { state.fabric = t.getAttribute('data-fabric'); state.pieces = 'all'; show(); });
+  });
+  pieceTabs.forEach(function (t) {
+    t.addEventListener('click', function () { state.pieces = t.getAttribute('data-pieces'); show(); });
   });
 
-  var ms = /[?&]season=(summer|winter)/.exec(location.search);
-  var mb = /[?&]book=(all|1|2|3|4)/.exec(location.search);
+  // URL: ?season=winter&fabric=khaddar&pieces=3  (purane ?book=1..4 links bhi chalte hain)
+  var q = location.search;
+  var ms = /[?&]season=(summer|winter)/.exec(q);
+  var mf = /[?&]fabric=(all|khaddar|lilen|dhank)/.exec(q);
+  var mp = /[?&]pieces=(all|2|3)/.exec(q);
+  var mb = /[?&]book=(all|1|2|3|4)/.exec(q);
   if (ms) state.season = ms[1];
-  if (mb) state.book = mb[1];
+  if (mb) {
+    var LEG = { '1': ['khaddar', 'all'], '2': ['dhank', 'all'], '3': ['lilen', '3'], '4': ['lilen', '2'] };
+    if (LEG[mb[1]]) { state.fabric = LEG[mb[1]][0]; state.pieces = LEG[mb[1]][1]; }
+  }
+  if (mf) state.fabric = mf[1];
+  if (mp) state.pieces = mp[1];
   show();
 }};
 </script>
