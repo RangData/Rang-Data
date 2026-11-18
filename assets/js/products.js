@@ -142,7 +142,22 @@
     { id: 'len205', code: 'LEN-205', collection: 'printed', season: 'winter', name: 'Green Floral Lilen 2 Piece Suit', color: 'Bottle Green', pieces: 2, fabric: 'Lilen', price: 1500, status: 'in-stock',
       imgs: ['https://i.ibb.co/Xxtw7dJB/5.jpg', 'https://i.ibb.co/BHRdZrnq/5a.jpg', 'https://i.ibb.co/dwjx9P3Y/5aa.jpg', 'https://i.ibb.co/XxsBcfw8/5aaa.jpg'] },
     { id: 'len206', code: 'LEN-206', collection: 'printed', season: 'winter', name: 'Red Floral Lilen 2 Piece Suit', color: 'Red', pieces: 2, fabric: 'Lilen', price: 1500, status: 'in-stock',
-      imgs: ['https://i.ibb.co/KxjvdwVP/6.jpg', 'https://i.ibb.co/tVjmbQP/6a.jpg', 'https://i.ibb.co/nNt1xpGJ/6aa.jpg', 'https://i.ibb.co/xtQgSd1c/6aaa.jpg'] }
+      imgs: ['https://i.ibb.co/KxjvdwVP/6.jpg', 'https://i.ibb.co/tVjmbQP/6a.jpg', 'https://i.ibb.co/nNt1xpGJ/6aa.jpg', 'https://i.ibb.co/xtQgSd1c/6aaa.jpg'] },
+
+    { id: 'kh101', code: 'KH-101', collection: 'printed', season: 'winter', name: 'Red Floral Printed Khaddar Suit', color: 'Cream', pieces: 3, fabric: 'Winter Khaddar', price: 2500, status: 'in-stock',
+      imgs: ['https://i.ibb.co/nMSLYM5T/1.jpg', 'https://i.ibb.co/N60S4xfY/1a.jpg', 'https://i.ibb.co/V7Sv5v6/1aa.jpg'] },
+
+    { id: 'kh102', code: 'KH-102', collection: 'printed', season: 'winter', name: 'Lime Green Floral Printed Khaddar Suit', color: 'Lime Green', pieces: 3, fabric: 'Winter Khaddar', price: 2500, status: 'in-stock',
+      imgs: ['https://i.ibb.co/cSJfxsKB/2.jpg', 'https://i.ibb.co/zhDtPwxD/2a.jpg', 'https://i.ibb.co/V0DvKTLp/2aa.jpg'] },
+
+    { id: 'kh103', code: 'KH-103', collection: 'printed', season: 'winter', name: 'Rust Floral Printed Khaddar Suit', color: 'Rust', pieces: 3, fabric: 'Winter Khaddar', price: 2500, status: 'in-stock',
+      imgs: ['https://i.ibb.co/KccB0ZwN/3.jpg', 'https://i.ibb.co/Q3mtVZ5W/3a.jpg', 'https://i.ibb.co/2H4LmLn/3aa.jpg'] },
+
+    { id: 'kh104', code: 'KH-104', collection: 'printed', season: 'winter', name: 'Mustard Peony Printed Khaddar Suit', color: 'Mustard', pieces: 3, fabric: 'Winter Khaddar', price: 2500, status: 'in-stock',
+      imgs: ['https://i.ibb.co/8gRG0W33/4.jpg', 'https://i.ibb.co/Xrt8pTLH/4a.jpg', 'https://i.ibb.co/qYgp9759/4aa.jpg'] },
+
+    { id: 'kh105', code: 'KH-105', collection: 'printed', season: 'winter', name: 'Chocolate Brown Floral Printed Khaddar Suit', color: 'Brown', pieces: 3, fabric: 'Winter Khaddar', price: 2500, status: 'in-stock',
+      imgs: ['https://i.ibb.co/tM63TkDb/5.jpg', 'https://i.ibb.co/vx8CZMcf/5a.jpg', 'https://i.ibb.co/93GNY3n3/5aa.jpg'] }
 
    ];
 
