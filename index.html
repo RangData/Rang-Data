@@ -34,8 +34,8 @@
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XQQH342VF3');</script>
 <style>
 /* Printed covers poori dikhein (crop na ho) */
-#newArrivals .card-media { aspect-ratio: 1 / 1; }
-#newArrivals .card-media img { object-fit: contain; }
+#newArrivals .card-media, #winterPicks .card-media { aspect-ratio: 3 / 4; }
+#newArrivals .card-media img, #winterPicks .card-media img { object-fit: contain; }
 #lookbook .collection-card { height: auto; aspect-ratio: 1 / 1; }
 </style>
 </head>
@@ -188,7 +188,7 @@
   <div class="usp-item">
     <i class="fa-solid fa-truck-fast" aria-hidden="true"></i>
     <h3>Free delivery on 3+</h3>
-    <p>Flat Rs. 250 otherwise, anywhere in Pakistan.</p>
+    <p>Otherwise Rs. 250 in Lahore, Rs. 350 other cities.</p>
   </div>
   <div class="usp-item">
     <i class="fa-solid fa-money-bill-wave" aria-hidden="true"></i>
@@ -249,32 +249,32 @@
   </div>
 </section>
 
-<!-- 1. NEW ARRIVALS (LILEN COLLECTION) -->
+<!-- 1. NEW ARRIVALS (KHADDAR 2 PIECE) -->
 <section class="section bg-cream" id="new-arrivals">
   <div class="wrap">
     <div class="section-head">
-      <span class="eyebrow">Just Landed</span>
-      <h2>Premium Lilen Collection</h2>
-      <p>New winter arrivals - comfortable, elegant, and perfect for everyday wear.</p>
+      <span class="eyebrow">New Arrivals</span>
+      <h2>Khaddar 2 Piece Collection</h2>
+      <p>Fresh winter prints in soft khaddar - easy, warm and made for everyday wear.</p>
     </div>
     <div class="product-grid" id="newArrivals"></div>
     <div style="text-align:center;margin-top:44px">
-      <a class="btn btn-ghost" href="shop.html">View all designs</a>
+      <a class="btn btn-ghost" href="printed.html?season=winter&amp;fabric=khaddar&amp;pieces=2">View all Khaddar 2 Piece</a>
     </div>
   </div>
 </section>
 
-<!-- 3. WINTER PICKS -->
+<!-- 3. LILEN PICKS (3 PIECE + 2 PIECE) -->
 <section class="section" id="winter-picks">
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">Winter edit</span>
-      <h2>Winter Collection</h2>
-      <p>Heavy viscose, khaddar and warm dhank suits for the cold season.</p>
+      <h2>Premium Lilen Collection</h2>
+      <p>Lilen 3 piece and 2 piece suits - comfortable, elegant and perfect for the cold season.</p>
     </div>
     <div class="product-grid" id="winterPicks"></div>
     <div style="text-align:center;margin-top:44px">
-      <a class="btn btn-ghost" href="winter.html">View winter collection</a>
+      <a class="btn btn-ghost" href="printed.html?season=winter&amp;fabric=lilen">View all Lilen designs</a>
     </div>
   </div>
 </section>
@@ -475,15 +475,18 @@ window.RD_PAGE = { init: function () {
     if (el) el.innerHTML = items.map(window.rdCardHTML).join('');
   }
   
-  // New Arrivals (Lilen Collection)
+  function inStock(p) { return p.status === 'in-stock'; }
+
+  // New Arrivals: Khaddar 2 Piece (KH-2xx), pehle 4
   fill('newArrivals', P.all().filter(function (p) {
-    return p.code.indexOf('LEN-') === 0 && p.status === 'in-stock';
+    return p.code.indexOf('KH-2') === 0 && inStock(p);
   }).slice(0, 4));
 
-  // Winter Collection picks
-  fill('winterPicks', P.byCollection('winter').filter(function (p) {
-    return p.status === 'in-stock' && p.code.indexOf('LEN-') !== 0;
-  }).slice(0, 4));
+  // Lilen picks: 2 x 3 Piece + 2 x 2 Piece
+  var lilen = P.all().filter(function (p) { return p.code.indexOf('LEN-') === 0 && inStock(p); });
+  var l3 = lilen.filter(function (p) { return p.pieces === 3; }).slice(0, 2);
+  var l2 = lilen.filter(function (p) { return p.pieces === 2; }).slice(0, 2);
+  fill('winterPicks', l3.concat(l2));
 }};
 </script>
 <script src="assets/js/site.js"></script>
