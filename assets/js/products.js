@@ -259,9 +259,24 @@
     },
     related: function (p, limit) {
       var n = limit || 4;
-      var same = PRODUCTS.filter(function (x) { return x.collection === p.collection && x.id !== p.id && x.status === 'in-stock'; });
-      var rest = PRODUCTS.filter(function (x) { return x.id !== p.id && same.indexOf(x) === -1; });
-      return same.concat(rest).slice(0, n);
+      // Sab se pehle usi type ke design: same collection + same fabric + same pieces,
+      // phir same fabric, phir same pieces, phir baqi. In-stock suits pehle.
+      function tier(x) {
+        var sameColl = x.collection === p.collection && (x.season || '') === (p.season || '');
+        var sameFab = x.fabric === p.fabric;
+        var samePcs = x.pieces === p.pieces;
+        if (sameColl && sameFab && samePcs) return 1;
+        if (sameColl && sameFab) return 2;
+        if (sameColl && samePcs) return 3;
+        if (sameColl) return 4;
+        if (samePcs) return 5;
+        return 6;
+      }
+      var list = PRODUCTS.filter(function (x) { return x.id !== p.id; }).map(function (x, idx) {
+        return { x: x, score: tier(x) * 10 + (x.status === 'in-stock' ? 0 : 5), idx: idx };
+      });
+      list.sort(function (a, b) { return a.score - b.score || a.idx - b.idx; });
+      return list.slice(0, n).map(function (r) { return r.x; });
     }
   };
 
