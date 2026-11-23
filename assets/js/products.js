@@ -121,6 +121,10 @@
       imgs: ['https://i.ibb.co/nNhV31ms/CODE-D-105.jpg', 'https://i.ibb.co/tPWNLjFd/CODE-D-105-1.jpg', 'https://i.ibb.co/LX1Gscbn/CODE-D-105a.jpg'] },
     { id: 'rdd106', code: 'CODE D 106', collection: 'printed', season: 'winter', name: 'Soft Beige Printed Dhank Suit', color: 'Soft Beige', pieces: 3, fabric: 'Warm Dhank', price: 2500, status: 'in-stock',
       imgs: ['https://i.ibb.co/r2Tm5FSC/CODE-D-106.jpg', 'https://i.ibb.co/N6wKsWT1/CODE-D-106-1.jpg', 'https://i.ibb.co/rfKVbHZ8/CODE-D-106a.jpg'] },
+    { id: 'rdd107', code: 'CODE D 107', collection: 'printed', season: 'winter', name: 'Red Floral Printed Dhank Suit', color: 'Red', pieces: 3, fabric: 'Warm Dhank', price: 2500, status: 'in-stock',
+      imgs: ['https://i.ibb.co/ycPKMrbR/CODE-D-107.jpg', 'https://i.ibb.co/hxy7cyRJ/7A.jpg'] },
+    { id: 'rdd108', code: 'CODE D 108', collection: 'printed', season: 'winter', name: 'Dusty Rose Printed Dhank Suit', color: 'Dusty Rose', pieces: 3, fabric: 'Warm Dhank', price: 2500, status: 'in-stock',
+      imgs: ['https://i.ibb.co/wNjd1pf2/CODE-D-108.jpg', 'https://i.ibb.co/Rksg9x3R/8A.jpg'] },
      { id: 'len101', code: 'LEN-101', collection: 'printed', season: 'winter', name: 'Mustard Lilen 3 Piece Suit', color: 'Mustard', pieces: 3, fabric: 'Lilen', price: 2300, status: 'in-stock',
       imgs: ['https://i.ibb.co/Nd072LMZ/1.jpg', 'https://i.ibb.co/k6BF17gt/1a.jpg', 'https://i.ibb.co/HDyrZRz7/image-82a24dce-jpg-f3a648b9-2-K.jpg'] },
     { id: 'len102', code: 'LEN-102', collection: 'printed', season: 'winter', name: 'Black Floral Lilen 3 Piece Suit', color: 'Black', pieces: 3, fabric: 'Lilen', price: 2300, status: 'in-stock',
@@ -157,7 +161,46 @@
       imgs: ['https://i.ibb.co/8gRG0W33/4.jpg', 'https://i.ibb.co/Xrt8pTLH/4a.jpg', 'https://i.ibb.co/qYgp9759/4aa.jpg'] },
 
     { id: 'kh105', code: 'KH-105', collection: 'printed', season: 'winter', name: 'Chocolate Brown Floral Printed Khaddar Suit', color: 'Brown', pieces: 3, fabric: 'Winter Khaddar', price: 2500, status: 'in-stock',
-      imgs: ['https://i.ibb.co/tM63TkDb/5.jpg', 'https://i.ibb.co/vx8CZMcf/5a.jpg', 'https://i.ibb.co/93GNY3n3/5aa.jpg'] }
+      imgs: ['https://i.ibb.co/tM63TkDb/5.jpg', 'https://i.ibb.co/vx8CZMcf/5a.jpg', 'https://i.ibb.co/93GNY3n3/5aa.jpg'] },
+
+    { id: 'kh201', code: 'KH-201', collection: 'printed', season: 'winter', name: 'Wine Leaf Printed Khaddar 2 Piece Suit', color: 'Wine', pieces: 2, fabric: 'Winter Khaddar', price: 1700, status: 'in-stock',
+      imgs: ['https://i.ibb.co/xqFVjTdR/1.jpg', 'https://i.ibb.co/WNp2cdwV/1a.jpg'] },
+
+    { id: 'kh202', code: 'KH-202', collection: 'printed', season: 'winter', name: 'Blue Ikat Printed Khaddar 2 Piece Suit', color: 'Blue', pieces: 2, fabric: 'Winter Khaddar', price: 1700, status: 'in-stock',
+      imgs: ['https://i.ibb.co/VWZv9Qtd/2.jpg', 'https://i.ibb.co/yJxfN3L/2a.jpg'] },
+
+    { id: 'kh203', code: 'KH-203', collection: 'printed', season: 'winter', name: 'Mustard Sunflower Printed Khaddar 2 Piece Suit', color: 'Mustard', pieces: 2, fabric: 'Winter Khaddar', price: 1700, status: 'in-stock',
+      imgs: ['https://i.ibb.co/3mnM1NRL/3.jpg', 'https://i.ibb.co/Vc44q7KG/3a.jpg'] },
+
+    { id: 'kh204', code: 'KH-204', collection: 'printed', season: 'winter', name: 'Navy Ikat Printed Khaddar 2 Piece Suit', color: 'Navy Blue', pieces: 2, fabric: 'Winter Khaddar', price: 1700, status: 'in-stock',
+      imgs: ['https://i.ibb.co/6cRL2DtW/4.jpg', 'https://i.ibb.co/ksZDjsNz/4a.jpg'] },
+
+    { id: 'kh205', code: 'KH-205', collection: 'printed', season: 'winter', name: 'Rust Leaf Printed Khaddar 2 Piece Suit', color: 'Rust', pieces: 2, fabric: 'Winter Khaddar', price: 1700, status: 'in-stock',
+      imgs: ['https://i.ibb.co/Wvzvrfzt/5.jpg', 'https://i.ibb.co/Z6R59DMk/5a.jpg'] },
+
+    { id: 'kh206', code: 'KH-206', collection: 'printed', season: 'winter', name: 'Steel Blue Leaf Printed Khaddar 2 Piece Suit', color: 'Steel Blue', pieces: 2, fabric: 'Winter Khaddar', price: 1700, status: 'in-stock',
+      imgs: ['https://i.ibb.co/ZzPc685s/6.jpg', 'https://i.ibb.co/CKhK1kr8/6a.jpg'] },
+
+    { id: 'kh207', code: 'KH-207', collection: 'printed', season: 'winter', name: 'Grey Ikat Printed Khaddar 2 Piece Suit', color: 'Grey', pieces: 2, fabric: 'Winter Khaddar', price: 1700, status: 'in-stock',
+      imgs: ['https://i.ibb.co/sdw7J7Wf/7.jpg', 'https://i.ibb.co/VYM81Wkr/7a.jpg'] },
+
+    { id: 'kh208', code: 'KH-208', collection: 'printed', season: 'winter', name: 'Black Leaf Printed Khaddar 2 Piece Suit', color: 'Black', pieces: 2, fabric: 'Winter Khaddar', price: 1700, status: 'in-stock',
+      imgs: ['https://i.ibb.co/sz9fPxf/8.jpg', 'https://i.ibb.co/3yrCrQns/8a.jpg'] },
+
+    { id: 'kh209', code: 'KH-209', collection: 'printed', season: 'winter', name: 'Black Geometric Printed Khaddar 2 Piece Suit', color: 'Black', pieces: 2, fabric: 'Winter Khaddar', price: 1700, status: 'in-stock',
+      imgs: ['https://i.ibb.co/8LTXdBc8/9.jpg', 'https://i.ibb.co/dJDnbnrS/9a.jpg'] },
+
+    { id: 'dh201', code: 'DH-201', collection: 'printed', season: 'winter', name: 'Magenta Chevron Printed Dhank 2 Piece Suit', color: 'Magenta', pieces: 2, fabric: 'Warm Dhank', price: 1600, status: 'in-stock',
+      imgs: ['https://i.ibb.co/39krK58W/1.jpg', 'https://i.ibb.co/sdCsd2yW/1a.jpg'] },
+
+    { id: 'dh202', code: 'DH-202', collection: 'printed', season: 'winter', name: 'Black Rose Printed Dhank 2 Piece Suit', color: 'Black', pieces: 2, fabric: 'Warm Dhank', price: 1600, status: 'in-stock',
+      imgs: ['https://i.ibb.co/DhDp8W7/2.jpg', 'https://i.ibb.co/QFwcvyPr/2a.jpg'] },
+
+    { id: 'dh203', code: 'DH-203', collection: 'printed', season: 'winter', name: 'Taupe Grey Floral Printed Dhank 2 Piece Suit', color: 'Taupe Grey', pieces: 2, fabric: 'Warm Dhank', price: 1600, status: 'in-stock',
+      imgs: ['https://i.ibb.co/9zjw2Nx/3.jpg', 'https://i.ibb.co/VYvrcMYf/3a.jpg'] },
+
+    { id: 'dh204', code: 'DH-204', collection: 'printed', season: 'winter', name: 'Olive Green Lotus Printed Dhank 2 Piece Suit', color: 'Olive Green', pieces: 2, fabric: 'Warm Dhank', price: 1600, status: 'in-stock',
+      imgs: ['https://i.ibb.co/KpS621dF/4.jpg', 'https://i.ibb.co/zH49kYQx/4a.jpg'] }
 
    ];
 
